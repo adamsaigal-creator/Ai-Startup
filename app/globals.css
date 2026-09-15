@@ -1,0 +1,16 @@
+/* Ported verbatim from the shared <style> block present in the helmet of
+   every migrated .dc.html source page (Buy, Sell, Luxury, Commercial, About,
+   Contact, Neighbourhoods, Sub-Neighbourhood, Homepage). */
+body {
+  margin: 0;
+  background: oklch(97% 0.012 75);
+}
+
+a {
+  color: oklch(48% 0.15 45);
+  text-decoration: none;
+}
+
+a:hover {
+  color: oklch(40% 0.15 45);
+}
