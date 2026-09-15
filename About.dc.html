@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Buy.dc.html" style="color:oklch(23% 0.012 60)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(23% 0.012 60)">Sell</a>
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Commercial.dc.html" style="color:oklch(23% 0.012 60)">Commercial</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(58% 0.16 45)">About</a>
+      <a href="Contact.dc.html" style="padding:9px 16px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:12px;letter-spacing:0.03em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="position:relative;height:48vh;min-height:380px;width:100%">
+    <image-slot id="about-hero" shape="rect" placeholder="Team or office photo" style="position:absolute;inset:0;width:100%;height:100%" src="images/philosophy-lounge.png"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7));pointer-events:none"></div>
+    <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 56px;max-width:780px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(90% 0.03 60);margin-bottom:16px">About Us</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:50px;line-height:1.1;font-weight:600;color:oklch(99% 0.004 90);margin:0">Saigal Realty Inc., Brokerage</h1>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section style="padding:100px 56px;max-width:820px;margin:0 auto">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Our Philosophy</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;line-height:1.3;margin:18px 0 24px">Real estate, practiced with passion, integrity, and transparency.</h2>
+    <p style="font-size:17px;line-height:1.8;color:oklch(46% 0.02 60)">We built Saigal Realty because we believe our clients deserve more than a transaction — they deserve a trusted advisor. Every recommendation we make is grounded in honest counsel, careful research, and a genuine investment in your outcome, not ours. Whether you are buying your first home in Milton, selling a family property in Oakville, or building a portfolio across Burlington, we bring the same quiet rigor and care to every relationship.</p>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding:0 56px 100px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;text-align:center;border-top:1px solid oklch(85% 0.015 70);border-bottom:1px solid oklch(85% 0.015 70);padding-top:48px;padding-bottom:48px">
+    <div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:oklch(58% 0.16 45)">7</span>
+      <p style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60);margin:8px 0 0">Agents</p>
+    </div>
+    <div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:oklch(58% 0.16 45)">50+</span>
+      <p style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60);margin:8px 0 0">Neighbourhoods Served</p>
+    </div>
+    <div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:oklch(58% 0.16 45)">5</span>
+      <p style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60);margin:8px 0 0">Languages Spoken</p>
+    </div>
+    <div>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:oklch(58% 0.16 45)">5</span>
+      <p style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60);margin:8px 0 0">International Markets</p>
+    </div>
+  </section>
+
+  <!-- WHY BOUTIQUE -->
+  <section style="padding:0 56px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <image-slot id="about-boutique" shape="rect" placeholder="Agent with clients in home" style="width:100%;height:420px;border-radius:4px;display:block" src="images/about-advisory.png"></image-slot>
+    <div>
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Why Boutique</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;margin:16px 0 20px;line-height:1.25">Small enough to know your name. Sharp enough to win your negotiation.</h2>
+      <p style="font-size:15px;line-height:1.8;color:oklch(46% 0.02 60);margin:0 0 16px">Large franchise offices measure success in transaction volume. We measure it in outcomes for the seven families we're working with this month — because that's how many we can serve without cutting corners.</p>
+      <p style="font-size:15px;line-height:1.8;color:oklch(46% 0.02 60);margin:0">Every listing gets the Broker of Record's direct attention. Every offer is reviewed by someone who has walked the street it's on. That's the boutique advantage, and it's the reason our clients become referrals.</p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section style="padding:0 56px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px">
+    <div style="text-align:center;padding:0 16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:oklch(58% 0.16 45)">01</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:14px 0 10px">Passion</h3>
+      <p style="font-size:14px;line-height:1.7;color:oklch(46% 0.02 60)">We treat every home as if it were our own — because your milestones matter to us as much as they matter to you.</p>
+    </div>
+    <div style="text-align:center;padding:0 16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:oklch(58% 0.16 45)">02</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:14px 0 10px">Integrity</h3>
+      <p style="font-size:14px;line-height:1.7;color:oklch(46% 0.02 60)">Straightforward advice, even when it isn't what you hoped to hear. Your trust is earned, never assumed.</p>
+    </div>
+    <div style="text-align:center;padding:0 16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:30px;color:oklch(58% 0.16 45)">03</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:14px 0 10px">Transparency</h3>
+      <p style="font-size:14px;line-height:1.7;color:oklch(46% 0.02 60)">Clear numbers, clear timelines, clear next steps — so you always know exactly where you stand.</p>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section style="padding:0 56px 120px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:56px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Meet The Team</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">The People Behind Saigal Realty</h2>
+    </div>
+    <div style="display:flex;gap:40px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory">
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-nomi" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Nomi Saigal</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Broker of Record</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi</p>
+        <a href="tel:9058764126" style="font-size:13px">(905) 876-4126</a>
+      </div>
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-kamranm" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Kamran Mustafa</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi, Punjabi</p>
+        <a href="tel:4168022012" style="font-size:13px">(416) 802-2012</a>
+      </div>
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-zak" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Zak Abdelnour</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Arabic</p>
+        <a href="tel:6476389233" style="font-size:13px">(647) 638-9233</a>
+      </div>
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-alam" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Alam Arbi</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">Residential &amp; Commercial · English, Urdu, Hindi</p>
+        <a href="tel:9052799991" style="font-size:13px">(905) 279-9991</a>
+      </div>
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-kamrans" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Kamran Saeed</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi, Punjabi</p>
+        <a href="tel:4165532626" style="font-size:13px">(416) 553-2626</a>
+      </div>
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-numan" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Numan Shafiq</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi, Punjabi</p>
+        <a href="tel:6472749241" style="font-size:13px">(647) 274-9241</a>
+      </div>
+      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
+        <image-slot id="about-haider" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Haider Mohammad</h4>
+        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Agent · Licensed in Dallas, TX</span>
+        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">Pre-construction · English</p>
+        <a href="tel:4694504352" style="font-size:13px">(469) 450-4352</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section style="padding:100px 56px;background:oklch(23% 0.012 60);text-align:center">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Global Reach</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;margin:14px 0 20px;color:oklch(99% 0.004 90)">International Exposure</h2>
+    <p style="font-size:16px;line-height:1.75;color:oklch(85% 0.02 60);max-width:700px;margin:0 auto 48px">Beyond Halton and the GTA, our network extends across five international markets — giving clients and referral partners a genuine global reach for cross-border buyers, sellers, and investors. In Rabat, Dubai, and Costa Rica, we also help clients purchase Airbnb and vacation-home properties.</p>
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:32px">
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:oklch(99% 0.004 90)">Dallas, Texas</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">United States</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:oklch(99% 0.004 90)">Rabat</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">Morocco</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:oklch(99% 0.004 90)">Dubai</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">United Arab Emirates</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:oklch(99% 0.004 90)">Karachi</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">Pakistan</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:oklch(99% 0.004 90)">Costa Rica</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">Vacation &amp; Airbnb homes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREERS CTA -->
+  <section style="padding:100px 56px;text-align:center;max-width:820px;margin:0 auto">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Careers</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:14px 0 16px">Interested in Joining Our Team?</h2>
+    <p style="font-size:15px;color:oklch(46% 0.02 60);margin:0 0 28px">We're always looking for agents who share our commitment to honest, client-first service.</p>
+    <a href="Careers.dc.html" style="display:inline-block;padding:15px 36px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">View Careers</a>
+  </section>
+
+  <section style="padding:100px 56px;text-align:center;background:oklch(58% 0.16 45)">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 20px">Let's work together.</h2>
+    <p style="font-size:16px;color:oklch(99% 0.004 90 / 0.9);margin:0 0 32px">A conversation costs nothing — reach out any time.</p>
+    <a href="Contact.dc.html" style="padding:16px 40px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">Book a Consultation</a>
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Careers.dc.html" style="color:oklch(80% 0.02 60)">Careers</a>
+      <a href="FAQ.dc.html" style="color:oklch(80% 0.02 60)">FAQ</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="Careers.dc.html" style="color:oklch(23% 0.012 60)">Careers</a>
+      <a href="FAQ.dc.html" style="color:oklch(58% 0.16 45)">FAQ</a>
+      <a href="Contact.dc.html" style="padding:10px 22px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:13px;letter-spacing:0.04em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="padding:100px 56px 60px;max-width:820px;margin:0 auto;text-align:center">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Answers</span>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;margin:16px 0 32px">Frequently Asked Questions</h1>
+    <image-slot id="faq-hero" shape="rect" placeholder="Team consultation photo" style="width:100%;height:280px;border-radius:4px;display:block" src="uploads/sraa.png"></image-slot>
+  </section>
+
+  <!-- CATEGORY NAV -->
+  <section style="padding:0 56px 60px;max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:2px">
+    <a href="#milton" style="padding:16px 20px;background:oklch(99% 0.004 90);border-bottom:1px solid oklch(89% 0.012 70);font-size:15px;font-weight:500">Milton Real Estate FAQs</a>
+    <a href="#buyers" style="padding:16px 20px;background:oklch(99% 0.004 90);border-bottom:1px solid oklch(89% 0.012 70);font-size:15px;font-weight:500">Buyer FAQs</a>
+    <a href="#sellers" style="padding:16px 20px;background:oklch(99% 0.004 90);border-bottom:1px solid oklch(89% 0.012 70);font-size:15px;font-weight:500">Seller FAQs</a>
+    <a href="#team" style="padding:16px 20px;background:oklch(99% 0.004 90);border-bottom:1px solid oklch(89% 0.012 70);font-size:15px;font-weight:500">Working with Our Team FAQs</a>
+    <a href="#market" style="padding:16px 20px;background:oklch(99% 0.004 90);border-bottom:1px solid oklch(89% 0.012 70);font-size:15px;font-weight:500">General Market &amp; Investment FAQs</a>
+    <a href="#luxury" style="padding:16px 20px;background:oklch(99% 0.004 90);font-size:15px;font-weight:500">Luxury Real Estate FAQs</a>
+  </section>
+
+  <section style="padding:20px 56px 100px;max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:80px">
+
+    <div id="milton">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 28px;color:oklch(58% 0.16 45)">Milton Real Estate</h2>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Is Milton a good place to buy a home right now?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Milton continues to offer stronger value than Oakville or Burlington while providing comparable access to the Escarpment, GO transit, and top schools.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">What are the best neighbourhoods in Milton for families?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Beaty, Scott, and the Ford neighbourhoods are popular for newer builds and school proximity, while Old Milton offers mature streets closer to downtown.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">What is the average home price in Milton?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Pricing varies significantly by neighbourhood and property type — request a free comparative market analysis and we'll give you current, street-level numbers rather than a citywide average.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Is Milton well connected to Toronto for commuters?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Milton GO offers direct service to Union Station, and the 401/407 corridor makes driving commutes to Mississauga and the west GTA straightforward.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="buyers">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 28px;color:oklch(58% 0.16 45)">Buyer FAQs</h2>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">How do I start searching for homes for sale?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Use the search tool on our homepage to filter by location, price, and bedrooms, or book a consultation and we'll set up custom alerts.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Do I need to be pre-approved before viewing homes?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">We recommend it — it clarifies your budget and makes your offer stronger once you find the right home. We can connect you with trusted mortgage contacts.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">What costs should I budget for beyond the purchase price?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Land transfer tax, legal fees, home inspection, and moving costs typically add 2-4% of the purchase price — we'll walk you through the exact numbers for your situation.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Can you help me buy and sell at the same time?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we coordinate closing dates, bridge financing conversations, and offer conditions so your sale and purchase move in step.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="sellers">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 28px;color:oklch(58% 0.16 45)">Seller FAQs</h2>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Do you offer a free home evaluation?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we provide a complimentary comparative market analysis for anyone considering selling in Milton, Oakville, or Burlington.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">How long does it typically take to sell a home?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Well-priced homes in desirable neighbourhoods commonly sell within a few weeks; condition, presentation, and pricing strategy are the biggest factors.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Should I renovate before selling?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Rarely for major projects — most renovations don't return their full cost at sale. We'll advise on the small, high-return fixes worth making before your listing goes live.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">What are your commission rates?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Commission is negotiable and discussed transparently at your listing consultation — no surprises, no pressure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="team">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 28px;color:oklch(58% 0.16 45)">Working with Our Team</h2>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">How is Saigal Realty different from a large national brokerage?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">As a boutique brokerage, every client works directly with a small, senior team — not a call centre. We prioritize honest counsel over transaction volume.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Which languages does your team speak?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Between our agents we speak English, Urdu, Hindi, Punjabi, and Arabic.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="market">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 28px;color:oklch(58% 0.16 45)">General Market &amp; Investment</h2>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Which areas does Saigal Realty serve?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">We focus on Milton, Oakville, and Burlington, with additional coverage across Cambridge, Kitchener, Toronto, Mississauga, and York Region.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Can Saigal Realty help with commercial real estate?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we handle office, retail, and industrial leasing and sales across Milton, Oakville, and Burlington in addition to residential buying and selling.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="luxury">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:0 0 28px;color:oklch(58% 0.16 45)">Luxury Real Estate</h2>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">What makes luxury real estate in Ontario unique?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Luxury in Milton, Oakville, and Burlington is defined by lot size, waterfront and Escarpment proximity, top school catchments, and finishes that hold their value.</p>
+        </div>
+        <div>
+          <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Which areas are best for luxury homes?</h4>
+          <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Old Oakville and the Bronte waterfront, Burlington's Shoreacres and Tyandaga, and Milton's Escarpment-adjacent estate lots. See our <a href="Luxury.dc.html">Luxury page</a> for more.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(80% 0.02 60)">Neighbourhoods</a>
+      <a href="Blog.dc.html" style="color:oklch(80% 0.02 60)">Blog</a>
+      <a href="Careers.dc.html" style="color:oklch(80% 0.02 60)">Careers</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Buy.dc.html" style="color:oklch(23% 0.012 60)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(23% 0.012 60)">Sell</a>
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Commercial.dc.html" style="color:oklch(58% 0.16 45)">Commercial</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="Contact.dc.html" style="padding:9px 16px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:12px;letter-spacing:0.03em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="position:relative;height:52vh;min-height:420px;width:100%">
+    <image-slot id="commercial-hero" shape="rect" placeholder="Office or retail storefront exterior" style="position:absolute;inset:0;width:100%;height:100%" src="images/commercial-hero.png"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7));pointer-events:none"></div>
+    <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 56px;max-width:780px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(90% 0.03 60);margin-bottom:16px">Milton · Oakville · Burlington</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1.1;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 18px">Commercial Real Estate</h1>
+      <p style="font-size:17px;line-height:1.6;color:oklch(94% 0.01 70);max-width:600px;margin:0">Office, retail, and industrial leasing and sales — backed by the same careful, transparent approach we bring to every residential client.</p>
+    </div>
+  </section>
+
+  <!-- SECTORS -->
+  <section style="padding:100px 56px 40px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:56px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">What We Handle</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">Sectors We Serve</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px">
+      <div style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden">
+        <image-slot id="commercial-office" shape="rect" placeholder="Office space" style="width:100%;height:160px" src="images/commercial-office.png"></image-slot>
+        <div style="padding:28px 26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 10px">Office</h3>
+          <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60);margin:0">Leasing and sales for professional office space across Milton, Oakville, and Burlington's business corridors.</p>
+        </div>
+      </div>
+      <div style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden">
+        <image-slot id="commercial-retail" shape="rect" placeholder="Retail storefront" style="width:100%;height:160px" src="images/commercial-retail.png"></image-slot>
+        <div style="padding:28px 26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 10px">Retail</h3>
+          <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60);margin:0">Storefront and plaza opportunities in high-traffic locations, matched to your customer base.</p>
+        </div>
+      </div>
+      <div style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden">
+        <image-slot id="commercial-industrial" shape="rect" placeholder="Industrial warehouse" style="width:100%;height:160px" src="images/commercial-industrial.png"></image-slot>
+        <div style="padding:28px 26px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 10px">Industrial</h3>
+          <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60);margin:0">Warehouse and flex-space transactions supporting Halton's growing logistics and manufacturing base.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section style="padding:0 56px 40px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Why Us</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:16px 0 20px;line-height:1.25">Commercial deals need residential-grade attention to detail.</h2>
+      <p style="font-size:15px;line-height:1.8;color:oklch(46% 0.02 60);margin:0 0 16px">Small business owners and investors are often underserved by commercial brokers focused on volume. We bring the same boutique, senior-level attention to a 1,500 sq ft storefront lease that we do to a multi-million dollar estate sale.</p>
+      <p style="font-size:15px;line-height:1.8;color:oklch(46% 0.02 60);margin:0">That means real answers on zoning, permitted use, and lease structure — not a generic template pushed through quickly.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;background:oklch(99% 0.004 90);border-radius:4px">
+        <span style="font-size:20px;color:oklch(58% 0.16 45);flex-shrink:0">✓</span>
+        <p style="font-size:14px;line-height:1.6;color:oklch(35% 0.015 60);margin:0">Local zoning and permitted-use knowledge across Milton, Oakville, and Burlington</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;background:oklch(99% 0.004 90);border-radius:4px">
+        <span style="font-size:20px;color:oklch(58% 0.16 45);flex-shrink:0">✓</span>
+        <p style="font-size:14px;line-height:1.6;color:oklch(35% 0.015 60);margin:0">Lease-term negotiation covering escalations, CAM charges, and renewal options</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;background:oklch(99% 0.004 90);border-radius:4px">
+        <span style="font-size:20px;color:oklch(58% 0.16 45);flex-shrink:0">✓</span>
+        <p style="font-size:14px;line-height:1.6;color:oklch(35% 0.015 60);margin:0">Direct connections to lenders, contractors, and commercial legal counsel</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="padding:100px 56px;background:oklch(94% 0.015 70)">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:56px">
+        <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">How We Work</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">Our Commercial Process</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+        <div style="text-align:center">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">01</span>
+          <h4 style="font-size:15px;font-weight:600;margin:12px 0 8px">Needs Assessment</h4>
+          <p style="font-size:13px;line-height:1.65;color:oklch(46% 0.02 60)">We define space, budget, timeline, and zoning requirements upfront.</p>
+        </div>
+        <div style="text-align:center">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">02</span>
+          <h4 style="font-size:15px;font-weight:600;margin:12px 0 8px">Market Search</h4>
+          <p style="font-size:13px;line-height:1.65;color:oklch(46% 0.02 60)">We identify available and off-market opportunities that fit your criteria.</p>
+        </div>
+        <div style="text-align:center">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">03</span>
+          <h4 style="font-size:15px;font-weight:600;margin:12px 0 8px">Negotiation</h4>
+          <p style="font-size:13px;line-height:1.65;color:oklch(46% 0.02 60)">We negotiate rent, terms, and total occupancy cost — not just the headline rate.</p>
+        </div>
+        <div style="text-align:center">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">04</span>
+          <h4 style="font-size:15px;font-weight:600;margin:12px 0 8px">Closing</h4>
+          <p style="font-size:13px;line-height:1.65;color:oklch(46% 0.02 60)">We coordinate legal, financing, and due diligence through to possession.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:100px 56px;max-width:820px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Common Questions</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">Commercial FAQ</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Do you handle both leasing and sales?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we represent landlords, tenants, buyers, and sellers across office, retail, and industrial commercial real estate.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Which areas do you cover for commercial?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Our core focus is Milton, Oakville, and Burlington, with additional reach across the wider GTA and Halton region.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Can you help with investment properties?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — from single retail units to multi-tenant industrial buildings, we help investors evaluate and acquire commercial assets.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">What should I know about total occupancy cost?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Base rent is only part of the cost — common area charges, utilities, taxes, and insurance pass-throughs can add significantly to your total spend. We break this down before you sign anything.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Do you represent landlords as well as tenants?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we represent both sides of commercial transactions, always disclosing our role clearly to protect your interests.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE EXAMPLES -->
+  <section style="padding:0 56px 100px;max-width:1100px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Recent Work</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">The Kind of Deals We Handle</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px">
+      <div style="padding:28px;background:oklch(94% 0.015 70);border-radius:4px">
+        <span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(58% 0.16 45)">Retail Lease</span>
+        <p style="font-size:14px;line-height:1.7;color:oklch(35% 0.015 60);margin:10px 0 0">Secured a 5-year lease with a capped renewal option for a growing Milton retailer, saving roughly 12% in projected occupancy cost over the term.</p>
+      </div>
+      <div style="padding:28px;background:oklch(94% 0.015 70);border-radius:4px">
+        <span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(58% 0.16 45)">Office Sale</span>
+        <p style="font-size:14px;line-height:1.7;color:oklch(35% 0.015 60);margin:10px 0 0">Represented the seller of a professional office building in Oakville, coordinating tenant estoppels and closing in under 60 days.</p>
+      </div>
+      <div style="padding:28px;background:oklch(94% 0.015 70);border-radius:4px">
+        <span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(58% 0.16 45)">Industrial Acquisition</span>
+        <p style="font-size:14px;line-height:1.7;color:oklch(35% 0.015 60);margin:10px 0 0">Guided an investor through zoning due diligence on a Burlington flex-space property ahead of a successful acquisition.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:100px 56px;text-align:center;background:oklch(58% 0.16 45)">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 20px">Have a commercial need?</h2>
+    <p style="font-size:16px;color:oklch(99% 0.004 90 / 0.9);margin:0 0 32px">Let's talk about your space or investment goals.</p>
+    <a href="Contact.dc.html" style="padding:16px 40px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">Book a Consultation</a>
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(80% 0.02 60)">Neighbourhoods</a>
+      <a href="FAQ.dc.html" style="color:oklch(80% 0.02 60)">FAQ</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

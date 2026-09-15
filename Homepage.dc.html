@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#c96a3a"/><text x="100" y="112" font-size="70" text-anchor="middle" fill="#fff" font-family="serif">SR</text></svg></template>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+  ::selection{background:oklch(58% 0.16 45 / 0.25);}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Which areas does Saigal Realty serve?","acceptedAnswer":{"@type":"Answer","text":"We focus on Milton, Oakville, and Burlington, with additional coverage across Cambridge, Kitchener, Toronto, Mississauga, and York Region."}},
+{"@type":"Question","name":"How is Saigal Realty different from a large national brokerage?","acceptedAnswer":{"@type":"Answer","text":"As a boutique brokerage, every client works directly with a small, senior team, prioritizing honest counsel and transparent numbers over transaction volume."}},
+{"@type":"Question","name":"Do you offer a free home evaluation?","acceptedAnswer":{"@type":"Answer","text":"Yes, we provide a complimentary comparative market analysis for anyone considering selling in Milton, Oakville, or Burlington."}},
+{"@type":"Question","name":"Can Saigal Realty help with commercial real estate?","acceptedAnswer":{"@type":"Answer","text":"Yes, we handle office, retail, and industrial leasing and sales across Milton, Oakville, and Burlington in addition to residential buying and selling."}},
+{"@type":"Question","name":"How do I start searching for homes for sale?","acceptedAnswer":{"@type":"Answer","text":"Use the search bar at the top of the homepage to filter by location, price, and bedrooms, or book a consultation for custom alerts."}}
+]}
+</script>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <!-- HEADER -->
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;flex-shrink:1;min-width:0">
+      <a href="Buy.dc.html" style="color:oklch(23% 0.012 60)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(23% 0.012 60)">Sell</a>
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="#neighbourhoods" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Commercial.dc.html" style="color:oklch(23% 0.012 60)">Commercial</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="#blog" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="#contact" style="padding:9px 16px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:12px;letter-spacing:0.03em;flex-shrink:0">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section style="position:relative;height:88vh;min-height:640px;width:100%">
+    <image-slot id="hero" shape="rect" placeholder="Drop hero photo — Milton/Oakville/Burlington skyline or signature listing" src="images/hero-estate-blue-hour.png" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(20% 0.01 60 / 0.35), oklch(15% 0.01 60 / 0.6));pointer-events:none"></div>
+    <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 56px;max-width:900px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(90% 0.03 60);margin-bottom:20px">Milton · Oakville · Burlington</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:68px;line-height:1.05;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 24px">Navigating Your Next Move, Together</h1>
+      <p style="font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);max-width:620px;margin:0 0 36px">A boutique brokerage built on honest counsel and quiet precision — guiding discerning buyers and sellers across Halton's most sought-after communities.</p>
+      <div style="display:flex;gap:16px">
+        <a href="Search.dc.html" style="padding:16px 32px;background:oklch(58% 0.16 45);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">Search Listings</a>
+        <a href="#contact" style="padding:16px 32px;border:1px solid oklch(94% 0.01 70 / 0.6);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONING -->
+  <section style="padding:100px 56px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px;align-items:center">
+    <div style="min-width:0">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Our Philosophy</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;line-height:1.3;margin:18px 0 24px">Real estate, practiced with passion, integrity, and transparency.</h2>
+      <p style="font-size:17px;line-height:1.8;color:oklch(46% 0.02 60)">We built Saigal Realty because we believe our clients deserve more than a transaction — they deserve a trusted advisor. Every recommendation we make is grounded in honest counsel, careful research, and a genuine investment in your outcome, not ours. Whether you are buying your first home in Milton, selling a family property in Oakville, or building a portfolio across Burlington, we bring the same quiet rigor and care to every relationship.</p>
+    </div>
+    <image-slot id="philosophy-img" shape="rect" placeholder="Team or office photo" style="width:100%;height:420px;border-radius:4px;min-width:0" src="images/philosophy-lounge.png"></image-slot>
+  </section>
+
+  <!-- WHY US PILLARS -->
+  <section style="padding:0 56px 120px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
+    <div style="text-align:center;padding:0 16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:oklch(58% 0.16 45)">01</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:14px 0 10px">Passion</h3>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60)">We treat every home as if it were our own — because your milestones matter to us as much as they matter to you.</p>
+    </div>
+    <div style="text-align:center;padding:0 16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:oklch(58% 0.16 45)">02</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:14px 0 10px">Integrity</h3>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60)">Straightforward advice, even when it isn't what you hoped to hear. Your trust is earned, never assumed.</p>
+    </div>
+    <div style="text-align:center;padding:0 16px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:32px;color:oklch(58% 0.16 45)">03</span>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:14px 0 10px">Transparency</h3>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60)">Clear numbers, clear timelines, clear next steps — so you always know exactly where you stand.</p>
+    </div>
+  </section>
+
+  <!-- FEATURED AREAS -->
+  <section id="neighbourhoods" style="padding:0 56px 40px">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:36px">
+      <div>
+        <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Where We Work</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:14px 0 0">Featured Cities</h2>
+      </div>
+      <a href="#all-neighbourhoods" style="font-size:14px;font-weight:600">View all neighbourhoods →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+      <a href="Neighbourhood-Milton.dc.html" style="display:block;position:relative;height:400px;border-radius:4px;overflow:hidden;min-width:0">
+        <image-slot id="area-milton" shape="rect" placeholder="Milton streetscape" style="position:absolute;inset:0;width:100%;height:100%" src="images/city-milton.png"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, oklch(15% 0.01 60 / 0.75));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;z-index:2">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 6px">Milton</h3>
+          <span style="font-size:13px;color:oklch(90% 0.03 60)">Explore Milton real estate →</span>
+        </div>
+      </a>
+      <a href="Neighbourhood-Oakville.dc.html" style="display:block;position:relative;height:400px;border-radius:4px;overflow:hidden;min-width:0">
+        <image-slot id="area-oakville" shape="rect" placeholder="Oakville waterfront" style="position:absolute;inset:0;width:100%;height:100%" src="images/city-oakville.png"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, oklch(15% 0.01 60 / 0.75));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;z-index:2">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 6px">Oakville</h3>
+          <span style="font-size:13px;color:oklch(90% 0.03 60)">Explore Oakville real estate →</span>
+        </div>
+      </a>
+      <a href="Neighbourhood-Burlington.dc.html" style="display:block;position:relative;height:400px;border-radius:4px;overflow:hidden;min-width:0">
+        <image-slot id="area-burlington" shape="rect" placeholder="Burlington lakeshore" style="position:absolute;inset:0;width:100%;height:100%" src="images/city-burlington.png"></image-slot>
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg, transparent 40%, oklch(15% 0.01 60 / 0.75));pointer-events:none"></div>
+        <div style="position:absolute;left:24px;right:24px;bottom:22px;z-index:2">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 6px">Burlington</h3>
+          <span style="font-size:13px;color:oklch(90% 0.03 60)">Explore Burlington real estate →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section style="padding:140px 56px;background:oklch(94% 0.015 70)">
+    <div style="max-width:1200px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:64px">
+        <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">How We Help</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:14px 0 0">Buy. Sell. Invest.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+        <div id="buy" style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden;min-width:0">
+          <image-slot id="service-buy" shape="rect" placeholder="Buying photo" style="width:100%;height:140px" src="images/service-buying.png"></image-slot>
+          <div style="padding:32px 30px 36px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 14px">Buying</h3>
+          <p style="font-size:14px;line-height:1.75;color:oklch(46% 0.02 60);margin:0 0 20px">From your first search to closing day, we help you understand true value, negotiate with confidence, and secure financing — so your biggest investment starts on solid ground.</p>
+          <a href="#contact" style="font-size:14px;font-weight:600">Start your search →</a>
+          </div>
+        </div>
+        <div id="sell" style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden;min-width:0">
+          <image-slot id="service-sell" shape="rect" placeholder="Selling photo" style="width:100%;height:140px" src="images/service-selling.png"></image-slot>
+          <div style="padding:32px 30px 36px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 14px">Selling</h3>
+          <p style="font-size:14px;line-height:1.75;color:oklch(46% 0.02 60);margin:0 0 20px">A precise market analysis, considered presentation, and a marketing plan built for today's buyer — priced right, positioned well, and negotiated firmly on your behalf.</p>
+          <a href="#contact" style="font-size:14px;font-weight:600">Get a home evaluation →</a>
+          </div>
+        </div>
+        <div style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden;min-width:0">
+          <image-slot id="service-invest" shape="rect" placeholder="Investing photo" style="width:100%;height:140px" src="images/service-investing.png"></image-slot>
+          <div style="padding:32px 30px 36px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 14px">Investing</h3>
+          <p style="font-size:14px;line-height:1.75;color:oklch(46% 0.02 60);margin:0 0 20px">Building or refining a portfolio across the GTA and Halton region takes local knowledge and a clear-eyed read of the numbers — we bring both to every opportunity we bring you.</p>
+          <a href="#contact" style="font-size:14px;font-weight:600">Discuss your goals →</a>
+          </div>
+        </div>
+        <div id="commercial" style="background:oklch(99% 0.004 90);border-radius:4px;overflow:hidden;min-width:0">
+          <image-slot id="service-commercial" shape="rect" placeholder="Commercial photo" style="width:100%;height:140px" src="images/service-commercial.png"></image-slot>
+          <div style="padding:32px 30px 36px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 14px">Commercial</h3>
+          <p style="font-size:14px;line-height:1.75;color:oklch(46% 0.02 60);margin:0 0 20px">Office, retail, and industrial leasing and sales across Milton, Oakville, and Burlington — backed by the same careful, transparent approach we bring to every residential client.</p>
+          <a href="#contact" style="font-size:14px;font-weight:600">Talk commercial →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="about" style="padding:140px 56px;max-width:1300px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:64px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Meet The Team</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:14px 0 0">The People Behind Saigal Realty</h2>
+    </div>
+    <div style="position:relative">
+      <button onClick="{{ teamPrev }}" style="position:absolute;left:-56px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid oklch(58% 0.16 45);background:oklch(97% 0.012 75);color:oklch(58% 0.16 45);font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center">‹</button>
+      <div id="team-track" style="overflow:hidden">
+        <div style="display:flex;gap:16px;transition:transform 0.35s ease;transform:{{ teamTransform }}">
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-nomi" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Nomi Saigal</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Broker of Record</span>
+            </div>
+          </div>
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-kamranm" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Kamran Mustafa</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Realtor®</span>
+            </div>
+          </div>
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-zak" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Zak Abdelnour</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Realtor®</span>
+            </div>
+          </div>
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-alam" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Alam Arbi</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Realtor®</span>
+            </div>
+          </div>
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-kamrans" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Kamran Saeed</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Realtor®</span>
+            </div>
+          </div>
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-numan" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Numan Shafiq</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Realtor®</span>
+            </div>
+          </div>
+          <div style="flex:0 0 200px;width:200px;box-sizing:border-box;overflow:hidden">
+            <image-slot id="agent-haider" shape="rect" placeholder="Full-length portrait" style="width:200px;height:380px;display:block;box-sizing:border-box" src="uploads/sraa.png"></image-slot>
+            <div style="background:oklch(15% 0.02 250);padding:20px 12px;text-align:center">
+              <h4 style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 0 5px;color:oklch(78% 0.11 75)">Haider Mohammad</h4>
+              <span style="font-size:11px;color:oklch(70% 0.02 60)">Agent · Dallas, TX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button onClick="{{ teamNext }}" style="position:absolute;right:-56px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:1px solid oklch(58% 0.16 45);background:oklch(97% 0.012 75);color:oklch(58% 0.16 45);font-size:20px;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center">›</button>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="About.dc.html" style="display:inline-block;padding:16px 44px;border:1px solid oklch(23% 0.012 60);color:oklch(23% 0.012 60);font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase">Meet the Team</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="padding:140px 56px;background:oklch(23% 0.012 60)">
+    <div style="max-width:1100px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:64px">
+        <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Client Stories</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:14px 0 0;color:oklch(99% 0.004 90)">What Our Clients Say</h2>
+      </div>
+      <div style="display:flex;gap:28px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory">
+        <div style="padding:32px;border:1px solid oklch(38% 0.015 60);flex:0 0 340px;scroll-snap-align:start">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);font-style:italic;margin:0 0 20px">"Nomi not only understood our must-haves but also found us a dream house in Oakville at an ideal location. His professionalism and commitment to client satisfaction truly set him apart."</p>
+          <span style="font-size:13px;color:oklch(70% 0.03 60)">— Mahrukh A, Google review</span>
+        </div>
+        <div style="padding:32px;border:1px solid oklch(38% 0.015 60);flex:0 0 340px;scroll-snap-align:start">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);font-style:italic;margin:0 0 20px">"I was a first time home buyer and Nomi was incredible and so trustworthy throughout the process! He took away all the stress and uncertainty of buying a place for the first time."</p>
+          <span style="font-size:13px;color:oklch(70% 0.03 60)">— Sana Wain, Google review</span>
+        </div>
+        <div style="padding:32px;border:1px solid oklch(38% 0.015 60);flex:0 0 340px;scroll-snap-align:start">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);font-style:italic;margin:0 0 20px">"He was open and honest which made me feel at ease when making decisions. He got me what I wanted and made the whole process very easy for me."</p>
+          <span style="font-size:13px;color:oklch(70% 0.03 60)">— Yeraldyn Valencia, Google review</span>
+        </div>
+        <div style="padding:32px;border:1px solid oklch(38% 0.015 60);flex:0 0 340px;scroll-snap-align:start">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);font-style:italic;margin:0 0 20px">"Nomi & Kamran did a spectacular job helping me sell my house then finding me the perfect apartment, always top of their game with the right locations."</p>
+          <span style="font-size:13px;color:oklch(70% 0.03 60)">— Scrib Ler, Google review</span>
+        </div>
+        <div style="padding:32px;border:1px solid oklch(38% 0.015 60);flex:0 0 340px;scroll-snap-align:start">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);font-style:italic;margin:0 0 20px">"Nomi worked diligently to get us the best possible price for our home and finding us the perfect new forever home. We highly recommend Team Saigal for all your real estate needs."</p>
+          <span style="font-size:13px;color:oklch(70% 0.03 60)">— Ramnik S, Google review</span>
+        </div>
+        <div style="padding:32px;border:1px solid oklch(38% 0.015 60);flex:0 0 340px;scroll-snap-align:start">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.6;color:oklch(94% 0.01 70);font-style:italic;margin:0 0 20px">"He always had my best interests in mind and worked hard to get me a great deal on the home. He is never hesitant and is always positive. Highly recommend!"</p>
+          <span style="font-size:13px;color:oklch(70% 0.03 60)">— Arun K, Google review</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALL NEIGHBOURHOODS -->
+  <section id="all-neighbourhoods" style="padding:120px 56px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:56px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Serving Southern Ontario</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:14px 0 12px">All Neighbourhoods</h2>
+      <p style="font-size:15px;color:oklch(46% 0.02 60);max-width:560px;margin:0 auto">We cover 50+ neighbourhoods across Halton and the GTA — a few highlights below, or browse the complete directory.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px">
+      <div>
+        <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(23% 0.012 60);margin:0 0 16px">Milton</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="Neighbourhood-Milton.dc.html">Milton Overview</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=old-milton">Old Milton</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=beaty-milton">Beaty</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=scott-milton">Scott</a>
+          <a href="Neighbourhoods.dc.html#milton" style="font-weight:600">View all Milton areas →</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(23% 0.012 60);margin:0 0 16px">Oakville</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="Neighbourhood-Oakville.dc.html">Oakville Overview</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=old-oakville">Old Oakville</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=glen-abbey-oakville">Glen Abbey</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=bronte-west-oakville">Bronte</a>
+          <a href="Neighbourhoods.dc.html#oakville" style="font-weight:600">View all Oakville areas →</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(23% 0.012 60);margin:0 0 16px">Burlington</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="Neighbourhood-Burlington.dc.html">Burlington Overview</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=aldershot-burlington">Aldershot</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=tyandaga-burlington">Tyandaga</a>
+          <a href="Sub-Neighbourhood.dc.html?slug=shoreacres-burlington">Shoreacres</a>
+          <a href="Neighbourhoods.dc.html#burlington" style="font-weight:600">View all Burlington areas →</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:13px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(23% 0.012 60);margin:0 0 16px">Also Serving</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="/neighbourhoods/cambridge">Cambridge</a>
+          <a href="/neighbourhoods/kitchener">Kitchener</a>
+          <a href="/neighbourhoods/toronto">Toronto</a>
+          <a href="/neighbourhoods/mississauga">Mississauga</a>
+          <a href="/neighbourhoods/york">York Region</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:56px">
+      <a href="Neighbourhoods.dc.html" style="display:inline-block;padding:16px 40px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">Browse the Full Neighbourhood Directory</a>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" style="padding:120px 56px;max-width:1200px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:56px">
+      <div>
+        <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Insights</span>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;margin:14px 0 0">From the Blog</h2>
+      </div>
+      <a href="Blog.dc.html" style="font-size:14px;font-weight:600">View all articles →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;align-items:start">
+      <a href="Blog.dc.html#milton-market-update-2026" style="display:block;text-decoration:none;color:inherit;min-width:0">
+        <image-slot id="blog-1" shape="rect" placeholder="Article image" style="width:100%;height:200px;border-radius:4px;margin-bottom:20px" src="images/blog-milton-market.png"></image-slot>
+        <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(58% 0.16 45)">Market Update</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;margin:10px 0 8px;line-height:1.3">Milton Market Update: What Buyers and Sellers Should Know</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60);margin:0">A look at pricing trends, inventory, and where the Milton market is headed.</p>
+      </a>
+      <a href="Blog.dc.html#oakville-neighbourhood-guide" style="display:block;text-decoration:none;color:inherit;min-width:0">
+        <image-slot id="blog-2" shape="rect" placeholder="Article image" style="width:100%;height:200px;border-radius:4px;margin-bottom:20px" src="images/blog-oakville-guide.png"></image-slot>
+        <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(58% 0.16 45)">Neighbourhood Guide</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;margin:10px 0 8px;line-height:1.3">A Buyer's Guide to Oakville's Most Sought-After Streets</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60);margin:0">Where to look in Oakville depending on your lifestyle and budget.</p>
+      </a>
+      <a href="Blog.dc.html#selling-in-burlington-tips" style="display:block;text-decoration:none;color:inherit;min-width:0">
+        <image-slot id="blog-3" shape="rect" placeholder="Article image" style="width:100%;height:200px;border-radius:4px;margin-bottom:20px" src="images/blog-seller-prep.png"></image-slot>
+        <span style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(58% 0.16 45)">Seller Tips</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;margin:10px 0 8px;line-height:1.3">5 Things to Fix Before Listing Your Burlington Home</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60);margin:0">Small, high-return fixes that help Burlington homes sell faster.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:120px 56px;max-width:820px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Common Questions</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 8px">Frequently Asked Questions</h2>
+      <a href="FAQ.dc.html" style="font-size:14px;font-weight:600">View all FAQs →</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Which areas does Saigal Realty serve?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">We focus on Milton, Oakville, and Burlington, with additional coverage across Cambridge, Kitchener, Toronto, Mississauga, and York Region.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">How is Saigal Realty different from a large national brokerage?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">As a boutique brokerage, every client works directly with a small, senior team — not a call centre. We prioritize honest counsel and transparent numbers over transaction volume.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Do you offer a free home evaluation?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we provide a complimentary comparative market analysis for anyone considering selling in Milton, Oakville, or Burlington.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Can Saigal Realty help with commercial real estate?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — we handle office, retail, and industrial leasing and sales across Milton, Oakville, and Burlington in addition to residential buying and selling.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">How do I start searching for homes for sale?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Use the search bar at the top of this page to filter by location, price, and bedrooms, or book a consultation and we'll set up custom alerts for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNATIONAL -->
+  <section style="padding:100px 56px;background:oklch(23% 0.012 60);text-align:center">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Global Reach</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 20px;color:oklch(99% 0.004 90)">International Exposure</h2>
+    <p style="font-size:16px;line-height:1.75;color:oklch(85% 0.02 60);max-width:700px;margin:0 auto 48px">Beyond Halton and the GTA, our network extends across five international markets — giving clients and referral partners a genuine global reach for cross-border buyers, sellers, and investors. In Rabat, Dubai, and Costa Rica, we also help clients purchase Airbnb and vacation-home properties.</p>
+    <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:32px">
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Dallas, Texas</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">United States</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Rabat</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">Morocco</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Dubai</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">United Arab Emirates</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Karachi</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">Pakistan</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Costa Rica</span>
+        <p style="font-size:13px;color:oklch(70% 0.02 60);margin:8px 0 0">Vacation &amp; Airbnb homes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT FORM -->
+  <section style="padding:100px 56px;background:oklch(58% 0.16 45)">
+    <div style="max-width:640px;margin:0 auto;text-align:center">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 20px">Ready to make your next move?</h2>
+      <p style="font-size:16px;color:oklch(99% 0.004 90 / 0.9);margin:0 0 40px">Let's talk about your goals — no pressure, just an honest conversation.</p>
+    </div>
+    <form action="mailto:info@saigalrealty.ca" method="post" enctype="text/plain" style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <input type="text" name="Name" placeholder="Full name" required="" style="padding:14px 16px;border:none;border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif">
+        <input type="email" name="Email" placeholder="Email address" required="" style="padding:14px 16px;border:none;border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif">
+      </div>
+      <input type="tel" name="Phone" placeholder="Phone (optional)" style="padding:14px 16px;border:none;border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif">
+      <textarea name="Message" placeholder="Tell us about your goals" rows="4" style="padding:14px 16px;border:none;border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif;resize:vertical"></textarea>
+      <button type="submit" style="padding:16px 40px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border:none;border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em;cursor:pointer;justify-self:center">Send Message</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="padding:100px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70)">
+    <div style="max-width:900px;margin:0 auto 80px;text-align:center">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:oklch(99% 0.004 90);letter-spacing:0.05em">SAIGAL REALTY INC., BROKERAGE</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:oklch(70% 0.14 45);margin:20px 0 0;line-height:1.3">Boutique real estate, practiced with passion, integrity, and transparency.</h2>
+    </div>
+    <div style="max-width:1200px;margin:0 auto 60px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;border-top:1px solid oklch(35% 0.015 60);border-bottom:1px solid oklch(35% 0.015 60);padding:36px 0">
+      <div>
+        <h5 style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(99% 0.004 90);margin:0 0 10px">Address</h5>
+        <p style="font-size:14px;line-height:1.7;color:oklch(70% 0.02 60);margin:0">585 Ontario St S #204<br>Milton, ON L9T 2N2, Canada</p>
+      </div>
+      <div>
+        <h5 style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(99% 0.004 90);margin:0 0 10px">Phone &amp; Email</h5>
+        <a href="tel:9058764126" style="font-size:14px;color:oklch(70% 0.02 60);display:block;margin-bottom:6px">(905) 876-4126</a>
+        <a href="mailto:info@saigalrealty.ca" style="font-size:14px;color:oklch(70% 0.02 60)">info@saigalrealty.ca</a>
+      </div>
+      <div>
+        <h5 style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(99% 0.004 90);margin:0 0 10px">Exclusive Market Updates</h5>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input type="email" placeholder="Email Address" style="flex:1;min-width:140px;background:transparent;border:none;border-bottom:1px solid oklch(50% 0.02 60);padding:8px 2px;font-size:14px;color:oklch(95% 0.01 70);font-family:'Work Sans',sans-serif">
+          <button style="padding:8px 20px;border:1px solid oklch(70% 0.14 45);background:transparent;color:oklch(70% 0.14 45);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:2px">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:60px">
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+        <p style="font-size:14px;line-height:1.7;margin:16px 0 20px;max-width:320px;color:oklch(70% 0.02 60)">Saigal Realty Inc., Brokerage — serving Milton, Oakville, Burlington and the wider Halton and GTA region with honest, considered representation.</p>
+        <span style="font-size:13px;color:oklch(60% 0.02 60)">585 Ontario St S #204, Milton, ON L9T 2N2</span><br>
+        <a href="tel:9058764126" style="font-size:13px;color:oklch(60% 0.02 60)">(905) 876-4126</a><br>
+        <a href="mailto:info@saigalrealty.ca" style="font-size:13px;color:oklch(60% 0.02 60)">info@saigalrealty.ca</a>
+      </div>
+      <div>
+        <h5 style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(99% 0.004 90);margin:0 0 16px">Company</h5>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="#about" style="color:oklch(80% 0.02 60)">About</a>
+          <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+          <a href="Careers.dc.html" style="color:oklch(80% 0.02 60)">Careers</a>
+          <a href="FAQ.dc.html" style="color:oklch(80% 0.02 60)">FAQ</a>
+          <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(99% 0.004 90);margin:0 0 16px">Areas</h5>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="Neighbourhood-Milton.dc.html" style="color:oklch(80% 0.02 60)">Milton</a>
+          <a href="Neighbourhood-Oakville.dc.html" style="color:oklch(80% 0.02 60)">Oakville</a>
+          <a href="Neighbourhood-Burlington.dc.html" style="color:oklch(80% 0.02 60)">Burlington</a>
+          <a href="Neighbourhoods.dc.html" style="color:oklch(80% 0.02 60)">All neighbourhoods</a>
+        </div>
+      </div>
+      <div>
+        <h5 style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:oklch(99% 0.004 90);margin:0 0 16px">Follow</h5>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+          <a href="#" style="color:oklch(80% 0.02 60)">Instagram</a>
+          <a href="#" style="color:oklch(80% 0.02 60)">Facebook</a>
+          <a href="#" style="color:oklch(80% 0.02 60)">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1200px;margin:0 auto;padding-top:24px;border-top:1px solid oklch(35% 0.015 60);font-size:12px;color:oklch(55% 0.015 60)">
+      © 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { teamIndex: 0, trackW: 0 };
+  cardW = 200;
+  gap = 16;
+  total = 7;
+
+  componentDidMount() {
+    this.measure();
+    this._onResize = () => this.measure();
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+  measure() {
+    const el = document.getElementById('team-track');
+    const w = el ? el.clientWidth : 0;
+    if (w && w !== this.state.trackW) this.setState({ trackW: w });
+  }
+  maxIndex() {
+    const step = this.cardW + this.gap;
+    const visible = Math.max(1, Math.floor((this.state.trackW + this.gap) / step));
+    return Math.max(0, this.total - visible);
+  }
+  renderVals() {
+    const max = this.maxIndex();
+    const idx = Math.min(this.state.teamIndex, max);
+    return {
+      teamTransform: `translateX(-${idx * (this.cardW + this.gap)}px)`,
+      teamPrev: () => this.setState(s => ({ teamIndex: Math.max(0, s.teamIndex - 1) })),
+      teamNext: () => this.setState(s => ({ teamIndex: Math.min(this.maxIndex(), s.teamIndex + 1) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

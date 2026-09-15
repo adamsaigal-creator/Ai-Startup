@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Buy.dc.html" style="color:oklch(23% 0.012 60)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(23% 0.012 60)">Sell</a>
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(58% 0.16 45)">Neighbourhoods</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="Contact.dc.html" style="padding:10px 22px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:13px;letter-spacing:0.04em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="padding:100px 56px 60px;max-width:820px;margin:0 auto;text-align:center">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Directory</span>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;margin:16px 0 12px">Neighbourhoods We Serve</h1>
+    <p style="font-size:16px;line-height:1.7;color:oklch(46% 0.02 60);margin:0 0 32px">Eighty neighbourhood guides across Milton, Oakville, Burlington, Mississauga, and Waterloo Region — each with local schools, parks, and commute detail.</p>
+    <image-slot id="neighbourhoods-hero" shape="rect" placeholder="Aerial view of Halton region" style="width:100%;height:280px;border-radius:4px;display:block" src="images/neighbourhoods-hero.png"></image-slot>
+  </section>
+
+  <section style="padding:0 56px 80px;max-width:640px;margin:0 auto;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-size:14px;font-weight:600">
+    <a href="#milton">Milton</a>
+    <a href="#oakville">Oakville</a>
+    <a href="#burlington">Burlington</a>
+    <a href="#mississauga">Mississauga</a>
+    <a href="#kitchener">Kitchener</a>
+  </section>
+
+  <section style="padding:20px 56px 100px;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:80px">
+
+    <div id="milton">
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:20px">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:0;color:oklch(58% 0.16 45)">Milton</h2>
+        <a href="Neighbourhood-Milton.dc.html" style="font-size:14px;font-weight:600">Milton overview →</a>
+      </div>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);max-width:760px;margin:0 0 28px">One of the GTA's fastest-growing towns, offering stronger value than Oakville or Burlington with easy access to the Escarpment, GO transit, and top schools.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;font-size:14px">
+        <a href="Sub-Neighbourhood.dc.html?slug=old-milton">Old Milton</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=beaty-milton">Beaty</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=scott-milton">Scott</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=ford-milton">Ford</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=timberlea-milton">Timberlea</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=bronte-meadows-milton">Bronte Meadows</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=clarke-milton">Clarke</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=harrison-milton">Harrison</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=coates-milton">Coates</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=cobban-milton">Cobban</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=dempsey">Dempsey</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=dorset-park-milton">Dorset Park</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=walker-milton">Walker</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=willmott-milton">Willmott</a>
+      </div>
+    </div>
+
+    <div id="oakville">
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:20px">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:0;color:oklch(58% 0.16 45)">Oakville</h2>
+        <a href="Neighbourhood-Oakville.dc.html" style="font-size:14px;font-weight:600">Oakville overview →</a>
+      </div>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);max-width:760px;margin:0 0 28px">Heritage streets, Lake Ontario waterfront, and some of the GTA's most sought-after schools — spanning starter condos to significant estates.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;font-size:14px">
+        <a href="Sub-Neighbourhood.dc.html?slug=old-oakville">Old Oakville</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=glen-abbey-oakville">Glen Abbey</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=bronte-east-oakville">Bronte East</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=bronte-west-oakville">Bronte West</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=river-oaks-oakville">River Oaks</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=west-oak-trails-oakville">West Oak Trails</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=uptown-core-oakville">Uptown Core</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=clearview-oakville">Clearview</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=eastlake-oakville">Eastlake</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=college-park-oakville">College Park</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=iroquois-ridge-north-oakville">Iroquois Ridge North</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=iroquois-ridge-south-oakville">Iroquois Ridge South</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=palermo-west-oakville">Palermo West</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=rural-oakville">Rural Oakville</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=winston-park-oakville">Winston Park</a>
+      </div>
+    </div>
+
+    <div id="burlington">
+      <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:20px">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:0;color:oklch(58% 0.16 45)">Burlington</h2>
+        <a href="Neighbourhood-Burlington.dc.html" style="font-size:14px;font-weight:600">Burlington overview →</a>
+      </div>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);max-width:760px;margin:0 0 28px">Where the Niagara Escarpment meets Lake Ontario — waterfront living, hiking trails, and a walkable downtown at a discount to Oakville.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;font-size:14px">
+        <a href="Sub-Neighbourhood.dc.html?slug=aldershot-burlington">Aldershot</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=tyandaga-burlington">Tyandaga</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=shoreacres-burlington">Shoreacres</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=roseland-burlington">Roseland</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=millcroft-burlington">Millcroft</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=headon-burlington">Headon Forest</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=alton-burlington">Alton Village</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=brant-hills-burlington">Brant Hills</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=appleby-burlington">Appleby</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=bayview-burlington">Bayview</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=brant-burlington">Brant</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=freeman-burlington">Freeman</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=grindstone-burlington">Grindstone</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=lasalle-burlington">LaSalle</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=mountainside-burlington">Mountainside</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=orchard-burlington">The Orchard</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=palmer-burlington">Palmer</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=rose-burlington">Rose</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=rural-burlington">Rural Burlington</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=tansley-burlington">Tansley</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=uptown-burlington">Uptown</a>
+      </div>
+    </div>
+
+    <div id="mississauga">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:0 0 20px;color:oklch(58% 0.16 45)">Mississauga</h2>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);max-width:760px;margin:0 0 28px">From Port Credit's lakeside village to Lorne Park's estates and City Centre's condo towers — Canada's sixth-largest city spans nearly every price point and property type.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;font-size:14px">
+        <a href="Sub-Neighbourhood.dc.html?slug=port-credit-mississauga">Port Credit</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=lorne-park-mississauga">Lorne Park</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=mineola-mississauga">Mineola</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=clarkson-mississauga">Clarkson</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=streetsville">Streetsville</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=erin-mills-mississauga">Erin Mills</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=central-erin-mills-mississauga">Central Erin Mills</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=churchill-meadows-mississauga">Churchill Meadows</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=city-centre-mississauga">City Centre</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=cooksville-mississauga">Cooksville</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=applewood-mississauga">Applewood</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=dixie-mississauga">Dixie</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=east-credit-mississauga">East Credit</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=erindale-mississauga">Erindale</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=creditview-mississauga">Creditview</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=gateway-mississauga">Gateway</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=hurontario-mississauga">Hurontario</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=lakeview-mississauga">Lakeview</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=lisgar-mississauga">Lisgar</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=malton-mississauga">Malton</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=mavis-erindale-mississauga">Mavis-Erindale</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=meadwovale-mississauga">Meadowvale</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=meadowvale-village-mississauga">Meadowvale Village</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=mississauga-valleys-mississauga">Mississauga Valleys</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=northeast-mississauga">Northeast Mississauga</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=rathwood-mississauga">Rathwood</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=sheridan-mississauga">Sheridan</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=sheridan-park">Sheridan Park</a>
+        <a href="Sub-Neighbourhood.dc.html?slug=southdown-mississauga">Southdown</a>
+      </div>
+    </div>
+
+    <div id="kitchener">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:0 0 20px;color:oklch(58% 0.16 45)">Kitchener & Waterloo Region</h2>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);max-width:760px;margin:0 0 28px">Accessible pricing, strong rental demand, and continued transit and tech-sector investment make Waterloo Region a frequent focus for our investor clients.</p>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 20px;font-size:14px">
+        <a href="Sub-Neighbourhood.dc.html?slug=kitchener-east">Kitchener East</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- WHY THIS FOOTPRINT -->
+  <section style="padding:0 56px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;text-align:center;border-top:1px solid oklch(85% 0.015 70);padding-top:56px">
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 10px">Why We Focus on Halton</h3>
+      <p style="font-size:14px;line-height:1.7;color:oklch(46% 0.02 60)">Depth beats breadth. Knowing which streets hold value street-by-street is only possible by staying close to our core markets.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 10px">Local Comparables</h3>
+      <p style="font-size:14px;line-height:1.7;color:oklch(46% 0.02 60)">We track recent sales at the neighbourhood level, so pricing advice reflects what's actually happening on your street, not a citywide average.</p>
+    </div>
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin:0 0 10px">Not Sure Where to Start?</h3>
+      <p style="font-size:14px;line-height:1.7;color:oklch(46% 0.02 60)">Tell us your budget and priorities and we'll recommend the neighbourhoods worth touring first. <a href="Contact.dc.html">Get in touch →</a></p>
+    </div>
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(80% 0.02 60)">Blog</a>
+      <a href="Careers.dc.html" style="color:oklch(80% 0.02 60)">Careers</a>
+      <a href="FAQ.dc.html" style="color:oklch(80% 0.02 60)">FAQ</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

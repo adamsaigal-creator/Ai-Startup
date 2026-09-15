@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="Careers.dc.html" style="color:oklch(58% 0.16 45)">Careers</a>
+      <a href="FAQ.dc.html" style="color:oklch(23% 0.012 60)">FAQ</a>
+      <a href="Contact.dc.html" style="padding:10px 22px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:13px;letter-spacing:0.04em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="position:relative;height:48vh;min-height:380px;width:100%">
+    <image-slot id="careers-hero" shape="rect" placeholder="Team working together" style="position:absolute;inset:0;width:100%;height:100%" src="uploads/sraa.png"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7));pointer-events:none"></div>
+    <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 56px;max-width:820px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(90% 0.03 60);margin-bottom:18px">Careers</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1.1;font-weight:600;color:oklch(99% 0.004 90);margin:0">Join Our Team</h1>
+    </div>
+  </section>
+
+  <section style="padding:100px 56px 60px;max-width:820px;margin:0 auto;text-align:center">
+    <p style="font-size:17px;line-height:1.85;color:oklch(35% 0.015 60)">We're a small brokerage by design — big enough to give you real support, small enough that you're never just a number. If you believe in honest counsel over volume sales, and want to build a career serving Milton, Oakville, and Burlington with a team that stands behind its name, we'd like to hear from you.</p>
+  </section>
+
+  <section style="padding:20px 56px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px">
+    <div style="text-align:center">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 12px">Mentorship</h3>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60)">Direct, hands-on guidance from our Broker of Record and senior agents — not a generic training video.</p>
+    </div>
+    <div style="text-align:center">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 12px">Local Reputation</h3>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60)">Decades of trust built in Halton means warmer leads and a name that opens doors in Milton, Oakville, and Burlington.</p>
+    </div>
+    <div style="text-align:center">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin:0 0 12px">Room to Grow</h3>
+      <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60)">Residential, commercial, and pre-construction opportunities — build the practice that fits how you want to work.</p>
+    </div>
+  </section>
+
+  <section style="padding:0 56px 100px;max-width:900px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">How It Works</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:14px 0 0">Our Hiring Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+      <div style="text-align:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">01</span>
+        <h4 style="font-size:15px;font-weight:600;margin:10px 0 8px">Apply</h4>
+        <p style="font-size:13px;line-height:1.6;color:oklch(46% 0.02 60)">Send us your background and goals below.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">02</span>
+        <h4 style="font-size:15px;font-weight:600;margin:10px 0 8px">Conversation</h4>
+        <p style="font-size:13px;line-height:1.6;color:oklch(46% 0.02 60)">A no-pressure chat with our Broker of Record.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">03</span>
+        <h4 style="font-size:15px;font-weight:600;margin:10px 0 8px">Shadow a Deal</h4>
+        <p style="font-size:13px;line-height:1.6;color:oklch(46% 0.02 60)">See how we work before you commit.</p>
+      </div>
+      <div style="text-align:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:26px;color:oklch(58% 0.16 45)">04</span>
+        <h4 style="font-size:15px;font-weight:600;margin:10px 0 8px">Onboard</h4>
+        <p style="font-size:13px;line-height:1.6;color:oklch(46% 0.02 60)">Get set up with tools, leads, and a mentor.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:80px 56px;background:oklch(23% 0.012 60);text-align:center">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Open Roles</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;margin:14px 0 40px;color:oklch(99% 0.004 90)">Currently Hiring</h2>
+    <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:1px;background:oklch(35% 0.015 60)">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:oklch(23% 0.012 60)">
+        <span style="font-size:16px;color:oklch(99% 0.004 90);font-weight:500">Residential Sales Agent</span>
+        <span style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(70% 0.02 60)">Milton / Oakville</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:oklch(23% 0.012 60)">
+        <span style="font-size:16px;color:oklch(99% 0.004 90);font-weight:500">Commercial Leasing Associate</span>
+        <span style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(70% 0.02 60)">Burlington</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 28px;background:oklch(23% 0.012 60)">
+        <span style="font-size:16px;color:oklch(99% 0.004 90);font-weight:500">Licensed Assistant / Coordinator</span>
+        <span style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(70% 0.02 60)">Head Office</span>
+      </div>
+    </div>
+    <p style="font-size:13px;color:oklch(65% 0.02 60);margin:24px 0 0">Don't see your fit? Apply anyway — we're always open to the right person.</p>
+  </section>
+
+  <section style="padding:100px 56px;background:oklch(94% 0.015 70)">
+    <div style="max-width:640px;margin:0 auto;text-align:center;margin-bottom:40px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Apply</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">Tell Us About Yourself</h2>
+    </div>
+    <form action="mailto:info@saigalrealty.ca" method="post" enctype="text/plain" style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <input type="text" name="Name" placeholder="Full name" required="" style="padding:14px 16px;border:1px solid oklch(83% 0.015 70);border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif;background:oklch(99% 0.004 90)">
+        <input type="email" name="Email" placeholder="Email address" required="" style="padding:14px 16px;border:1px solid oklch(83% 0.015 70);border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif;background:oklch(99% 0.004 90)">
+      </div>
+      <input type="tel" name="Phone" placeholder="Phone" style="padding:14px 16px;border:1px solid oklch(83% 0.015 70);border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif;background:oklch(99% 0.004 90)">
+      <input type="text" name="License Status" placeholder="Are you currently licensed? (RECO status)" style="padding:14px 16px;border:1px solid oklch(83% 0.015 70);border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif;background:oklch(99% 0.004 90)">
+      <textarea name="Message" placeholder="Tell us about your experience and goals" rows="4" style="padding:14px 16px;border:1px solid oklch(83% 0.015 70);border-radius:2px;font-size:15px;font-family:'Work Sans',sans-serif;background:oklch(99% 0.004 90);resize:vertical"></textarea>
+      <button type="submit" style="padding:16px 40px;background:oklch(58% 0.16 45);color:oklch(99% 0.004 90);border:none;border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em;cursor:pointer;justify-self:center">Submit Application</button>
+    </form>
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(80% 0.02 60)">Neighbourhoods</a>
+      <a href="Blog.dc.html" style="color:oklch(80% 0.02 60)">Blog</a>
+      <a href="FAQ.dc.html" style="color:oklch(80% 0.02 60)">FAQ</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

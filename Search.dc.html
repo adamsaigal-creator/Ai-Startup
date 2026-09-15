@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Buy.dc.html" style="color:oklch(23% 0.012 60)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(23% 0.012 60)">Sell</a>
+      <a href="Search.dc.html" style="color:oklch(58% 0.16 45)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Commercial.dc.html" style="color:oklch(23% 0.012 60)">Commercial</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="Contact.dc.html" style="padding:9px 16px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:12px;letter-spacing:0.03em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="padding:64px 56px 0;max-width:1200px;margin:0 auto;text-align:center">
+    <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Milton · Oakville · Burlington</span>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600;margin:16px 0 12px">Property Search</h1>
+    <p style="font-size:16px;color:oklch(46% 0.02 60);max-width:640px;margin:0 auto 40px">Search active listings across Halton by location, price, property type, and more.</p>
+  </section>
+
+  <!-- SEARCH FILTERS -->
+  <section style="padding:0 56px 20px;max-width:1200px;margin:0 auto">
+    <div style="background:oklch(99% 0.004 90);border-radius:4px;box-shadow:0 10px 30px oklch(20% 0.01 60 / 0.08);padding:28px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:end;gap:20px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:6px;flex:2;min-width:200px">
+          <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Location</label>
+          <select style="border:none;border-bottom:1px solid oklch(83% 0.015 70);padding:6px 2px;font-size:15px;font-family:'Work Sans',sans-serif;background:transparent;color:oklch(23% 0.012 60)">
+            <option>Milton</option><option>Oakville</option><option>Burlington</option><option>Cambridge</option><option>Kitchener</option><option>Toronto</option><option>Mississauga</option><option>York Region</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:130px">
+          <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Status</label>
+          <select style="border:none;border-bottom:1px solid oklch(83% 0.015 70);padding:6px 2px;font-size:15px;font-family:'Work Sans',sans-serif;background:transparent;color:oklch(23% 0.012 60)">
+            <option>For Sale</option><option>For Rent</option>
+          </select>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:100px">
+          <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Min Price</label>
+          <input type="text" placeholder="No min" style="border:none;border-bottom:1px solid oklch(83% 0.015 70);padding:6px 2px;font-size:15px;font-family:'Work Sans',sans-serif;background:transparent;color:oklch(23% 0.012 60)">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:100px">
+          <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Max Price</label>
+          <input type="text" placeholder="No max" style="border:none;border-bottom:1px solid oklch(83% 0.015 70);padding:6px 2px;font-size:15px;font-family:'Work Sans',sans-serif;background:transparent;color:oklch(23% 0.012 60)">
+        </div>
+        <button style="padding:13px 34px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border:none;border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em;cursor:pointer;flex-shrink:0">Search</button>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:28px;flex-wrap:wrap;border-top:1px solid oklch(90% 0.012 70);padding-top:16px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Property Type</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button style="padding:8px 16px;border:1px solid oklch(23% 0.012 60);border-radius:20px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Residential</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Townhomes</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Condos</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Multi-Family</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Commercial</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Land</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Co-op</button>
+            <button style="padding:8px 16px;border:1px solid oklch(83% 0.015 70);border-radius:20px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Other</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Beds</label>
+          <div style="display:flex;gap:6px">
+            <button style="padding:8px 14px;border:1px solid oklch(23% 0.012 60);border-radius:4px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Any</button>
+            <button style="padding:8px 14px;border:1px solid oklch(83% 0.015 70);border-radius:4px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">Studio</button>
+            <button style="padding:8px 14px;border:1px solid oklch(83% 0.015 70);border-radius:4px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">1</button>
+            <button style="padding:8px 14px;border:1px solid oklch(83% 0.015 70);border-radius:4px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">2</button>
+            <button style="padding:8px 14px;border:1px solid oklch(83% 0.015 70);border-radius:4px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">3</button>
+            <button style="padding:8px 14px;border:1px solid oklch(83% 0.015 70);border-radius:4px;background:transparent;color:oklch(35% 0.015 60);font-size:13px;font-family:'Work Sans',sans-serif;cursor:pointer">4+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:oklch(46% 0.02 60);text-align:center;margin:14px 0 0">Live IDX results will populate here once connected to Proptx.</p>
+  </section>
+
+  <!-- PLACEHOLDER RESULTS -->
+  <section style="padding:60px 56px 100px;max-width:1200px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px">
+      <div>
+        <image-slot id="listing-1" shape="rect" placeholder="Listing photo" style="width:100%;height:220px;border-radius:4px;display:block;margin-bottom:14px" src="uploads/sraa.png"></image-slot>
+        <span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(58% 0.16 45)">For Sale · Milton</span>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:8px 0 4px">Sample Listing</h4>
+        <p style="font-size:14px;color:oklch(46% 0.02 60);margin:0">3 bd · 2 ba · Placeholder</p>
+      </div>
+      <div>
+        <image-slot id="listing-2" shape="rect" placeholder="Listing photo" style="width:100%;height:220px;border-radius:4px;display:block;margin-bottom:14px" src="uploads/sraa.png"></image-slot>
+        <span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(58% 0.16 45)">For Sale · Oakville</span>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:8px 0 4px">Sample Listing</h4>
+        <p style="font-size:14px;color:oklch(46% 0.02 60);margin:0">4 bd · 3 ba · Placeholder</p>
+      </div>
+      <div>
+        <image-slot id="listing-3" shape="rect" placeholder="Listing photo" style="width:100%;height:220px;border-radius:4px;display:block;margin-bottom:14px" src="uploads/sraa.png"></image-slot>
+        <span style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:oklch(58% 0.16 45)">For Sale · Burlington</span>
+        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:8px 0 4px">Sample Listing</h4>
+        <p style="font-size:14px;color:oklch(46% 0.02 60);margin:0">2 bd · 2 ba · Placeholder</p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Buy.dc.html" style="color:oklch(80% 0.02 60)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(80% 0.02 60)">Sell</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(80% 0.02 60)">Neighbourhoods</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>

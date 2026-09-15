@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail" data-bg-color="#f6ede3">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#f6ede3"/>
+<circle cx="600" cy="330" r="90" fill="none" stroke="#c1652f" stroke-width="6"/>
+<text x="600" y="360" font-family="Georgia,serif" font-size="90" fill="#c1652f" text-anchor="middle">SR</text>
+<text x="600" y="480" font-family="Georgia,serif" font-size="46" fill="#2a2420" text-anchor="middle">Saigal Realty</text>
+</svg>
+</template>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(97% 0.012 75);}
+  a{color:oklch(48% 0.15 45);text-decoration:none;}
+  a:hover{color:oklch(40% 0.15 45);}
+</style>
+</helmet>
+
+<div style="font-family:'Work Sans',sans-serif;color:oklch(23% 0.012 60);background:oklch(97% 0.012 75);width:100%;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 40px;background:oklch(97% 0.012 75 / 0.92);backdrop-filter:blur(8px);border-bottom:1px solid oklch(83% 0.015 70)">
+    <a href="Homepage.dc.html" style="display:flex;align-items:center;flex-shrink:0"><img src="uploads/saigal-logo-cropped.png" alt="Saigal Realty Inc., Brokerage" style="height:52px;width:auto;display:block"></a>
+    <nav style="display:flex;align-items:center;gap:14px;font-size:13px;font-weight:500;white-space:nowrap;min-width:0">
+      <a href="Buy.dc.html" style="color:oklch(58% 0.16 45)">Buy</a>
+      <a href="Sell.dc.html" style="color:oklch(23% 0.012 60)">Sell</a>
+      <a href="Search.dc.html" style="color:oklch(23% 0.012 60)">Search</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(23% 0.012 60)">Neighbourhoods</a>
+      <a href="Commercial.dc.html" style="color:oklch(23% 0.012 60)">Commercial</a>
+      <a href="Luxury.dc.html" style="color:oklch(23% 0.012 60)">Luxury</a>
+      <a href="Blog.dc.html" style="color:oklch(23% 0.012 60)">Blog</a>
+      <a href="About.dc.html" style="color:oklch(23% 0.012 60)">About</a>
+      <a href="Contact.dc.html" style="padding:9px 16px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:12px;letter-spacing:0.03em">Book a Consultation</a>
+    </nav>
+  </header>
+
+  <section style="position:relative;height:52vh;min-height:420px;width:100%">
+    <image-slot id="buy-hero" shape="rect" placeholder="Family walking into their new home" style="position:absolute;inset:0;width:100%;height:100%" src="images/buy-hero.png"></image-slot>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7));pointer-events:none"></div>
+    <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 56px;max-width:780px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(90% 0.03 60);margin-bottom:16px">Milton · Oakville · Burlington</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:52px;line-height:1.1;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 18px">Buying a Home</h1>
+      <p style="font-size:17px;line-height:1.6;color:oklch(94% 0.01 70);max-width:600px;margin:0">Honest guidance from search to closing — so your biggest investment starts on solid ground.</p>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section style="padding:56px 56px 20px;max-width:1100px;margin:0 auto">
+    <div style="background:oklch(99% 0.004 90);border-radius:4px;box-shadow:0 10px 30px oklch(20% 0.01 60 / 0.08);padding:28px;display:flex;align-items:end;gap:20px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:6px;flex:2;min-width:200px">
+        <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Location</label>
+        <select style="border:none;border-bottom:1px solid oklch(83% 0.015 70);padding:6px 2px;font-size:15px;font-family:'Work Sans',sans-serif;background:transparent;color:oklch(23% 0.012 60)">
+          <option>Milton</option><option>Oakville</option><option>Burlington</option>
+        </select>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;flex:1;min-width:140px">
+        <label style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60)">Price Range</label>
+        <select style="border:none;border-bottom:1px solid oklch(83% 0.015 70);padding:6px 2px;font-size:15px;font-family:'Work Sans',sans-serif;background:transparent;color:oklch(23% 0.012 60)">
+          <option>Any</option><option>$500K–$800K</option><option>$800K–$1.2M</option><option>$1.2M–$2M</option><option>$2M+</option>
+        </select>
+      </div>
+      <button style="padding:13px 34px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border:none;border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em;cursor:pointer">Search Listings</button>
+    </div>
+    <p style="font-size:12px;color:oklch(46% 0.02 60);text-align:center;margin:14px 0 0">IDX feed placeholder — connect Proptx</p>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="padding:100px 56px 40px;max-width:1200px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:56px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">How It Works</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">Your Path to a New Home</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px">
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:28px;color:oklch(58% 0.16 45)">01</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:12px 0 8px">Get Pre-Approved</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60)">We connect you with trusted mortgage contacts so you know your real budget before you shop.</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:28px;color:oklch(58% 0.16 45)">02</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:12px 0 8px">Search &amp; Tour</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60)">Custom alerts and private showings across Milton, Oakville, and Burlington neighbourhoods.</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:28px;color:oklch(58% 0.16 45)">03</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:12px 0 8px">Offer &amp; Negotiate</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60)">Sharp local comps and firm negotiation to protect your interests, even in competitive markets.</p>
+      </div>
+      <div>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:28px;color:oklch(58% 0.16 45)">04</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:12px 0 8px">Close With Confidence</h3>
+        <p style="font-size:14px;line-height:1.65;color:oklch(46% 0.02 60)">Inspection, financing, and closing coordination handled — clear steps, no surprises.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY BUY WITH US -->
+  <section style="padding:0 56px 100px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+    <div>
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Buyer Representation</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;margin:16px 0 20px;line-height:1.25">Someone in your corner, not the seller's.</h2>
+      <p style="font-size:15px;line-height:1.8;color:oklch(46% 0.02 60);margin:0 0 16px">A listing agent works for the seller. As your buyer's representative, we work exclusively for you — surfacing red flags, pushing back on price, and making sure conditions protect your interests.</p>
+      <p style="font-size:15px;line-height:1.8;color:oklch(46% 0.02 60);margin:0">Our fee is typically covered through the transaction, so working with a dedicated buyer's agent usually costs you nothing extra.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;background:oklch(99% 0.004 90);border-radius:4px">
+        <span style="font-size:20px;color:oklch(58% 0.16 45);flex-shrink:0">✓</span>
+        <p style="font-size:14px;line-height:1.6;color:oklch(35% 0.015 60);margin:0">Off-market and pre-listing access through our local network</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;background:oklch(99% 0.004 90);border-radius:4px">
+        <span style="font-size:20px;color:oklch(58% 0.16 45);flex-shrink:0">✓</span>
+        <p style="font-size:14px;line-height:1.6;color:oklch(35% 0.015 60);margin:0">Street-level pricing knowledge across 50+ Halton neighbourhoods</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;padding:20px;background:oklch(99% 0.004 90);border-radius:4px">
+        <span style="font-size:20px;color:oklch(58% 0.16 45);flex-shrink:0">✓</span>
+        <p style="font-size:14px;line-height:1.6;color:oklch(35% 0.015 60);margin:0">Trusted referrals for inspectors, lenders, and lawyers</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:100px 56px;max-width:820px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Common Questions</span>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">Buying FAQ</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Do I need to be pre-approved before viewing homes?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">We recommend it — it clarifies your budget and makes your offer stronger once you find the right home.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Which Milton, Oakville, or Burlington neighbourhood is right for me?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">It depends on budget, school priorities, and commute — visit our <a href="Neighbourhoods.dc.html">Neighbourhoods directory</a> or book a call and we'll narrow it down together.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">How competitive is the current market?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Conditions vary street by street across Halton — we'll walk you through current comps for any specific area you're considering.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Does it cost anything to work with a buyer's agent?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">In most transactions, our fee is covered by the seller's side of the deal — so dedicated representation typically costs you nothing extra.</p>
+      </div>
+      <div>
+        <h4 style="font-size:16px;font-weight:600;margin:0 0 8px">Can you help me find off-market listings?</h4>
+        <p style="font-size:15px;line-height:1.7;color:oklch(46% 0.02 60);margin:0">Yes — our local network often surfaces homes before they're publicly listed, giving you a head start in competitive pockets.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:100px 56px;text-align:center;background:oklch(58% 0.16 45)">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:oklch(99% 0.004 90);margin:0 0 20px">Ready to start your search?</h2>
+    <p style="font-size:16px;color:oklch(99% 0.004 90 / 0.9);margin:0 0 32px">Let's talk about what you're looking for.</p>
+    <a href="Contact.dc.html" style="padding:16px 40px;background:oklch(23% 0.012 60);color:oklch(99% 0.004 90);border-radius:2px;font-size:14px;font-weight:600;letter-spacing:0.03em">Book a Consultation</a>
+  </section>
+
+  <footer style="padding:60px 56px 40px;background:oklch(20% 0.01 60);color:oklch(85% 0.015 70);text-align:center">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:oklch(99% 0.004 90)">Saigal Realty Inc., Brokerage</span>
+    <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:24px 0;font-size:14px">
+      <a href="Homepage.dc.html" style="color:oklch(80% 0.02 60)">Home</a>
+      <a href="Sell.dc.html" style="color:oklch(80% 0.02 60)">Sell</a>
+      <a href="Luxury.dc.html" style="color:oklch(80% 0.02 60)">Luxury</a>
+      <a href="Neighbourhoods.dc.html" style="color:oklch(80% 0.02 60)">Neighbourhoods</a>
+      <a href="FAQ.dc.html" style="color:oklch(80% 0.02 60)">FAQ</a>
+      <a href="Contact.dc.html" style="color:oklch(80% 0.02 60)">Contact</a>
+    </div>
+    <p style="font-size:12px;color:oklch(55% 0.015 60)">© 2026 Saigal Realty Inc., Brokerage. Independently Owned and Operated.</p>
+  </footer>
+
+</div>
+
+</x-dc>
+</body>
+</html>
