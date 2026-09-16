@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { createPublicClient } from "@/lib/supabase/public";
+import { prisma } from "@/lib/db/client";
 
 export type PageRow = {
   id: string;
@@ -17,18 +17,26 @@ export type PageRow = {
   status: string;
 };
 
-const PAGE_COLUMNS =
-  "id, slug, title, content, seo_title, seo_description, og_title, og_description, og_image, status";
-
 /** cache() dedupes repeated calls with the same slug within one render
- * pass (generateMetadata + the page body both call this). */
+ * pass (generateMetadata + the page body both call this).
+ *
+ * `status: "published"` is explicit here because there is no database-level
+ * RLS on this self-hosted Postgres instance (unlike the earlier Supabase
+ * setup) - the database is only ever reached from server code, and this
+ * filter is what keeps draft pages off the public site. */
 export const getPage = cache(async (slug: string): Promise<PageRow | null> => {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("pages")
-    .select(PAGE_COLUMNS)
-    .eq("slug", slug)
-    .maybeSingle<PageRow>();
-  if (error) throw new Error(`Failed to load page "${slug}": ${error.message}`);
-  return data;
+  const row = await prisma.page.findFirst({ where: { slug, status: "published" } });
+  if (!row) return null;
+  return {
+    id: row.id,
+    slug: row.slug,
+    title: row.title,
+    content: row.content as Record<string, any>,
+    seo_title: row.seoTitle,
+    seo_description: row.seoDescription,
+    og_title: row.ogTitle,
+    og_description: row.ogDescription,
+    og_image: row.ogImage,
+    status: row.status,
+  };
 });

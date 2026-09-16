@@ -1,4 +1,4 @@
-import { createPublicClient } from "@/lib/supabase/public";
+import { prisma } from "@/lib/db/client";
 
 export type ListingRow = {
   id: string;
@@ -14,19 +14,25 @@ export type ListingRow = {
   listing_url: string | null;
 };
 
-const LISTING_COLUMNS = "id, address, city, neighbourhood, price, beds, baths, property_type, description, image, listing_url";
-
 /** Featured, published listings for a city's "Featured Listings" grid.
  * Schema is IDX/PropTx-compatible by design - a future feed import can
  * populate this same table without a redesign. */
 export async function getFeaturedListings(city: string, limit = 3): Promise<ListingRow[]> {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("listings")
-    .select(LISTING_COLUMNS)
-    .eq("city", city)
-    .eq("featured", true)
-    .limit(limit);
-  if (error) throw new Error(`Failed to load listings for "${city}": ${error.message}`);
-  return data ?? [];
+  const rows = await prisma.listing.findMany({
+    where: { city, featured: true, status: "published" },
+    take: limit,
+  });
+  return rows.map((row) => ({
+    id: row.id,
+    address: row.address,
+    city: row.city,
+    neighbourhood: row.neighbourhood,
+    price: row.price ? row.price.toNumber() : null,
+    beds: row.beds,
+    baths: row.baths ? row.baths.toNumber() : null,
+    property_type: row.propertyType,
+    description: row.description,
+    image: row.image,
+    listing_url: row.listingUrl,
+  }));
 }

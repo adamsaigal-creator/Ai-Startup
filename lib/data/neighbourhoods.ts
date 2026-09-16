@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { createPublicClient } from "@/lib/supabase/public";
+import { prisma } from "@/lib/db/client";
 
 export type NeighbourhoodRow = {
   slug: string;
@@ -58,9 +58,6 @@ const FALLBACK: NeighbourhoodRow = {
   seo_description: null,
 };
 
-const NEIGHBOURHOOD_COLUMNS =
-  "slug, name, city, headline, introduction, description, housing, lifestyle, schools, amenities, commute, cta_label, cta_href, custom_image, seo_title, seo_description";
-
 export type ResolvedNeighbourhood = {
   row: NeighbourhoodRow;
   image: string;
@@ -68,18 +65,33 @@ export type ResolvedNeighbourhood = {
   cityOverviewHref: string;
 };
 
-/** Matches the original DCLogic renderVals() fallback: an unknown slug
- * renders a graceful "coming soon" page rather than a 404. */
+/** Matches the original DCLogic renderVals() fallback: an unknown (or
+ * unpublished) slug renders a graceful "coming soon" page rather than a
+ * 404. */
 export const getNeighbourhood = cache(async (slug: string): Promise<ResolvedNeighbourhood> => {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("neighbourhoods")
-    .select(NEIGHBOURHOOD_COLUMNS)
-    .eq("slug", slug)
-    .maybeSingle<NeighbourhoodRow>();
-  if (error) throw new Error(`Failed to load neighbourhood "${slug}": ${error.message}`);
+  const found = await prisma.neighbourhood.findFirst({ where: { slug, status: "published" } });
 
-  const row = data ?? { ...FALLBACK, slug };
+  const row: NeighbourhoodRow = found
+    ? {
+        slug: found.slug,
+        name: found.name,
+        city: found.city,
+        headline: found.headline,
+        introduction: found.introduction,
+        description: found.description,
+        housing: found.housing,
+        lifestyle: found.lifestyle,
+        schools: found.schools,
+        amenities: found.amenities,
+        commute: found.commute,
+        cta_label: found.ctaLabel,
+        cta_href: found.ctaHref,
+        custom_image: found.customImage,
+        seo_title: found.seoTitle,
+        seo_description: found.seoDescription,
+      }
+    : { ...FALLBACK, slug };
+
   const image = row.custom_image ?? CITY_MASTER_IMAGE[row.city] ?? "/images/neighbourhoods-hero.png";
   return {
     row,
@@ -90,10 +102,11 @@ export const getNeighbourhood = cache(async (slug: string): Promise<ResolvedNeig
 });
 
 export async function getAllNeighbourhoodSlugs(): Promise<string[]> {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase.from("neighbourhoods").select("slug");
-  if (error) throw new Error(`Failed to load neighbourhood slugs: ${error.message}`);
-  return (data ?? []).map((r: { slug: string }) => r.slug);
+  const rows = await prisma.neighbourhood.findMany({
+    where: { status: "published" },
+    select: { slug: true },
+  });
+  return rows.map((r) => r.slug);
 }
 
 export type NeighbourhoodLink = { slug: string; name: string };
@@ -101,12 +114,9 @@ export type NeighbourhoodLink = { slug: string; name: string };
 /** Ordered by display_order, matching the original curated list order
  * (not alphabetical) - used by the /neighbourhoods directory page. */
 export async function getNeighbourhoodsByCity(city: string): Promise<NeighbourhoodLink[]> {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("neighbourhoods")
-    .select("slug, name")
-    .eq("city", city)
-    .order("display_order", { ascending: true });
-  if (error) throw new Error(`Failed to load neighbourhoods for city "${city}": ${error.message}`);
-  return data ?? [];
+  return prisma.neighbourhood.findMany({
+    where: { city, status: "published" },
+    orderBy: { displayOrder: "asc" },
+    select: { slug: true, name: true },
+  });
 }

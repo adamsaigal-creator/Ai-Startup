@@ -1,5 +1,6 @@
 import { cache } from "react";
-import { createPublicClient } from "@/lib/supabase/public";
+import type { BlogPost as BlogPostModel } from "@prisma/client";
+import { prisma } from "@/lib/db/client";
 
 export type BlogPostRow = {
   slug: string;
@@ -16,44 +17,51 @@ export type BlogPostRow = {
   seo_description: string | null;
 };
 
-const BLOG_COLUMNS =
-  "slug, title, category, excerpt, body, featured_image, author, published_at, cta_label, cta_href, seo_title, seo_description";
+function toRow(post: BlogPostModel): BlogPostRow {
+  return {
+    slug: post.slug,
+    title: post.title,
+    category: post.category,
+    excerpt: post.excerpt,
+    body: post.body,
+    featured_image: post.featuredImage,
+    author: post.author,
+    published_at: post.publishedAt ? post.publishedAt.toISOString() : null,
+    cta_label: post.ctaLabel,
+    cta_href: post.ctaHref,
+    seo_title: post.seoTitle,
+    seo_description: post.seoDescription,
+  };
+}
 
 export async function getAllBlogPosts(): Promise<BlogPostRow[]> {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("blog_posts")
-    .select(BLOG_COLUMNS)
-    .order("published_at", { ascending: false });
-  if (error) throw new Error(`Failed to load blog posts: ${error.message}`);
-  return data ?? [];
+  const rows = await prisma.blogPost.findMany({
+    where: { status: "published" },
+    orderBy: { publishedAt: "desc" },
+  });
+  return rows.map(toRow);
 }
 
 export async function getAllBlogSlugs(): Promise<string[]> {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase.from("blog_posts").select("slug");
-  if (error) throw new Error(`Failed to load blog slugs: ${error.message}`);
-  return (data ?? []).map((r: { slug: string }) => r.slug);
+  const rows = await prisma.blogPost.findMany({
+    where: { status: "published" },
+    select: { slug: true },
+  });
+  return rows.map((r) => r.slug);
 }
 
 export const getBlogPostBySlug = cache(async (slug: string): Promise<BlogPostRow | null> => {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("blog_posts")
-    .select(BLOG_COLUMNS)
-    .eq("slug", slug)
-    .maybeSingle<BlogPostRow>();
-  if (error) throw new Error(`Failed to load blog post "${slug}": ${error.message}`);
-  return data;
+  const row = await prisma.blogPost.findFirst({ where: { slug, status: "published" } });
+  return row ? toRow(row) : null;
 });
 
 /** Fetches specific posts by slug (for the Homepage's 3-post preview),
  * preserving the requested order rather than published_at order. */
 export async function getBlogPostsBySlugs(slugs: string[]): Promise<BlogPostRow[]> {
   if (slugs.length === 0) return [];
-  const supabase = createPublicClient();
-  const { data, error } = await supabase.from("blog_posts").select(BLOG_COLUMNS).in("slug", slugs);
-  if (error) throw new Error(`Failed to load blog posts by slug: ${error.message}`);
-  const bySlug = new Map((data ?? []).map((p: BlogPostRow) => [p.slug, p]));
+  const rows = await prisma.blogPost.findMany({
+    where: { slug: { in: slugs }, status: "published" },
+  });
+  const bySlug = new Map(rows.map((p) => [p.slug, toRow(p)]));
   return slugs.map((s) => bySlug.get(s)).filter((p): p is BlogPostRow => Boolean(p));
 }

@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { createPublicClient } from "@/lib/supabase/public";
+import { prisma } from "@/lib/db/client";
 
 export type SiteSettingsRow = {
   brokerage_name: string;
@@ -17,17 +17,22 @@ export type SiteSettingsRow = {
   favicon_url: string | null;
 };
 
-const SETTINGS_COLUMNS =
-  "brokerage_name, phone, email, address_line1, address_line2, social_instagram, social_facebook, social_linkedin, footer_tagline, copyright_text, contact_form_destination_email, logo_url, favicon_url";
-
 export const getSiteSettings = cache(async (): Promise<SiteSettingsRow> => {
-  const supabase = createPublicClient();
-  const { data, error } = await supabase
-    .from("site_settings")
-    .select(SETTINGS_COLUMNS)
-    .eq("id", 1)
-    .maybeSingle<SiteSettingsRow>();
-  if (error) throw new Error(`Failed to load site settings: ${error.message}`);
-  if (!data) throw new Error("site_settings row (id=1) is missing - run supabase/seed.sql");
-  return data;
+  const row = await prisma.siteSettings.findUnique({ where: { id: 1 } });
+  if (!row) throw new Error("site_settings row (id=1) is missing - run `npx prisma db seed`");
+  return {
+    brokerage_name: row.brokerageName,
+    phone: row.phone,
+    email: row.email,
+    address_line1: row.addressLine1,
+    address_line2: row.addressLine2,
+    social_instagram: row.socialInstagram,
+    social_facebook: row.socialFacebook,
+    social_linkedin: row.socialLinkedin,
+    footer_tagline: row.footerTagline,
+    copyright_text: row.copyrightText,
+    contact_form_destination_email: row.contactFormDestinationEmail,
+    logo_url: row.logoUrl,
+    favicon_url: row.faviconUrl,
+  };
 });
