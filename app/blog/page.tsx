@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { BLOG_POSTS } from "@/lib/blog-data";
-
-export const metadata: Metadata = {
-  title: "The Saigal Realty Blog — Saigal Realty Inc., Brokerage",
-  description: "Market updates, neighbourhood guides, and advice for buyers and sellers across Milton, Oakville, and Burlington.",
-};
+import { getPage } from "@/lib/data/pages";
+import { getSiteSettings } from "@/lib/data/site-settings";
+import { getAllBlogPosts } from "@/lib/data/blog";
 
 const NAV = [
   { label: "Buy", href: "/buy" },
@@ -28,22 +25,33 @@ const FOOTER_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function BlogIndexPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPage("blog");
+  return {
+    title: page?.seo_title ?? "The Saigal Realty Blog — Saigal Realty Inc., Brokerage",
+    description: page?.seo_description ?? "Market updates, neighbourhood guides, and advice for buyers and sellers across Milton, Oakville, and Burlington.",
+  };
+}
+
+export default async function BlogIndexPage() {
+  const [page, settings, posts] = await Promise.all([getPage("blog"), getSiteSettings(), getAllBlogPosts()]);
+  const c = page!.content;
+
   return (
     <>
-      <SiteHeader nav={NAV} activeLabel="Blog" ctaLabel="Book a Consultation" ctaHref="/contact" ctaSize="md" />
+      <SiteHeader nav={NAV} activeLabel="Blog" ctaLabel="Book a Consultation" ctaHref="/contact" ctaSize="md" logoUrl={settings.logo_url ?? undefined} brokerageName={settings.brokerage_name} />
       <div style={{ fontFamily: "var(--font-work-sans), sans-serif", color: "oklch(23% 0.012 60)", background: "oklch(97% 0.012 75)", width: "100%", overflowX: "hidden" }}>
         <section style={{ padding: "100px 56px 60px", maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>
           <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
-            Insights
+            {c.hero.eyebrow}
           </span>
           <h1 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "46px", fontWeight: 600, margin: "16px 0 0" }}>
-            The Saigal Realty Blog
+            {c.hero.headline}
           </h1>
         </section>
         <section style={{ padding: "20px 56px 120px", maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "32px", alignItems: "start" }}>
-            {BLOG_POSTS.map((post) => (
+            {posts.map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
@@ -52,7 +60,7 @@ export default function BlogIndexPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   alt="Article image"
-                  src={post.image}
+                  src={post.featured_image ?? "/uploads/sraa.png"}
                   style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }}
                 />
                 <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
@@ -69,7 +77,7 @@ export default function BlogIndexPage() {
           </div>
         </section>
       </div>
-      <SiteFooter links={FOOTER_LINKS} />
+      <SiteFooter links={FOOTER_LINKS} brokerageName={settings.brokerage_name} copyrightText={settings.copyright_text ?? ""} />
     </>
   );
 }

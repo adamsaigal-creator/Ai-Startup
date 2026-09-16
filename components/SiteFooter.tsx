@@ -13,7 +13,15 @@ import type { NavItem } from "./SiteHeader";
  * About's links to Luxury/Careers/FAQ/Contact) - each page passes its own
  * original `links` array rather than a single unified set.
  */
-export function SiteFooter({ links }: { links: NavItem[] }) {
+export function SiteFooter({
+  links,
+  brokerageName,
+  copyrightText,
+}: {
+  links: NavItem[];
+  brokerageName: string;
+  copyrightText: string;
+}) {
   return (
     <footer
       style={{
@@ -31,7 +39,7 @@ export function SiteFooter({ links }: { links: NavItem[] }) {
           color: "oklch(99% 0.004 90)",
         }}
       >
-        Saigal Realty Inc., Brokerage
+        {brokerageName}
       </span>
       <div
         style={{
@@ -54,8 +62,7 @@ export function SiteFooter({ links }: { links: NavItem[] }) {
         ))}
       </div>
       <p style={{ fontSize: "12px", color: "oklch(55% 0.015 60)" }}>
-        © 2026 Saigal Realty Inc., Brokerage. Independently Owned and
-        Operated.
+        {copyrightText}
       </p>
     </footer>
   );

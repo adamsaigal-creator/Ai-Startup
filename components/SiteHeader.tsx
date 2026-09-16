@@ -15,12 +15,16 @@ export function SiteHeader({
   ctaLabel = "Book a Consultation",
   ctaHref = "/contact",
   ctaSize = "sm",
+  logoUrl = "/uploads/saigal-logo-cropped.png",
+  brokerageName = "Saigal Realty Inc., Brokerage",
 }: {
   nav: NavItem[];
   activeLabel?: string;
   ctaLabel?: string;
   ctaHref?: string;
   ctaSize?: "sm" | "md";
+  logoUrl?: string;
+  brokerageName?: string;
 }) {
   const ctaStyle =
     ctaSize === "md"
@@ -64,8 +68,8 @@ export function SiteHeader({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/uploads/saigal-logo-cropped.png"
-          alt="Saigal Realty Inc., Brokerage"
+          src={logoUrl}
+          alt={brokerageName}
           style={{ height: "52px", width: "auto", display: "block" }}
         />
       </Link>
