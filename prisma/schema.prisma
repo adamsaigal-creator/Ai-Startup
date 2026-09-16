@@ -176,3 +176,20 @@ model Listing {
   @@index([status])
   @@map("listings")
 }
+
+/// Server-side admin session record (Phase 4B). There is a single admin
+/// identity for now, defined by the ADMIN_USERNAME/ADMIN_PASSWORD_HASH env
+/// vars - not a user table. The session cookie holds only an opaque random
+/// token; this table stores its SHA-256 hash (never the raw token), so a
+/// database read alone can't be used to impersonate a session. Deleting a
+/// row here is a real, immediate logout, not just a client-side cookie
+/// clear.
+model AdminSession {
+  id        String   @id @default(uuid()) @db.Uuid
+  tokenHash String   @unique @map("token_hash")
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([expiresAt])
+  @@map("admin_sessions")
+}
