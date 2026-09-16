@@ -1,0 +1,178 @@
+// Saigal Realty content model - Phase 4A (self-hosted Postgres + Prisma).
+//
+// This mirrors the table shapes and comments from the earlier Supabase
+// migration (supabase/migrations/20260916170015_initial_schema.sql) as
+// closely as possible, so the content model itself doesn't change - only
+// where it's hosted and how the app talks to it.
+//
+// Access control note: unlike the Supabase version, there is no
+// database-level RLS here. The database is never reachable from the
+// browser (DATABASE_URL is server-only, never NEXT_PUBLIC_*), so the only
+// path to this data is through Next.js server code. The public read layer
+// (lib/data/*.ts) explicitly filters `status: "published"` on every query
+// that used to rely on an RLS policy to do that invisibly.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// One row per major editable page (homepage, buy, sell, ... the three city
+/// overview pages). `content` holds page-specific typed sections (hero,
+/// services, cta, ...), never raw HTML and never one giant blob.
+model Page {
+  id          String   @id @default(uuid()) @db.Uuid
+  /// Route-identifying key, e.g. "homepage", "buy", "neighbourhoods-milton".
+  /// Not always the literal URL path.
+  slug        String   @unique
+  title       String
+  content     Json     @default("{}")
+  seoTitle    String?  @map("seo_title")
+  seoDescription String? @map("seo_description")
+  ogTitle     String?  @map("og_title")
+  ogDescription String? @map("og_description")
+  ogImage     String?  @map("og_image")
+  status      String   @default("published")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("pages")
+}
+
+/// One row per neighbourhood (80 seeded). customImage overrides the
+/// per-city master image; null falls back to the city master image at
+/// read time (see lib/data/neighbourhoods.ts CITY_MASTER_IMAGE).
+model Neighbourhood {
+  id             String   @id @default(uuid()) @db.Uuid
+  slug           String   @unique
+  name           String
+  city           String
+  headline       String?
+  introduction   String?
+  description    String?
+  housing        String?
+  lifestyle      String?
+  schools        String?
+  amenities      String?
+  commute        String?
+  /// Per-neighbourhood override for the closing CTA label. Null uses the
+  /// sitewide default ("Book a Consultation").
+  ctaLabel       String?  @map("cta_label")
+  /// Per-neighbourhood override for the closing CTA target. Null uses the
+  /// sitewide default (/contact).
+  ctaHref        String?  @map("cta_href")
+  customImage    String?  @map("custom_image")
+  seoTitle       String?  @map("seo_title")
+  seoDescription String?  @map("seo_description")
+  status         String   @default("published")
+  /// Curated position within its city group (matches the original site's
+  /// neighbourhood list order) - not alphabetical.
+  displayOrder   Int      @default(0) @map("display_order")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  @@index([city])
+  @@index([status])
+  @@map("neighbourhoods")
+}
+
+/// body holds paragraphs separated by a blank line (plain text, not HTML) -
+/// matches the source content exactly; a future rich-text editor can
+/// upgrade this without a schema change.
+model BlogPost {
+  id             String    @id @default(uuid()) @db.Uuid
+  slug           String    @unique
+  title          String
+  category       String?
+  excerpt        String?
+  body           String?
+  featuredImage  String?   @map("featured_image")
+  author         String?
+  publishedAt    DateTime? @map("published_at")
+  /// Closing inline link text (e.g. "Explore Milton real estate ->"),
+  /// rendered as a real link after body rather than embedded as HTML.
+  ctaLabel       String?   @map("cta_label")
+  ctaHref        String?   @map("cta_href")
+  status         String    @default("published")
+  seoTitle       String?   @map("seo_title")
+  seoDescription String?   @map("seo_description")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@index([publishedAt])
+  @@map("blog_posts")
+}
+
+/// Singleton row (application-enforced: id is always 1). Referenced by
+/// SiteHeader/SiteFooter and every mailto: contact form action.
+model SiteSettings {
+  id                          Int      @id @default(1)
+  brokerageName               String   @map("brokerage_name")
+  phone                       String?
+  email                       String?
+  addressLine1                String?  @map("address_line1")
+  addressLine2                String?  @map("address_line2")
+  socialInstagram             String?  @map("social_instagram")
+  socialFacebook              String?  @map("social_facebook")
+  socialLinkedin               String?  @map("social_linkedin")
+  footerTagline               String?  @map("footer_tagline")
+  copyrightText               String?  @map("copyright_text")
+  contactFormDestinationEmail String?  @map("contact_form_destination_email")
+  logoUrl                     String?  @map("logo_url")
+  faviconUrl                  String?  @map("favicon_url")
+  createdAt                   DateTime @default(now()) @map("created_at")
+  updatedAt                   DateTime @updatedAt @map("updated_at")
+
+  @@map("site_settings")
+}
+
+/// Metadata catalog for site images. storagePath is a /public-relative
+/// path for now (files still live under /public on the server) - a later
+/// phase can point this at real on-disk upload storage without a schema
+/// change.
+model Media {
+  id          String   @id @default(uuid()) @db.Uuid
+  filename    String
+  storagePath String   @map("storage_path")
+  altText     String?  @map("alt_text")
+  mimeType    String?  @map("mime_type")
+  width       Int?
+  height      Int?
+  fileSize    BigInt?  @map("file_size")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@map("media")
+}
+
+/// Manually managed placeholder/featured listings, not an IDX/PropTx feed.
+/// Schema intentionally flat and feed-compatible (address/city/price/
+/// beds/baths/type) so a future feed import can map onto it without a
+/// redesign.
+model Listing {
+  id            String   @id @default(uuid()) @db.Uuid
+  address       String
+  city          String
+  neighbourhood String?
+  price         Decimal? @db.Decimal
+  beds          Int?
+  baths         Decimal? @db.Decimal
+  propertyType  String?  @map("property_type")
+  description   String?
+  image         String?
+  listingUrl    String?  @map("listing_url")
+  featured      Boolean  @default(false)
+  status        String   @default("published")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  @@index([city])
+  @@index([featured])
+  @@index([status])
+  @@map("listings")
+}
