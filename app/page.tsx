@@ -492,7 +492,7 @@ export default function HomePage() {
             </a>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "32px", alignItems: "start" }}>
-            <a href="/blog#milton-market-update-2026" style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
+            <a href="/blog/milton-market-update-2026" style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img alt="Article image" id="blog-1" src="/images/blog-milton-market.png" style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
               <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
@@ -505,7 +505,7 @@ export default function HomePage() {
                 A look at pricing trends, inventory, and where the Milton market is headed.
               </p>
             </a>
-            <a href="/blog#oakville-neighbourhood-guide" style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
+            <a href="/blog/oakville-neighbourhood-guide" style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img alt="Article image" id="blog-2" src="/images/blog-oakville-guide.png" style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
               <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
@@ -518,7 +518,7 @@ export default function HomePage() {
                 Where to look in Oakville depending on your lifestyle and budget.
               </p>
             </a>
-            <a href="/blog#selling-in-burlington-tips" style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
+            <a href="/blog/selling-in-burlington-tips" style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img alt="Article image" id="blog-3" src="/images/blog-seller-prep.png" style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
               <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>

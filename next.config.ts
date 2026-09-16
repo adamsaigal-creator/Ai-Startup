@@ -39,6 +39,10 @@ const nextConfig: NextConfig = {
       { source: "/our-team", destination: "/about", permanent: true },
       { source: "/free-home-evaluation", destination: "/sell", permanent: true },
       { source: "/sitemap", destination: "/neighbourhoods", permanent: true },
+      // /listings and /rentals were skipped in Phase 2 (their destination,
+      // /search, didn't exist yet) - now built in Phase 2B.
+      { source: "/listings", destination: "/search", permanent: true },
+      { source: "/rentals", destination: "/search", permanent: true },
     ];
   },
 };
