@@ -15,8 +15,8 @@ function safeEqual(a: string, b: string): boolean {
 }
 
 /** Checks a username/password pair against ADMIN_USERNAME and
- * ADMIN_PASSWORD_HASH. This is the single place credentials are checked -
- * always server-side, never from client JavaScript. */
+ * ADMIN_PASSWORD_HASH_B64. This is the single place credentials are
+ * checked - always server-side, never from client JavaScript. */
 export async function verifyAdminCredentials(username: string, password: string): Promise<boolean> {
   const expectedUsername = process.env.ADMIN_USERNAME;
   if (!expectedUsername) {
