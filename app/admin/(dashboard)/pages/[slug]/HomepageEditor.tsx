@@ -1,174 +1,20 @@
 "use client";
 
-import { useId, useState, type CSSProperties, type ReactNode } from "react";
+import { useState } from "react";
+import {
+  Section,
+  ItemCard,
+  TextField,
+  TextAreaField,
+  ImageField,
+  LinkFields,
+  NumberedItemsEditor,
+  FaqItemsEditor,
+  SaveBar,
+  useSaveStatus,
+} from "../_components/AdminEditorKit";
 import { updateHomepageContentAction } from "./actions";
 import type { HomepageContent } from "./homepage-schema";
-
-type LinkValue = { label: string; href: string };
-
-const inputStyle: CSSProperties = {
-  padding: "10px 12px",
-  border: "1px solid oklch(85% 0.012 70)",
-  borderRadius: "4px",
-  fontSize: "14px",
-  fontFamily: "var(--font-work-sans), sans-serif",
-  background: "oklch(99% 0.004 90)",
-  width: "100%",
-  boxSizing: "border-box",
-};
-
-function Field({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <label style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "13px" }}>
-      <span style={{ fontWeight: 600, color: "oklch(35% 0.015 60)" }}>{label}</span>
-      {children}
-    </label>
-  );
-}
-
-function TextField({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
-  return (
-    <Field label={label}>
-      <input type="text" value={value} onChange={(e) => onChange(e.target.value)} style={inputStyle} />
-    </Field>
-  );
-}
-
-function TextAreaField({
-  label,
-  value,
-  onChange,
-  rows = 4,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  rows?: number;
-}) {
-  return (
-    <Field label={label}>
-      <textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        rows={rows}
-        style={{ ...inputStyle, resize: "vertical", fontFamily: "inherit" }}
-      />
-    </Field>
-  );
-}
-
-function ImageField({
-  label,
-  value,
-  onChange,
-  mediaPaths,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  mediaPaths: string[];
-}) {
-  const listId = useId();
-  return (
-    <Field label={label}>
-      <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        {value ? (
-          <img
-            src={value}
-            alt=""
-            style={{
-              width: "44px",
-              height: "44px",
-              objectFit: "cover",
-              borderRadius: "4px",
-              border: "1px solid oklch(85% 0.012 70)",
-              flexShrink: 0,
-            }}
-          />
-        ) : null}
-        <input
-          type="text"
-          list={listId}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          placeholder="/images/example.png"
-          style={{ ...inputStyle, flex: 1 }}
-        />
-      </div>
-      <datalist id={listId}>
-        {mediaPaths.map((p) => (
-          <option key={p} value={p} />
-        ))}
-      </datalist>
-    </Field>
-  );
-}
-
-function LinkFields({
-  labelPrefix,
-  value,
-  onChange,
-}: {
-  labelPrefix: string;
-  value: LinkValue;
-  onChange: (v: LinkValue) => void;
-}) {
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-      <TextField label={`${labelPrefix} Label`} value={value.label} onChange={(label) => onChange({ ...value, label })} />
-      <TextField label={`${labelPrefix} URL`} value={value.href} onChange={(href) => onChange({ ...value, href })} />
-    </div>
-  );
-}
-
-function Section({ title, defaultOpen, children }: { title: string; defaultOpen?: boolean; children: ReactNode }) {
-  return (
-    <details
-      open={defaultOpen}
-      style={{
-        background: "oklch(99% 0.004 90)",
-        border: "1px solid oklch(89% 0.012 70)",
-        borderRadius: "4px",
-        marginBottom: "16px",
-      }}
-    >
-      <summary
-        style={{
-          padding: "16px 20px",
-          cursor: "pointer",
-          fontFamily: "var(--font-cormorant-garamond), serif",
-          fontSize: "18px",
-          fontWeight: 600,
-          color: "oklch(23% 0.012 60)",
-        }}
-      >
-        {title}
-      </summary>
-      <div style={{ padding: "4px 20px 22px", display: "flex", flexDirection: "column", gap: "16px" }}>{children}</div>
-    </details>
-  );
-}
-
-function ItemCard({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <div
-      style={{
-        border: "1px solid oklch(90% 0.012 70)",
-        borderRadius: "4px",
-        padding: "14px 16px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-      }}
-    >
-      <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
-        {title}
-      </span>
-      {children}
-    </div>
-  );
-}
 
 export function HomepageEditor({
   initialContent,
@@ -184,11 +30,10 @@ export function HomepageEditor({
   const [content, setContent] = useState<HomepageContent>(initialContent);
   const [seoTitle, setSeoTitle] = useState(initialSeoTitle);
   const [seoDescription, setSeoDescription] = useState(initialSeoDescription);
-  const [status, setStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const { status, errorMessage, run, markDirty } = useSaveStatus();
 
   function set<K extends keyof HomepageContent>(key: K, updater: (prev: HomepageContent[K]) => HomepageContent[K]) {
-    setStatus("idle");
+    markDirty();
     setContent((prev) => ({ ...prev, [key]: updater(prev[key]) }));
   }
 
@@ -196,61 +41,11 @@ export function HomepageEditor({
     return items.map((item, i) => (i === index ? { ...item, ...patch } : item));
   }
 
-  async function handleSave() {
-    setStatus("saving");
-    setErrorMessage("");
-    const result = await updateHomepageContentAction({ content, seoTitle, seoDescription });
-    if (result.ok) {
-      setStatus("success");
-    } else {
-      setStatus("error");
-      setErrorMessage(result.error);
-    }
-  }
+  const handleSave = () => run(() => updateHomepageContentAction({ content, seoTitle, seoDescription }));
 
   return (
     <div>
-      <div
-        style={{
-          position: "sticky",
-          top: "-36px",
-          zIndex: 5,
-          background: "oklch(97% 0.012 75)",
-          padding: "0 0 16px",
-          marginBottom: "8px",
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-        }}
-      >
-        <button
-          type="button"
-          onClick={handleSave}
-          disabled={status === "saving"}
-          style={{
-            padding: "11px 26px",
-            background: "oklch(23% 0.012 60)",
-            color: "oklch(99% 0.004 90)",
-            border: "none",
-            borderRadius: "4px",
-            fontSize: "14px",
-            fontWeight: 600,
-            letterSpacing: "0.02em",
-            cursor: status === "saving" ? "default" : "pointer",
-            opacity: status === "saving" ? 0.6 : 1,
-          }}
-        >
-          {status === "saving" ? "Saving…" : "Save Changes"}
-        </button>
-        {status === "success" && (
-          <span style={{ fontSize: "13px", color: "oklch(50% 0.14 145)", fontWeight: 600 }}>
-            Saved — the public homepage now reflects these changes.
-          </span>
-        )}
-        {status === "error" && (
-          <span style={{ fontSize: "13px", color: "oklch(55% 0.2 25)", fontWeight: 600 }}>Error: {errorMessage}</span>
-        )}
-      </div>
+      <SaveBar status={status} errorMessage={errorMessage} onSave={handleSave} />
 
       <Section title="Hero" defaultOpen>
         <TextField label="Eyebrow" value={content.hero.eyebrow} onChange={(v) => set("hero", (h) => ({ ...h, eyebrow: v }))} />
@@ -326,15 +121,7 @@ export function HomepageEditor({
           onChange={(v) => set("philosophy", (s) => ({ ...s, image: v }))}
           mediaPaths={mediaPaths}
         />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px" }}>
-          {content.pillars.items.map((item, i) => (
-            <ItemCard key={i} title={item.title || `Pillar ${i + 1}`}>
-              <TextField label="Number" value={item.number} onChange={(v) => set("pillars", (s) => ({ ...s, items: updateItem(s.items, i, { number: v }) }))} />
-              <TextField label="Title" value={item.title} onChange={(v) => set("pillars", (s) => ({ ...s, items: updateItem(s.items, i, { title: v }) }))} />
-              <TextAreaField label="Body" rows={3} value={item.body} onChange={(v) => set("pillars", (s) => ({ ...s, items: updateItem(s.items, i, { body: v }) }))} />
-            </ItemCard>
-          ))}
-        </div>
+        <NumberedItemsEditor items={content.pillars.items} onChange={(items) => set("pillars", () => ({ items }))} />
       </Section>
 
       <Section title="Team">
@@ -407,12 +194,7 @@ export function HomepageEditor({
           value={{ label: content.faqPreview.ctaLabel, href: content.faqPreview.ctaHref }}
           onChange={(v) => set("faqPreview", (s) => ({ ...s, ctaLabel: v.label, ctaHref: v.href }))}
         />
-        {content.faqPreview.items.map((item, i) => (
-          <ItemCard key={i} title={`Question ${i + 1}`}>
-            <TextField label="Question" value={item.question} onChange={(v) => set("faqPreview", (s) => ({ ...s, items: updateItem(s.items, i, { question: v }) }))} />
-            <TextAreaField label="Answer" rows={3} value={item.answer} onChange={(v) => set("faqPreview", (s) => ({ ...s, items: updateItem(s.items, i, { answer: v }) }))} />
-          </ItemCard>
-        ))}
+        <FaqItemsEditor items={content.faqPreview.items} onChange={(items) => set("faqPreview", (s) => ({ ...s, items }))} />
       </Section>
 
       <Section title="International Reach">
@@ -435,8 +217,23 @@ export function HomepageEditor({
       </Section>
 
       <Section title="SEO" defaultOpen>
-        <TextField label="SEO Title" value={seoTitle} onChange={(v) => { setStatus("idle"); setSeoTitle(v); }} />
-        <TextAreaField label="Meta Description" rows={2} value={seoDescription} onChange={(v) => { setStatus("idle"); setSeoDescription(v); }} />
+        <TextField
+          label="SEO Title"
+          value={seoTitle}
+          onChange={(v) => {
+            markDirty();
+            setSeoTitle(v);
+          }}
+        />
+        <TextAreaField
+          label="Meta Description"
+          rows={2}
+          value={seoDescription}
+          onChange={(v) => {
+            markDirty();
+            setSeoDescription(v);
+          }}
+        />
       </Section>
     </div>
   );
