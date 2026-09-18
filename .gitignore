@@ -34,6 +34,11 @@ yarn-error.log*
 .env*
 !.env.example
 
+# self-hosted media uploads (Phase 4F) - runtime data, not source. The
+# default local-dev storage location (see lib/media/storage.ts); a real
+# deployment points MEDIA_STORAGE_PATH outside this repo entirely.
+/storage/uploads
+
 # vercel
 .vercel
 

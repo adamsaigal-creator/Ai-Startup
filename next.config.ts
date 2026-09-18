@@ -19,6 +19,15 @@ const LEGACY_DC_HTML_REDIRECTS: Record<string, string> = {
 };
 
 const nextConfig: NextConfig = {
+  // Server Actions default to a 1MB request body cap; Phase 4F's media
+  // upload action needs room for the 10MB image cap enforced in
+  // lib/media/storage.ts, plus multipart/form-data's own boundary/header
+  // overhead (see the serverActions.bodySizeLimit docs).
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "15mb",
+    },
+  },
   async redirects() {
     return [
       // Sub-Neighbourhood.dc.html?slug=<slug> -> the clean root-level slug

@@ -132,15 +132,22 @@ model SiteSettings {
   @@map("site_settings")
 }
 
-/// Metadata catalog for site images. storagePath is a /public-relative
-/// path for now (files still live under /public on the server) - a later
-/// phase can point this at real on-disk upload storage without a schema
-/// change.
+/// Metadata catalog for site images. storagePath is always the public URL
+/// the image is served at, never a filesystem path - two backends share
+/// that convention: legacy build-time assets under /images/... (served
+/// from /public, committed to git) and Phase 4F's self-hosted runtime
+/// uploads under /media/... (bytes on disk at MEDIA_STORAGE_PATH, served
+/// by app/media/[...path]/route.ts - see lib/media/storage.ts). Either
+/// way, PostgreSQL stays the source of truth for the metadata; only the
+/// image bytes for /media/... rows live outside the database.
 model Media {
   id          String   @id @default(uuid()) @db.Uuid
   filename    String
   storagePath String   @map("storage_path")
   altText     String?  @map("alt_text")
+  /// Optional display caption/title, distinct from altText (accessibility
+  /// text) - e.g. a credit line or a short title shown under the image.
+  caption     String?
   mimeType    String?  @map("mime_type")
   width       Int?
   height      Int?
