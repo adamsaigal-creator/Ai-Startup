@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
 import { prisma } from "@/lib/db/client";
-import { AdminPlaceholder } from "../_components/AdminPlaceholder";
+import { ListingList, type ListingListRow } from "./ListingList";
 
 export const metadata: Metadata = {
   title: "Listings — Saigal Realty Admin",
   robots: { index: false, follow: false },
 };
 
-export default async function AdminListingsPlaceholder() {
-  const [total, featured] = await Promise.all([
-    prisma.listing.count(),
-    prisma.listing.count({ where: { featured: true } }),
-  ]);
-  return (
-    <AdminPlaceholder
-      title="Listings"
-      description="Manage manually curated featured listings shown on the Search and city overview pages."
-      stats={[
-        { label: "Total Listings", value: String(total) },
-        { label: "Featured", value: String(featured) },
-      ]}
-    />
-  );
+const dateFormatter = new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "short", day: "numeric" });
+
+export default async function AdminListingsPage() {
+  const rows = await prisma.listing.findMany({
+    orderBy: [{ updatedAt: "desc" }],
+  });
+
+  const list: ListingListRow[] = rows.map((r) => ({
+    id: r.id,
+    address: r.address,
+    city: r.city,
+    propertyType: r.propertyType,
+    price: r.price ? r.price.toNumber() : null,
+    status: r.status,
+    featured: r.featured,
+    image: r.image,
+    updatedAtLabel: dateFormatter.format(r.updatedAt),
+  }));
+
+  return <ListingList initialItems={list} />;
 }
