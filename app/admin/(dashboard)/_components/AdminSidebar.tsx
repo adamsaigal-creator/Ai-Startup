@@ -24,6 +24,7 @@ const NAV_SECTIONS: NavSection[] = [
     label: "Content",
     links: [
       { label: "Neighbourhoods", href: "/admin/neighbourhoods" },
+      { label: "Team", href: "/admin/team" },
       { label: "Blog", href: "/admin/blog" },
       { label: "Media Library", href: "/admin/media" },
     ],

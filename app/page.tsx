@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
-import { TeamCarousel, type TeamMember } from "@/components/TeamCarousel";
+import { TeamCarousel } from "@/components/TeamCarousel";
 import { getPage } from "@/lib/data/pages";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getBlogPostsBySlugs } from "@/lib/data/blog";
+import { getPublishedTeamMembers } from "@/lib/data/team";
 
 const NAV = [
   { label: "Buy", href: "/buy" },
@@ -14,16 +15,6 @@ const NAV = [
   { label: "Luxury", href: "/luxury" },
   { label: "Blog", href: "#blog" },
   { label: "About", href: "/about" },
-];
-
-const TEAM_MEMBERS: TeamMember[] = [
-  { id: "nomi", name: "Nomi Saigal", role: "Broker of Record", photo: "/uploads/sraa.png" },
-  { id: "kamranm", name: "Kamran Mustafa", role: "Realtor®", photo: "/uploads/sraa.png" },
-  { id: "zak", name: "Zak Abdelnour", role: "Realtor®", photo: "/uploads/sraa.png" },
-  { id: "alam", name: "Alam Arbi", role: "Realtor®", photo: "/uploads/sraa.png" },
-  { id: "kamrans", name: "Kamran Saeed", role: "Realtor®", photo: "/uploads/sraa.png" },
-  { id: "numan", name: "Numan Shafiq", role: "Realtor®", photo: "/uploads/sraa.png" },
-  { id: "haider", name: "Haider Mohammad", role: "Agent · Dallas, TX", photo: "/uploads/sraa.png" },
 ];
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -45,7 +36,7 @@ type FaqPreviewItem = { question: string; answer: string };
 type OfficeItem = { city: string; country: string };
 
 export default async function HomePage() {
-  const [page, settings] = await Promise.all([getPage("homepage"), getSiteSettings()]);
+  const [page, settings, teamMembers] = await Promise.all([getPage("homepage"), getSiteSettings(), getPublishedTeamMembers()]);
   const c = page!.content;
   const blogPosts = await getBlogPostsBySlugs(c.blogPreview.slugs as string[]);
 
@@ -195,7 +186,9 @@ export default async function HomePage() {
               {c.team.headline}
             </h2>
           </div>
-          <TeamCarousel members={TEAM_MEMBERS} />
+          <TeamCarousel
+            members={teamMembers.map((m) => ({ id: m.slug, name: m.name, role: m.role, photo: m.photo }))}
+          />
           <div style={{ textAlign: "center", marginTop: "48px" }}>
             <a href={c.team.ctaHref} style={{ display: "inline-block", padding: "16px 44px", border: "1px solid oklch(23% 0.012 60)", color: "oklch(23% 0.012 60)", fontSize: "13px", fontWeight: "600", letterSpacing: "0.08em", textTransform: "uppercase" }}>
               {c.team.ctaLabel}

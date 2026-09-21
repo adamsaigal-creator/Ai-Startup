@@ -2,7 +2,10 @@
 // sources used by the earlier Supabase seed (scripts/generate-seed-sql.ts),
 // so no content is re-authored - only the destination changes. Safe to
 // re-run: pages/neighbourhoods/blog_posts upsert by slug (stable ids across
-// re-runs); listings/media (no natural unique key) are replaced wholesale.
+// re-runs, but this DOES overwrite any CMS edits to those rows - see the
+// Phase 4A/4G reports); listings/media (no natural unique key) are
+// replaced wholesale; team_members is insert-only (create if missing,
+// never overwrite) specifically so /admin/team edits survive a re-seed.
 import { readdirSync, readFileSync, statSync } from "fs";
 import { extname, join } from "path";
 import { imageSize } from "image-size";
@@ -12,6 +15,7 @@ import { PAGES_CONTENT } from "../scripts/seed-pages-content";
 import { SITE_SETTINGS, LISTINGS } from "../scripts/seed-settings-listings";
 import { SR_NEIGHBOURHOODS } from "../lib/neighbourhoods-data";
 import { BLOG_POSTS } from "../lib/blog-data";
+import { SR_TEAM_MEMBERS } from "../scripts/seed-team-content";
 
 const prisma = new PrismaClient();
 
@@ -91,6 +95,32 @@ async function seedBlogPosts() {
     });
   }
   return BLOG_POSTS.length;
+}
+
+/** Unlike every other seed function here, this is insert-only: it never
+ * updates a row that already exists. Team roster edits happen in
+ * /admin/team once seeded, and a re-run of this script (e.g. as part of
+ * a redeploy) must not silently overwrite them - Prisma's upsert() with
+ * an empty update object is exactly "create if missing, otherwise leave
+ * alone". */
+async function seedTeamMembers() {
+  for (const m of SR_TEAM_MEMBERS) {
+    await prisma.teamMember.upsert({
+      where: { slug: m.slug },
+      create: {
+        slug: m.slug,
+        name: m.name,
+        role: m.role,
+        languages: m.languages,
+        phone: m.phone,
+        photo: m.photo,
+        displayOrder: m.displayOrder,
+        status: "published",
+      },
+      update: {},
+    });
+  }
+  return SR_TEAM_MEMBERS.length;
 }
 
 async function seedSiteSettings() {
@@ -205,6 +235,7 @@ async function main() {
     seedListings(),
     seedMedia(),
   ]);
+  const teamMembers = await seedTeamMembers();
   await seedSiteSettings();
 
   console.log("Seed complete:");
@@ -213,6 +244,7 @@ async function main() {
   console.log(`  blog_posts: ${blogPosts}`);
   console.log(`  listings: ${listings}`);
   console.log(`  media: ${media}`);
+  console.log(`  team_members: ${teamMembers}`);
   console.log(`  site_settings: 1`);
 }
 

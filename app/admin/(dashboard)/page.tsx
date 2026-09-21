@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 const QUICK_ACTIONS = [
   { label: "Edit Homepage", href: "/admin/pages/homepage" },
   { label: "Manage Neighbourhoods", href: "/admin/neighbourhoods" },
+  { label: "Manage Team", href: "/admin/team" },
   { label: "Manage Blog", href: "/admin/blog" },
   { label: "Media Library", href: "/admin/media" },
   { label: "Manage Listings", href: "/admin/listings" },
@@ -84,6 +85,7 @@ export default async function AdminDashboardPage() {
       <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "40px" }}>
         <StatCard label="Pages" value={counts.pages} />
         <StatCard label="Neighbourhoods" value={counts.neighbourhoods} />
+        <StatCard label="Team Members" value={counts.teamMembers} />
         <StatCard label="Blog Posts" value={counts.blogPosts} />
         <StatCard label="Listings" value={counts.listings} />
         <StatCard label="Media" value={counts.media} />

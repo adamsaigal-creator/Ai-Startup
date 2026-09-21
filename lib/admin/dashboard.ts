@@ -10,20 +10,22 @@ import { prisma } from "@/lib/db/client";
 export type DashboardCounts = {
   pages: number;
   neighbourhoods: number;
+  teamMembers: number;
   blogPosts: number;
   listings: number;
   media: number;
 };
 
 export async function getDashboardCounts(): Promise<DashboardCounts> {
-  const [pages, neighbourhoods, blogPosts, listings, media] = await Promise.all([
+  const [pages, neighbourhoods, teamMembers, blogPosts, listings, media] = await Promise.all([
     prisma.page.count(),
     prisma.neighbourhood.count(),
+    prisma.teamMember.count(),
     prisma.blogPost.count(),
     prisma.listing.count(),
     prisma.media.count(),
   ]);
-  return { pages, neighbourhoods, blogPosts, listings, media };
+  return { pages, neighbourhoods, teamMembers, blogPosts, listings, media };
 }
 
 export type RecentPage = { slug: string; title: string; updatedAt: Date };

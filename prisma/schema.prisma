@@ -184,6 +184,38 @@ model Listing {
   @@map("listings")
 }
 
+/// Realtor/team roster (Phase 4G). Previously this 7-person roster lived
+/// inside pages.content (the About page's content.team.members JSON),
+/// with photos hardcoded separately in component code (app/page.tsx's
+/// TEAM_MEMBERS array for the homepage carousel, and a literal src in
+/// app/about/page.tsx) - this table is now the single source of truth
+/// for both the Homepage carousel and the About page grid.
+model TeamMember {
+  id     String @id @default(uuid()) @db.Uuid
+  /// Stable short identifier carried over unchanged from the original
+  /// hardcoded roster (e.g. "nomi") - rendered into public-page element
+  /// ids and used as the list key. Not editable in the admin UI once a
+  /// member is created, matching the "don't expose IDs that could
+  /// silently break references" rule from Phase 4E/4G.
+  slug   String @unique
+  name   String
+  role   String
+  /// Public URL - /media/... (Phase 4F upload) or /images/.../uploads/...
+  /// (legacy static asset). Never an absolute filesystem path.
+  photo        String?
+  languages    String?
+  phone        String?
+  email        String?
+  bio          String?
+  displayOrder Int      @default(0) @map("display_order")
+  status       String   @default("published")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("team_members")
+}
+
 /// Server-side admin session record (Phase 4B). There is a single admin
 /// identity for now, defined by the ADMIN_USERNAME/ADMIN_PASSWORD_HASH env
 /// vars - not a user table. The session cookie holds only an opaque random

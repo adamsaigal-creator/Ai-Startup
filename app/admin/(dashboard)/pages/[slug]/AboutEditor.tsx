@@ -95,25 +95,10 @@ export function AboutEditor({
         <TextField label="Eyebrow" value={content.team.eyebrow} onChange={(v) => set("team", (s) => ({ ...s, eyebrow: v }))} />
         <TextField label="Headline" value={content.team.headline} onChange={(v) => set("team", (s) => ({ ...s, headline: v }))} />
         <p style={{ fontSize: "12px", color: "oklch(52% 0.02 60)", margin: 0 }}>
-          Team photos are not stored in this content record and aren&apos;t editable here - see the Phase 4E report.
+          The roster shown below this heading (names, roles, photos, languages, phone numbers) is managed at{" "}
+          <a href="/admin/team" style={{ fontWeight: 600 }}>Team</a> - see the Phase 4G report for why it moved out of
+          this page&apos;s content.
         </p>
-        {content.team.members.map((member, i) => (
-          <ItemCard key={member.id} title={member.name || `Team Member ${i + 1}`}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-              <TextField label="Name" value={member.name} onChange={(v) => set("team", (s) => ({ ...s, members: updateItem(s.members, i, { name: v }) }))} />
-              <TextField label="Role" value={member.role} onChange={(v) => set("team", (s) => ({ ...s, members: updateItem(s.members, i, { role: v }) }))} />
-            </div>
-            <TextField label="Languages" value={member.languages} onChange={(v) => set("team", (s) => ({ ...s, members: updateItem(s.members, i, { languages: v }) }))} />
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-              <TextField label="Phone" value={member.phone} onChange={(v) => set("team", (s) => ({ ...s, members: updateItem(s.members, i, { phone: v }) }))} />
-              <TextField
-                label="Phone Link (tel:...)"
-                value={member.phoneHref}
-                onChange={(v) => set("team", (s) => ({ ...s, members: updateItem(s.members, i, { phoneHref: v }) }))}
-              />
-            </div>
-          </ItemCard>
-        ))}
       </Section>
 
       <Section title="International Reach">

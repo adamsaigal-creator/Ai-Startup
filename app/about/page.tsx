@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
 import { getSiteSettings } from "@/lib/data/site-settings";
+import { getPublishedTeamMembers } from "@/lib/data/team";
 
 const NAV = [{ label: "Buy", href: "/buy" }, { label: "Sell", href: "/sell" }, { label: "Search", href: "/search" }, { label: "Neighbourhoods", href: "/neighbourhoods" }, { label: "Commercial", href: "/commercial" }, { label: "Luxury", href: "/luxury" }, { label: "Blog", href: "/blog" }, { label: "About", href: "/about" }];
 const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/luxury" }, { label: "Careers", href: "/careers" }, { label: "FAQ", href: "/faq" }, { label: "Contact", href: "/contact" }];
@@ -15,10 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-type TeamMember = { id: string; name: string; role: string; languages: string; phone: string; phoneHref: string };
-
 export default async function Page() {
-  const [page, settings] = await Promise.all([getPage("about"), getSiteSettings()]);
+  const [page, settings, teamMembers] = await Promise.all([getPage("about"), getSiteSettings(), getPublishedTeamMembers()]);
   const c = page!.content;
 
   return (
@@ -73,14 +72,14 @@ export default async function Page() {
             <h2 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "34px", fontWeight: "600", margin: "14px 0 0" }}>{c.team.headline}</h2>
           </div>
           <div style={{ display: "flex", gap: "40px", overflowX: "auto", paddingBottom: "12px", scrollSnapType: "x mandatory" }}>
-            {c.team.members.map((m: TeamMember) => (
+            {teamMembers.map((m) => (
               <div key={m.id} style={{ textAlign: "center", flex: "0 0 200px", scrollSnapAlign: "start" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Headshot" id={`about-${m.id}`} src="/uploads/sraa.png" style={{ width: "160px", height: "160px", margin: "0 auto 18px" }} />
+                <img alt={`${m.name} headshot`} id={`about-${m.slug}`} src={m.photo} style={{ width: "160px", height: "160px", margin: "0 auto 18px", objectFit: "cover", borderRadius: "4px" }} />
                 <h4 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "19px", fontWeight: "600", margin: "0 0 4px" }}>{m.name}</h4>
                 <span style={{ fontSize: "12px", letterSpacing: "0.04em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{m.role}</span>
                 <p style={{ fontSize: "13px", color: "oklch(46% 0.02 60)", margin: "10px 0 0" }}>{m.languages}</p>
-                <a href={m.phoneHref} style={{ fontSize: "13px" }}>{m.phone}</a>
+                {m.phoneHref && <a href={m.phoneHref} style={{ fontSize: "13px" }}>{m.phone}</a>}
               </div>
             ))}
           </div>

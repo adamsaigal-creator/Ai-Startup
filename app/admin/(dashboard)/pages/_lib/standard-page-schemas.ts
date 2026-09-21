@@ -255,21 +255,11 @@ export const commercialContentSchema = z
 // ---------------------------------------------------------------------------
 // About
 // ---------------------------------------------------------------------------
-// Team member `id` is intentionally NOT part of this schema's editable
-// surface - it's round-tripped unchanged (see AboutEditor.tsx) rather than
-// exposed as a field, since it's an internal identifier (used as a DOM id)
-// that a careless edit could desync from other references without any
-// visible symptom.
-const teamMemberSchema = z
-  .object({
-    id: z.string().trim().min(1).max(50),
-    name: z.string().trim().min(1).max(150),
-    role: z.string().trim().min(1).max(150),
-    phone: z.string().trim().max(50),
-    phoneHref: z.string().trim().max(100),
-    languages: z.string().trim().max(200),
-  })
-  .strict();
+// The team roster used to live here as a `members` array (7 fixed
+// entries) - Phase 4G moved it to the team_members table, managed at
+// /admin/team, since the same roster also feeds the Homepage carousel and
+// needed one real source of truth instead of two. This page's `team`
+// section now only carries its own section heading.
 
 export const aboutContentSchema = z
   .object({
@@ -309,7 +299,6 @@ export const aboutContentSchema = z
       .object({
         eyebrow: z.string().trim().max(200),
         headline: z.string().trim().min(1).max(300),
-        members: z.array(teamMemberSchema).length(7),
       })
       .strict(),
     internationalReach: z

@@ -330,17 +330,12 @@ export const PAGES_CONTENT: PageSeed[] = [
           { number: "03", title: "Transparency", body: "Clear numbers, clear timelines, clear next steps — so you always know exactly where you stand." },
         ],
       },
+      // Phase 4G: the member roster moved to the team_members table (see
+      // scripts/seed-team-content.ts) so admin edits and photo changes
+      // apply everywhere the roster is shown. This section now only
+      // carries this page's own section heading.
       team: {
         eyebrow: "Meet The Team", headline: "The People Behind Saigal Realty",
-        members: [
-          { id: "nomi", name: "Nomi Saigal", role: "Broker of Record", languages: "English, Urdu, Hindi", phone: "(905) 876-4126", phoneHref: "tel:9058764126" },
-          { id: "kamranm", name: "Kamran Mustafa", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 802-2012", phoneHref: "tel:4168022012" },
-          { id: "zak", name: "Zak Abdelnour", role: "Realtor®", languages: "English, Arabic", phone: "(647) 638-9233", phoneHref: "tel:6476389233" },
-          { id: "alam", name: "Alam Arbi", role: "Realtor®", languages: "Residential & Commercial · English, Urdu, Hindi", phone: "(905) 279-9991", phoneHref: "tel:9052799991" },
-          { id: "kamrans", name: "Kamran Saeed", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 553-2626", phoneHref: "tel:4165532626" },
-          { id: "numan", name: "Numan Shafiq", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(647) 274-9241", phoneHref: "tel:6472749241" },
-          { id: "haider", name: "Haider Mohammad", role: "Agent · Licensed in Dallas, TX", languages: "Pre-construction · English", phone: "(469) 450-4352", phoneHref: "tel:4694504352" },
-        ],
       },
       internationalReach: {
         eyebrow: "Global Reach", headline: "International Exposure",
