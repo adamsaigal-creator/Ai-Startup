@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getPublishedTeamMembers } from "@/lib/data/team";
 
@@ -10,10 +11,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/l
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("about");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "About Saigal Realty — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "A boutique brokerage built on honest counsel and quiet precision.",
-  };
+    path: "/about",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function Page() {
@@ -48,7 +53,7 @@ export default async function Page() {
         </section>
         <section style={{ padding: "0 56px 100px", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Agent with clients in home" id="about-boutique" src={c.boutique.image} style={{ width: "100%", height: "420px", borderRadius: "4px", display: "block" }} />
+          <img loading="lazy" alt="Agent with clients in home" id="about-boutique" src={c.boutique.image} style={{ width: "100%", height: "420px", borderRadius: "4px", display: "block" }} />
           <div>
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{c.boutique.eyebrow}</span>
             <h2 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "32px", fontWeight: "600", margin: "16px 0 20px", lineHeight: "1.25" }}>{c.boutique.headline}</h2>
@@ -75,7 +80,7 @@ export default async function Page() {
             {teamMembers.map((m) => (
               <div key={m.id} style={{ textAlign: "center", flex: "0 0 200px", scrollSnapAlign: "start" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt={`${m.name} headshot`} id={`about-${m.slug}`} src={m.photo} style={{ width: "160px", height: "160px", margin: "0 auto 18px", objectFit: "cover", borderRadius: "4px" }} />
+                <img loading="lazy" alt={`${m.name} headshot`} id={`about-${m.slug}`} src={m.photo} style={{ width: "160px", height: "160px", margin: "0 auto 18px", objectFit: "cover", borderRadius: "4px" }} />
                 <h4 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "19px", fontWeight: "600", margin: "0 0 4px" }}>{m.name}</h4>
                 <span style={{ fontSize: "12px", letterSpacing: "0.04em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{m.role}</span>
                 <p style={{ fontSize: "13px", color: "oklch(46% 0.02 60)", margin: "10px 0 0" }}>{m.languages}</p>

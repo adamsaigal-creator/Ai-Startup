@@ -6,6 +6,7 @@ import { z } from "zod";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/db/client";
 import { isAuthenticated } from "@/lib/auth/cookies";
+import { optionalSafeHref } from "@/lib/validation/safe-href";
 
 export type ActionResult<T = undefined> = { ok: true; data: T } | { ok: false; error: string };
 
@@ -35,7 +36,7 @@ const contentFieldsSchema = z.object({
   propertyType: optionalText(100),
   description: optionalText(3000),
   image: optionalText(500),
-  listingUrl: optionalText(500),
+  listingUrl: optionalSafeHref(500),
   featured: z.boolean(),
   status: z.enum(["draft", "published", "pending", "sold", "inactive"]),
 });

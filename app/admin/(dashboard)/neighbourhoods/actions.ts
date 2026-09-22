@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db/client";
 import { isAuthenticated } from "@/lib/auth/cookies";
+import { optionalSafeHref } from "@/lib/validation/safe-href";
 
 export type ActionResult<T = undefined> = { ok: true; data: T } | { ok: false; error: string };
 
@@ -27,7 +28,7 @@ const contentFieldsSchema = z.object({
   amenities: optionalText(2000),
   commute: optionalText(2000),
   ctaLabel: optionalText(100),
-  ctaHref: optionalText(300),
+  ctaHref: optionalSafeHref(300),
   customImage: optionalText(500),
   seoTitle: optionalText(300),
   seoDescription: optionalText(500),

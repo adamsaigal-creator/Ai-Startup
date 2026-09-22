@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 
 const NAV = [{ label: "Search", href: "/search" }, { label: "Neighbourhoods", href: "/neighbourhoods" }, { label: "Luxury", href: "/luxury" }, { label: "Blog", href: "/blog" }, { label: "About", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "FAQ", href: "/faq" }];
@@ -9,10 +10,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/l
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("careers");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Careers — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Join the Saigal Realty team serving Milton, Oakville, and Burlington.",
-  };
+    path: "/careers",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function Page() {

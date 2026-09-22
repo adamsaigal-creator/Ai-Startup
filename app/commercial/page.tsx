@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 
 const NAV = [{ label: "Buy", href: "/buy" }, { label: "Sell", href: "/sell" }, { label: "Search", href: "/search" }, { label: "Neighbourhoods", href: "/neighbourhoods" }, { label: "Commercial", href: "/commercial" }, { label: "Luxury", href: "/luxury" }, { label: "Blog", href: "/blog" }, { label: "About", href: "/about" }];
@@ -9,10 +10,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/l
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("commercial");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Commercial Real Estate — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Office, retail, and industrial leasing and sales across Milton, Oakville, and Burlington.",
-  };
+    path: "/commercial",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function Page() {
@@ -42,7 +47,7 @@ export default async function Page() {
             {c.sectors.items.map((s: { title: string; image: string; body: string }) => (
               <div key={s.title} style={{ background: "oklch(99% 0.004 90)", borderRadius: "4px", overflow: "hidden" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt={s.title} src={s.image} style={{ width: "100%", height: "160px" }} />
+                <img loading="lazy" alt={s.title} src={s.image} style={{ width: "100%", height: "160px" }} />
                 <div style={{ padding: "28px 26px" }}>
                   <h3 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "20px", fontWeight: "600", margin: "0 0 10px" }}>{s.title}</h3>
                   <p style={{ fontSize: "14px", lineHeight: "1.65", color: "oklch(46% 0.02 60)", margin: "0" }}>{s.body}</p>

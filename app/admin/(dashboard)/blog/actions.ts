@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db/client";
 import { isAuthenticated } from "@/lib/auth/cookies";
+import { optionalSafeHref } from "@/lib/validation/safe-href";
 
 export type ActionResult<T = undefined> = { ok: true; data: T } | { ok: false; error: string };
 
@@ -34,7 +35,7 @@ const contentFieldsSchema = z.object({
     .nullable()
     .refine((v) => v === null || !Number.isNaN(Date.parse(v)), "Invalid published date"),
   ctaLabel: optionalText(150),
-  ctaHref: optionalText(300),
+  ctaHref: optionalSafeHref(300),
   status: z.enum(["draft", "published"]),
   seoTitle: optionalText(300),
   seoDescription: optionalText(500),

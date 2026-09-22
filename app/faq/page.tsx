@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 
 const NAV = [{ label: "Search", href: "/search" }, { label: "Neighbourhoods", href: "/neighbourhoods" }, { label: "Luxury", href: "/luxury" }, { label: "Blog", href: "/blog" }, { label: "About", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "FAQ", href: "/faq" }];
@@ -9,10 +11,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/l
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("faq");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Frequently Asked Questions — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Answers to common questions about buying, selling, and working with Saigal Realty.",
-  };
+    path: "/faq",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 type FaqItem = { question: string; answer: string; links?: { text: string; href: string }[] };
@@ -22,8 +28,21 @@ export default async function Page() {
   const [page, settings] = await Promise.all([getPage("faq"), getSiteSettings()]);
   const c = page!.content;
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: (c.categories as FaqCategory[]).flatMap((cat) =>
+      cat.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      }))
+    ),
+  };
+
   return (
     <>
+      <JsonLd data={faqJsonLd} />
       <SiteHeader nav={NAV} activeLabel={"FAQ"} ctaLabel="Book a Consultation" ctaHref="/contact" ctaSize="md" logoUrl={settings.logo_url ?? undefined} brokerageName={settings.brokerage_name} />
       <div style={{ fontFamily: "var(--font-work-sans), sans-serif", color: "oklch(23% 0.012 60)", background: "oklch(97% 0.012 75)", width: "100%", overflowX: "hidden" }}>
         <section style={{ padding: "100px 56px 60px", maxWidth: "820px", margin: "0 auto", textAlign: "center" }}>

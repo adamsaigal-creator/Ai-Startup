@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { JsonLd } from "@/components/JsonLd";
 import { getNeighbourhood, getAllNeighbourhoodSlugs } from "@/lib/data/neighbourhoods";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { siteUrl } from "@/lib/seo/site-url";
 import { getSiteSettings } from "@/lib/data/site-settings";
 
 const NAV = [
@@ -32,10 +35,19 @@ export async function generateMetadata({
   params,
 }: PageProps<"/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const { row } = await getNeighbourhood(slug);
+  const { row, image, published } = await getNeighbourhood(slug);
   return {
-    title: row.seo_title ?? `${row.name} Real Estate — Saigal Realty Inc., Brokerage`,
-    description: row.seo_description ?? row.headline ?? `${row.name} real estate in ${row.city}, Ontario.`,
+    ...buildPageMetadata({
+      title: row.seo_title ?? `${row.name} Real Estate — Saigal Realty Inc., Brokerage`,
+      description: row.seo_description ?? row.headline ?? `${row.name} real estate in ${row.city}, Ontario.`,
+      path: `/${slug}`,
+      ogImage: image,
+    }),
+    // Every slug renders a 200 (see getNeighbourhood's "coming soon"
+    // fallback) - only a real published neighbourhood should be
+    // indexable, so an unknown/unpublished slug doesn't become search-
+    // visible thin content.
+    ...(published ? {} : { robots: { index: false, follow: false } }),
   };
 }
 
@@ -43,13 +55,27 @@ export default async function NeighbourhoodPage({
   params,
 }: PageProps<"/[slug]">) {
   const { slug } = await params;
-  const [{ row, image, slotId, cityOverviewHref }, settings] = await Promise.all([
+  const [{ row, image, slotId, cityOverviewHref, published }, settings] = await Promise.all([
     getNeighbourhood(slug),
     getSiteSettings(),
   ]);
 
+  const breadcrumbJsonLd = published
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl() },
+          { "@type": "ListItem", position: 2, name: "Neighbourhoods", item: `${siteUrl()}/neighbourhoods` },
+          { "@type": "ListItem", position: 3, name: row.city, item: `${siteUrl()}${cityOverviewHref}` },
+          { "@type": "ListItem", position: 4, name: row.name, item: `${siteUrl()}/${slug}` },
+        ],
+      }
+    : null;
+
   return (
     <>
+      {breadcrumbJsonLd ? <JsonLd data={breadcrumbJsonLd} /> : null}
       <SiteHeader nav={NAV} activeLabel="Neighbourhoods" ctaLabel="Book a Consultation" ctaHref="/contact" ctaSize="md" logoUrl={settings.logo_url ?? undefined} brokerageName={settings.brokerage_name} />
       <div style={{ fontFamily: "var(--font-work-sans), sans-serif", color: "oklch(23% 0.012 60)", background: "oklch(97% 0.012 75)", width: "100%", overflowX: "hidden" }}>
         <div style={{ padding: "18px 56px 0", fontSize: "13px", color: "oklch(46% 0.02 60)" }}>

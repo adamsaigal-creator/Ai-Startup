@@ -63,6 +63,12 @@ export type ResolvedNeighbourhood = {
   image: string;
   slotId: string;
   cityOverviewHref: string;
+  /** False for an unknown or unpublished slug - the "coming soon"
+   * fallback below is still rendered (matching the original site's
+   * behaviour), but generateMetadata uses this to keep that placeholder
+   * out of search results rather than letting every possible slug become
+   * an indexable soft-404. */
+  published: boolean;
 };
 
 /** Matches the original DCLogic renderVals() fallback: an unknown (or
@@ -98,6 +104,7 @@ export const getNeighbourhood = cache(async (slug: string): Promise<ResolvedNeig
     image,
     slotId: "sub-" + slug,
     cityOverviewHref: row.cta_href ?? CITY_OVERVIEW_HREF[row.city] ?? "/neighbourhoods",
+    published: found !== null,
   };
 });
 

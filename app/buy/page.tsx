@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 
 const NAV = [{ label: "Buy", href: "/buy" }, { label: "Sell", href: "/sell" }, { label: "Search", href: "/search" }, { label: "Neighbourhoods", href: "/neighbourhoods" }, { label: "Commercial", href: "/commercial" }, { label: "Luxury", href: "/luxury" }, { label: "Blog", href: "/blog" }, { label: "About", href: "/about" }];
@@ -9,10 +10,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Sell", href: "/sel
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("buy");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Buy a Home — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Honest guidance from search to closing across Milton, Oakville, and Burlington.",
-  };
+    path: "/buy",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function Page() {

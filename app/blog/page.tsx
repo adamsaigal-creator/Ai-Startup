@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getAllBlogPosts } from "@/lib/data/blog";
 
@@ -27,10 +28,14 @@ const FOOTER_LINKS = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("blog");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "The Saigal Realty Blog — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Market updates, neighbourhood guides, and advice for buyers and sellers across Milton, Oakville, and Burlington.",
-  };
+    path: "/blog",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function BlogIndexPage() {

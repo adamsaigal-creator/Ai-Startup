@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getFeaturedListings } from "@/lib/data/listings";
 
@@ -10,10 +11,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Buy", href: "/buy"
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("search");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Property Search — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Search active listings across Halton by location, price, property type, and more.",
-  };
+    path: "/search",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function Page() {

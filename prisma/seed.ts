@@ -1,11 +1,17 @@
-// Seeds the self-hosted Postgres database from the same structured content
-// sources used by the earlier Supabase seed (scripts/generate-seed-sql.ts),
-// so no content is re-authored - only the destination changes. Safe to
-// re-run: pages/neighbourhoods/blog_posts upsert by slug (stable ids across
+// Bootstrap-only seed for a brand-new, empty database - NOT part of a
+// routine deploy (see Phase 4K's docs/DEPLOYMENT.md). Production deploys
+// run `prisma migrate deploy` (schema only) and never call this script.
+//
+// main() below refuses to run at all against a database that already has
+// content, unless ALLOW_RESEED=true is explicitly set - see
+// isDatabaseEmpty(). This exists because several of the writes here are
+// destructive to CMS-edited content if ever run against a live database:
+// pages/neighbourhoods/blog_posts upsert by slug (stable ids across
 // re-runs, but this DOES overwrite any CMS edits to those rows - see the
 // Phase 4A/4G reports); listings/media (no natural unique key) are
 // replaced wholesale; team_members is insert-only (create if missing,
-// never overwrite) specifically so /admin/team edits survive a re-seed.
+// never overwrite) specifically so /admin/team edits survive a re-seed
+// once ALLOW_RESEED lets the script proceed at all.
 import { readdirSync, readFileSync, statSync } from "fs";
 import { extname, join } from "path";
 import { imageSize } from "image-size";
@@ -227,7 +233,43 @@ async function seedMedia() {
   return rows.length;
 }
 
+/** True only if every content table this script writes to is empty - the
+ * "brand-new database" case this script is meant for. Deliberately checks
+ * every table (not just one) so a partially-seeded or partially-migrated
+ * database still gets caught. */
+async function isDatabaseEmpty(): Promise<boolean> {
+  const [pages, neighbourhoods, blogPosts, listings, teamMembers, media] = await Promise.all([
+    prisma.page.count(),
+    prisma.neighbourhood.count(),
+    prisma.blogPost.count(),
+    prisma.listing.count(),
+    prisma.teamMember.count(),
+    prisma.media.count(),
+  ]);
+  return pages === 0 && neighbourhoods === 0 && blogPosts === 0 && listings === 0 && teamMembers === 0 && media === 0;
+}
+
 async function main() {
+  if (process.env.ALLOW_RESEED !== "true" && !(await isDatabaseEmpty())) {
+    console.error(
+      [
+        "",
+        "Refusing to seed: this database already has content.",
+        "",
+        "This script is bootstrap-only, for a brand-new empty database. Several",
+        "of its writes overwrite or wholesale-replace existing rows (see the",
+        "comment at the top of this file) - running it against a live CMS",
+        "database would destroy real admin edits.",
+        "",
+        "If you are certain you want to reset this database back to the",
+        "bootstrap content anyway, re-run with ALLOW_RESEED=true set explicitly.",
+        "",
+      ].join("\n")
+    );
+    process.exitCode = 1;
+    return;
+  }
+
   const [pages, neighbourhoods, blogPosts, listings, media] = await Promise.all([
     seedPages(),
     seedNeighbourhoods(),

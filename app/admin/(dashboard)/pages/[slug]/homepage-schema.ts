@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { safeHref } from "@/lib/validation/safe-href";
 
 // Mirrors the exact shape of the homepage `pages.content` JSON already
 // seeded (scripts/seed-pages-content.ts, slug "homepage") - field for
@@ -11,7 +12,7 @@ import { z } from "zod";
 const linkSchema = z
   .object({
     label: z.string().trim().min(1, "Label is required").max(200),
-    href: z.string().trim().min(1, "URL is required").max(500),
+    href: safeHref(500, { minLength: 1 }),
   })
   .strict();
 
@@ -57,7 +58,7 @@ const featuredCitiesSchema = z
     eyebrow: z.string().trim().max(200),
     headline: z.string().trim().min(1).max(300),
     viewAllLabel: z.string().trim().max(200),
-    viewAllHref: z.string().trim().max(500),
+    viewAllHref: safeHref(500),
     items: z.array(featuredCityItemSchema).length(3),
   })
   .strict();
@@ -69,7 +70,7 @@ const serviceItemSchema = z
     image: z.string().trim().min(1).max(500),
     body: z.string().trim().max(1000),
     ctaLabel: z.string().trim().max(200),
-    ctaHref: z.string().trim().max(500),
+    ctaHref: safeHref(500),
   })
   .strict();
 const servicesSchema = z
@@ -85,7 +86,7 @@ const teamSchema = z
     eyebrow: z.string().trim().max(200),
     headline: z.string().trim().min(1).max(300),
     ctaLabel: z.string().trim().max(200),
-    ctaHref: z.string().trim().max(500),
+    ctaHref: safeHref(500),
   })
   .strict();
 
@@ -110,9 +111,9 @@ const testimonialsSchema = z
 const neighbourhoodColumnSchema = z
   .object({
     heading: z.string().trim().min(1).max(100),
-    overviewHref: z.string().trim().max(500).optional(),
+    overviewHref: safeHref(500).optional(),
     viewAllLabel: z.string().trim().max(200).optional(),
-    viewAllHref: z.string().trim().max(500).optional(),
+    viewAllHref: safeHref(500).optional(),
     links: z.array(linkSchema).min(1).max(10),
   })
   .strict();
@@ -122,7 +123,7 @@ const allNeighbourhoodsSchema = z
     headline: z.string().trim().min(1).max(300),
     body: z.string().trim().max(1000),
     ctaLabel: z.string().trim().max(200),
-    ctaHref: z.string().trim().max(500),
+    ctaHref: safeHref(500),
     columns: z.array(neighbourhoodColumnSchema).length(4),
   })
   .strict();
@@ -132,7 +133,7 @@ const blogPreviewSchema = z
     eyebrow: z.string().trim().max(200),
     headline: z.string().trim().min(1).max(300),
     ctaLabel: z.string().trim().max(200),
-    ctaHref: z.string().trim().max(500),
+    ctaHref: safeHref(500),
     slugs: z.array(z.string().trim().min(1).max(200)).length(3),
   })
   .strict();
@@ -148,7 +149,7 @@ const faqPreviewSchema = z
     eyebrow: z.string().trim().max(200),
     headline: z.string().trim().min(1).max(300),
     ctaLabel: z.string().trim().max(200),
-    ctaHref: z.string().trim().max(500),
+    ctaHref: safeHref(500),
     items: z.array(faqItemSchema).length(5),
   })
   .strict();

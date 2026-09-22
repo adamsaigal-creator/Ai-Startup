@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getNeighbourhoodsByCity } from "@/lib/data/neighbourhoods";
 
@@ -10,10 +11,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/l
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("neighbourhoods");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Neighbourhoods We Serve — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Explore 50+ neighbourhoods across Milton, Oakville, Burlington, Mississauga, and beyond.",
-  };
+    path: "/neighbourhoods",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 type CityGroup = { city: string; anchor: string; overviewHref?: string; overviewLabel?: string; heading?: string; body: string };

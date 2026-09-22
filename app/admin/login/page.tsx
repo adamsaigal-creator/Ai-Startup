@@ -17,7 +17,9 @@ export default async function AdminLoginPage({
     redirect("/admin");
   }
 
-  const { error } = await searchParams;
+  const { error, retry } = await searchParams;
+  const retrySeconds = Array.isArray(retry) ? retry[0] : retry;
+  const retryMinutes = retrySeconds ? Math.max(1, Math.ceil(Number(retrySeconds) / 60)) : null;
 
   return (
     <div
@@ -65,7 +67,21 @@ export default async function AdminLoginPage({
           Sign in to continue
         </p>
 
-        {error ? (
+        {error === "rate_limited" ? (
+          <p
+            role="alert"
+            style={{
+              fontSize: "13px",
+              color: "oklch(55% 0.2 25)",
+              background: "oklch(93% 0.05 25)",
+              borderRadius: "2px",
+              padding: "10px 14px",
+              margin: "0 0 20px",
+            }}
+          >
+            Too many failed attempts. Please try again in about {retryMinutes ?? 15} minute{retryMinutes === 1 ? "" : "s"}.
+          </p>
+        ) : error ? (
           <p
             role="alert"
             style={{

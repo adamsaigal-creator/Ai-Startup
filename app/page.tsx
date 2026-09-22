@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TeamCarousel } from "@/components/TeamCarousel";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getBlogPostsBySlugs } from "@/lib/data/blog";
 import { getPublishedTeamMembers } from "@/lib/data/team";
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from "@/lib/seo/organization-json-ld";
 
 const NAV = [
   { label: "Buy", href: "/buy" },
@@ -19,12 +22,16 @@ const NAV = [
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("homepage");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Saigal Realty Inc., Brokerage — Milton, Oakville, Burlington Real Estate",
     description:
       page?.seo_description ??
       "A boutique brokerage built on honest counsel and quiet precision — guiding discerning buyers and sellers across Halton's most sought-after communities.",
-  };
+    path: "/",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 type FeaturedCity = { name: string; slug: string; image: string; tagline: string };
@@ -52,10 +59,9 @@ export default async function HomePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLd data={buildOrganizationJsonLd(settings)} />
+      <JsonLd data={buildWebSiteJsonLd()} />
+      <JsonLd data={faqJsonLd} />
       {/* Homepage-only selection color, matching the original page's own <style> block */}
       <style>{`::selection{background:oklch(58% 0.16 45 / 0.25)}`}</style>
       <SiteHeader nav={NAV} ctaLabel="Book a Consultation" ctaHref="#contact" ctaSize="sm" logoUrl={settings.logo_url ?? undefined} brokerageName={settings.brokerage_name} />
@@ -97,7 +103,7 @@ export default async function HomePage() {
             </p>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Team or office photo" id="philosophy-img" src={c.philosophy.image} style={{ width: "100%", height: "420px", borderRadius: "4px", minWidth: "0" }} />
+          <img loading="lazy" alt="Team or office photo" id="philosophy-img" src={c.philosophy.image} style={{ width: "100%", height: "420px", borderRadius: "4px", minWidth: "0" }} />
         </section>
         <section style={{ padding: "0 56px 120px", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "48px" }}>
           {c.pillars.items.map((p: { number: string; title: string; body: string }) => (
@@ -132,7 +138,7 @@ export default async function HomePage() {
             {(c.featuredCities.items as FeaturedCity[]).map((city) => (
               <a key={city.slug} href={`/neighbourhoods/${city.slug}`} style={{ display: "block", position: "relative", height: "400px", borderRadius: "4px", overflow: "hidden", minWidth: "0" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt={`${city.name} streetscape`} id={`area-${city.slug}`} src={city.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+                <img loading="lazy" alt={`${city.name} streetscape`} id={`area-${city.slug}`} src={city.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
                 <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, transparent 40%, oklch(15% 0.01 60 / 0.75))", pointerEvents: "none" }}></div>
                 <div style={{ position: "absolute", left: "24px", right: "24px", bottom: "22px", zIndex: "2" }}>
                   <h3 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "26px", fontWeight: "600", color: "oklch(99% 0.004 90)", margin: "0 0 6px" }}>
@@ -160,7 +166,7 @@ export default async function HomePage() {
               {(c.services.items as ServiceItem[]).map((item) => (
                 <div key={item.id} id={item.id} style={{ background: "oklch(99% 0.004 90)", borderRadius: "4px", overflow: "hidden", minWidth: "0" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt={`${item.title} photo`} id={`service-${item.id}`} src={item.image} style={{ width: "100%", height: "140px" }} />
+                  <img loading="lazy" alt={`${item.title} photo`} id={`service-${item.id}`} src={item.image} style={{ width: "100%", height: "140px" }} />
                   <div style={{ padding: "32px 30px 36px" }}>
                     <h3 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "22px", fontWeight: "600", margin: "0 0 14px" }}>
                       {item.title}
@@ -272,7 +278,7 @@ export default async function HomePage() {
             {blogPosts.map((post, i) => (
               <a key={post.slug} href={`/blog/${post.slug}`} style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Article image" id={`blog-${i + 1}`} src={post.featured_image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
+                <img loading="lazy" alt="Article image" id={`blog-${i + 1}`} src={post.featured_image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
                 <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
                   {post.category}
                 </span>

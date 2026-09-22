@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { prisma } from "@/lib/db/client";
 import { isAuthenticated } from "@/lib/auth/cookies";
+import { optionalSafeHref } from "@/lib/validation/safe-href";
 
 export type ActionResult<T = undefined> = { ok: true; data: T } | { ok: false; error: string };
 
@@ -19,9 +20,9 @@ const settingsSchema = z.object({
   email: optionalText(200),
   addressLine1: optionalText(200),
   addressLine2: optionalText(200),
-  socialInstagram: optionalText(300),
-  socialFacebook: optionalText(300),
-  socialLinkedin: optionalText(300),
+  socialInstagram: optionalSafeHref(300),
+  socialFacebook: optionalSafeHref(300),
+  socialLinkedin: optionalSafeHref(300),
   footerTagline: optionalText(300),
   copyrightText: optionalText(200),
   contactFormDestinationEmail: optionalText(200),

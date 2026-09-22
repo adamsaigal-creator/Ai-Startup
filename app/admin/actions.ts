@@ -1,24 +1,38 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { verifyAdminCredentials } from "@/lib/auth/credentials";
 import { createSessionToken, destroySessionToken } from "@/lib/auth/session";
 import { setSessionCookie, clearSessionCookie, readSessionCookie } from "@/lib/auth/cookies";
+import { checkLoginRateLimit, recordFailedLogin, clearLoginAttempts, clientKeyFromHeaders } from "@/lib/auth/rate-limit";
 
 /**
  * Server Action bound to the login form. Credentials are read from
  * FormData and checked entirely server-side (verifyAdminCredentials) -
  * nothing about the check is ever sent to or run in client JavaScript.
+ * Rate-limited per client IP (lib/auth/rate-limit.ts) before credentials
+ * are even checked, so a lockout doesn't itself become a way to burn
+ * Argon2id hashing cycles.
  */
 export async function loginAction(formData: FormData) {
+  const key = clientKeyFromHeaders(await headers());
+
+  const rateLimit = checkLoginRateLimit(key);
+  if (!rateLimit.allowed) {
+    redirect(`/admin/login?error=rate_limited&retry=${rateLimit.retryAfterSeconds}`);
+  }
+
   const username = String(formData.get("username") ?? "");
   const password = String(formData.get("password") ?? "");
 
   const ok = await verifyAdminCredentials(username, password);
   if (!ok) {
+    recordFailedLogin(key);
     redirect("/admin/login?error=1");
   }
 
+  clearLoginAttempts(key);
   const { token, expiresAt } = await createSessionToken();
   await setSessionCookie(token, expiresAt);
   redirect("/admin");

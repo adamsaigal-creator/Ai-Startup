@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 
 const NAV = [{ label: "Buy", href: "/buy" }, { label: "Sell", href: "/sell" }, { label: "Search", href: "/search" }, { label: "Neighbourhoods", href: "/neighbourhoods" }, { label: "Commercial", href: "/commercial" }, { label: "Luxury", href: "/luxury" }, { label: "Blog", href: "/blog" }, { label: "About", href: "/about" }];
@@ -9,10 +10,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Neighbourhoods", h
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("luxury");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Luxury Real Estate — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Discreet, considered representation for the region's finest properties.",
-  };
+    path: "/luxury",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 export default async function Page() {
@@ -40,7 +45,7 @@ export default async function Page() {
           {c.imageGrid.images.map((img: { src: string; alt: string }) => (
             <div key={img.src} style={{ position: "relative", height: "340px", borderRadius: "4px", overflow: "hidden" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img alt={img.alt} src={img.src} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+              <img loading="lazy" alt={img.alt} src={img.src} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
             </div>
           ))}
         </section>

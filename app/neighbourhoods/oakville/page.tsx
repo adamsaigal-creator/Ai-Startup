@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { getPage } from "@/lib/data/pages";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/lib/data/site-settings";
 import { getFeaturedListings } from "@/lib/data/listings";
 
@@ -10,10 +11,14 @@ const FOOTER_LINKS = [{ label: "Home", href: "/" }, { label: "Luxury", href: "/l
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPage("neighbourhoods-oakville");
-  return {
+  return buildPageMetadata({
     title: page?.seo_title ?? "Oakville Real Estate — Saigal Realty Inc., Brokerage",
     description: page?.seo_description ?? "Oakville real estate — homes for sale, market stats, schools, waterfront, and commute.",
-  };
+    path: "/neighbourhoods/oakville",
+    ogTitle: page?.og_title,
+    ogDescription: page?.og_description,
+    ogImage: page?.og_image,
+  });
 }
 
 type LifestyleItem = { title: string; body: string };
@@ -118,7 +123,7 @@ export default async function Page() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "28px" }}>
               {listings.map((listing, i) => (
                 <div key={listing.id} style={{ background: "oklch(99% 0.004 90)", borderRadius: "4px", overflow: "hidden", minWidth: "0" }}>
-                  <img alt="Listing photo" id={`ov-listing-${i + 1}`} src={listing.image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "220px" }} />
+                  <img loading="lazy" alt="Listing photo" id={`ov-listing-${i + 1}`} src={listing.image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "220px" }} />
                   <div style={{ padding: "20px" }}>
                     <span style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "20px", fontWeight: "600" }}>
                       {listing.price ? `$${Number(listing.price).toLocaleString()}` : "Price on request"}

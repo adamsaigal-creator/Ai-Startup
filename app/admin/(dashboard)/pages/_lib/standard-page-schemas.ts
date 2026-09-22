@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { safeHref } from "@/lib/validation/safe-href";
 
 // Zod schemas for the six "standard" page editors (buy, sell, luxury,
 // commercial, about, contact), mirroring each page's real stored
@@ -18,7 +19,7 @@ import { z } from "zod";
 const linkSchema = z
   .object({
     label: z.string().trim().min(1, "Label is required").max(200),
-    href: z.string().trim().min(1, "URL is required").max(500),
+    href: safeHref(500, { minLength: 1 }),
   })
   .strict();
 
@@ -44,14 +45,14 @@ const ctaSchema = z
     headline: z.string().trim().min(1).max(300),
     body: z.string().trim().max(1000),
     buttonLabel: z.string().trim().max(200),
-    buttonHref: z.string().trim().max(500),
+    buttonHref: safeHref(500),
   })
   .strict();
 
 const faqLinkSchema = z
   .object({
     text: z.string().trim().min(1).max(200),
-    href: z.string().trim().min(1).max(500),
+    href: safeHref(500, { minLength: 1 }),
   })
   .strict();
 
@@ -192,7 +193,7 @@ export const luxuryContentSchema = z
         headline: z.string().trim().min(1).max(300),
         body: z.string().trim().max(2000),
         linkLabel: z.string().trim().max(200),
-        linkHref: z.string().trim().max(500),
+        linkHref: safeHref(500),
       })
       .strict(),
     cta: ctaSchema,
@@ -324,7 +325,7 @@ export const aboutContentSchema = z
         headline: z.string().trim().min(1).max(300),
         body: z.string().trim().max(1000),
         buttonLabel: z.string().trim().max(200),
-        buttonHref: z.string().trim().max(500),
+        buttonHref: safeHref(500),
       })
       .strict(),
     cta: ctaSchema,
