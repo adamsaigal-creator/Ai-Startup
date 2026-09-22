@@ -55,3 +55,45 @@ export async function destroySessionToken(token: string | undefined | null): Pro
   if (!token) return;
   await prisma.adminSession.delete({ where: { tokenHash: hashToken(token) } }).catch(() => {});
 }
+
+export type SessionRecord = { id: string; createdAt: Date; expiresAt: Date };
+
+/** Looks up the AdminSession row for the current cookie's raw token -
+ * used by /admin/users to show "this is your current session" and to
+ * exclude it from a "log out other sessions" action. Returns null for a
+ * missing/expired/invalid token (mirrors verifySessionToken's checks)
+ * rather than throwing, since callers use this for display, not as a
+ * security gate - isAuthenticated()/proxy.ts remain the actual gate. */
+export async function getSessionRecordByToken(token: string | undefined | null): Promise<SessionRecord | null> {
+  if (!token) return null;
+  const session = await prisma.adminSession.findUnique({
+    where: { tokenHash: hashToken(token) },
+    select: { id: true, createdAt: true, expiresAt: true },
+  });
+  if (!session || session.expiresAt <= new Date()) return null;
+  return session;
+}
+
+/** Counts only non-expired sessions - expired rows may still be sitting
+ * in the table until their next verification attempt opportunistically
+ * deletes them (see verifySessionToken), so a raw count() would overstate
+ * how many sessions are actually active. */
+export async function countActiveSessions(): Promise<number> {
+  return prisma.adminSession.count({ where: { expiresAt: { gt: new Date() } } });
+}
+
+/** Deletes every session row except the one given - "log out everywhere
+ * else," safe to run from the session doing the logging-out since it
+ * never touches its own row. */
+export async function deleteAllSessionsExcept(currentSessionId: string): Promise<number> {
+  const result = await prisma.adminSession.deleteMany({ where: { id: { not: currentSessionId } } });
+  return result.count;
+}
+
+/** Deletes every session row, including the caller's own - a real "log
+ * out everywhere," which also ends the current session (the caller must
+ * clear its own cookie and redirect to login afterward). */
+export async function deleteAllSessions(): Promise<number> {
+  const result = await prisma.adminSession.deleteMany({});
+  return result.count;
+}
