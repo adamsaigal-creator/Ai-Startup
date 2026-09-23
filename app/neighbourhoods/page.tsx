@@ -47,7 +47,7 @@ export default async function Page() {
             {c.hero.body}
           </p>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Aerial view of Halton region" id="neighbourhoods-hero" src={c.hero.image} style={{ width: "100%", height: "280px", borderRadius: "4px", display: "block" }} />
+          <img alt="Aerial view of Halton region" id="neighbourhoods-hero" src={c.hero.image} style={{ objectFit: "cover", width: "100%", height: "280px", borderRadius: "4px", display: "block" }} />
         </section>
         <section style={{ padding: "0 56px 80px", maxWidth: "640px", margin: "0 auto", display: "flex", justifyContent: "center", gap: "24px", flexWrap: "wrap", fontSize: "14px", fontWeight: "600" }}>
           {c.quickNav.map((item: { label: string; href: string }) => (

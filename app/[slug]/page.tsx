@@ -97,7 +97,7 @@ export default async function NeighbourhoodPage({
             alt={`${row.name} streetscape`}
             id={slotId}
             src={image}
-            style={{ width: "100%", height: "380px", borderRadius: "4px", display: "block" }}
+            style={{ objectFit: "cover", width: "100%", height: "380px", borderRadius: "4px", display: "block" }}
           />
         </section>
         <section style={{ padding: "60px 56px 20px", maxWidth: "820px", margin: "0 auto" }}>

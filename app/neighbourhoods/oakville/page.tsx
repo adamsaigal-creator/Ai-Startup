@@ -51,7 +51,7 @@ export default async function Page() {
           </span>
         </div>
         <section style={{ position: "relative", height: "56vh", minHeight: "420px", width: "100%", marginTop: "18px" }}>
-          <img alt="Oakville waterfront / downtown" id="oakville-hero" src={c.hero.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+          <img alt="Oakville waterfront / downtown" id="oakville-hero" src={c.hero.image} style={{ objectFit: "cover", position: "absolute", inset: "0", width: "100%", height: "100%" }} />
           <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, oklch(20% 0.01 60 / 0.25), oklch(15% 0.01 60 / 0.65))", pointerEvents: "none" }}></div>
           <div style={{ position: "relative", zIndex: "2", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 56px 48px" }}>
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(90% 0.03 60)", marginBottom: "14px" }}>
@@ -123,7 +123,7 @@ export default async function Page() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: "28px" }}>
               {listings.map((listing, i) => (
                 <div key={listing.id} style={{ background: "oklch(99% 0.004 90)", borderRadius: "4px", overflow: "hidden", minWidth: "0" }}>
-                  <img loading="lazy" alt="Listing photo" id={`ov-listing-${i + 1}`} src={listing.image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "220px" }} />
+                  <img loading="lazy" alt="Listing photo" id={`ov-listing-${i + 1}`} src={listing.image ?? "/images/neighbourhoods-hero.png"} style={{ objectFit: "cover", width: "100%", height: "220px" }} />
                   <div style={{ padding: "20px" }}>
                     <span style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "20px", fontWeight: "600" }}>
                       {listing.price ? `$${Number(listing.price).toLocaleString()}` : "Price on request"}

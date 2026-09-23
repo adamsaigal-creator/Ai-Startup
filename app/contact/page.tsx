@@ -33,7 +33,7 @@ export default async function Page() {
           <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{c.hero.eyebrow}</span>
           <h1 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "46px", fontWeight: "600", margin: "16px 0 32px" }}>{c.hero.headline}</h1>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Office exterior or handshake photo" id="contact-hero" src={c.hero.image} style={{ width: "100%", height: "280px", borderRadius: "4px", display: "block" }} />
+          <img alt="Office exterior or handshake photo" id="contact-hero" src={c.hero.image} style={{ objectFit: "cover", width: "100%", height: "280px", borderRadius: "4px", display: "block" }} />
         </section>
         <section style={{ padding: "0 56px 120px", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: "64px" }}>
           <form action={formAction} encType="text/plain" method="post" style={{ display: "flex", flexDirection: "column", gap: "16px" }}>

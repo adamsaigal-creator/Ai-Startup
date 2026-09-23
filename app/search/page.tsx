@@ -92,7 +92,7 @@ export default async function Page() {
             {listings.map((listing) => (
               <div key={listing.id}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img alt="Listing photo" src={listing.image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "220px", borderRadius: "4px", display: "block", marginBottom: "14px" }} />
+                <img alt="Listing photo" src={listing.image ?? "/images/neighbourhoods-hero.png"} style={{ objectFit: "cover", width: "100%", height: "220px", borderRadius: "4px", display: "block", marginBottom: "14px" }} />
                 <span style={{ fontSize: "11px", letterSpacing: "0.06em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>For Sale · {listing.city}</span>
                 <h4 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "19px", fontWeight: "600", margin: "8px 0 4px" }}>{listing.neighbourhood}</h4>
                 <p style={{ fontSize: "14px", color: "oklch(46% 0.02 60)", margin: "0" }}>{listing.beds} bd · {listing.baths} ba · {listing.price ? `$${Number(listing.price).toLocaleString()}` : "Price on request"}</p>
