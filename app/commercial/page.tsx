@@ -30,7 +30,7 @@ export default async function Page() {
       <div style={{ fontFamily: "var(--font-work-sans), sans-serif", color: "oklch(23% 0.012 60)", background: "oklch(97% 0.012 75)", width: "100%", overflowX: "hidden" }}>
         <section style={{ position: "relative", height: "52vh", minHeight: "420px", width: "100%" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Office or retail storefront exterior" id="commercial-hero" src={c.hero.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+          <img alt="Office or retail storefront exterior" id="commercial-hero" src={c.hero.image} style={{ objectFit: "cover", position: "absolute", inset: "0", width: "100%", height: "100%" }} />
           <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7))", pointerEvents: "none" }}></div>
           <div style={{ position: "relative", zIndex: "2", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 56px", maxWidth: "780px" }}>
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(90% 0.03 60)", marginBottom: "16px" }}>{c.hero.eyebrow}</span>
@@ -47,7 +47,7 @@ export default async function Page() {
             {c.sectors.items.map((s: { title: string; image: string; body: string }) => (
               <div key={s.title} style={{ background: "oklch(99% 0.004 90)", borderRadius: "4px", overflow: "hidden" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img loading="lazy" alt={s.title} src={s.image} style={{ width: "100%", height: "160px" }} />
+                <img loading="lazy" alt={s.title} src={s.image} style={{ objectFit: "cover", width: "100%", height: "160px" }} />
                 <div style={{ padding: "28px 26px" }}>
                   <h3 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "20px", fontWeight: "600", margin: "0 0 10px" }}>{s.title}</h3>
                   <p style={{ fontSize: "14px", lineHeight: "1.65", color: "oklch(46% 0.02 60)", margin: "0" }}>{s.body}</p>

@@ -65,8 +65,8 @@ export default async function BlogIndexPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   alt="Article image"
-                  src={post.featured_image ?? "/uploads/sraa.png"}
-                  style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }}
+                  src={post.featured_image ?? "/images/neighbourhoods-hero.png"}
+                  style={{ objectFit: "cover", width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }}
                 />
                 <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
                   {post.category}

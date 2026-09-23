@@ -31,7 +31,7 @@ export default async function Page() {
       <div style={{ fontFamily: "var(--font-work-sans), sans-serif", color: "oklch(23% 0.012 60)", background: "oklch(97% 0.012 75)", width: "100%", overflowX: "hidden" }}>
         <section style={{ position: "relative", height: "48vh", minHeight: "380px", width: "100%" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Team or office photo" id="about-hero" src={c.hero.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+          <img alt="Team or office photo" id="about-hero" src={c.hero.image} style={{ objectFit: "cover", position: "absolute", inset: "0", width: "100%", height: "100%" }} />
           <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7))", pointerEvents: "none" }}></div>
           <div style={{ position: "relative", zIndex: "2", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 56px", maxWidth: "780px" }}>
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(90% 0.03 60)", marginBottom: "16px" }}>{c.hero.eyebrow}</span>
@@ -53,7 +53,7 @@ export default async function Page() {
         </section>
         <section style={{ padding: "0 56px 100px", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img loading="lazy" alt="Agent with clients in home" id="about-boutique" src={c.boutique.image} style={{ width: "100%", height: "420px", borderRadius: "4px", display: "block" }} />
+          <img loading="lazy" alt="Agent with clients in home" id="about-boutique" src={c.boutique.image} style={{ objectFit: "cover", width: "100%", height: "420px", borderRadius: "4px", display: "block" }} />
           <div>
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{c.boutique.eyebrow}</span>
             <h2 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "32px", fontWeight: "600", margin: "16px 0 20px", lineHeight: "1.25" }}>{c.boutique.headline}</h2>
@@ -76,15 +76,26 @@ export default async function Page() {
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{c.team.eyebrow}</span>
             <h2 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "34px", fontWeight: "600", margin: "14px 0 0" }}>{c.team.headline}</h2>
           </div>
-          <div style={{ display: "flex", gap: "40px", overflowX: "auto", paddingBottom: "12px", scrollSnapType: "x mandatory" }}>
+          {/* Final Design pass (About.dc.html): studio portrait above a navy
+              name panel, one shared stage height so every card lines up.
+              Roster, order and photos still come from /admin/team. */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(240px,1fr))", columnGap: "32px", rowGap: "72px", paddingTop: "40px" }}>
             {teamMembers.map((m) => (
-              <div key={m.id} style={{ textAlign: "center", flex: "0 0 200px", scrollSnapAlign: "start" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img loading="lazy" alt={`${m.name} headshot`} id={`about-${m.slug}`} src={m.photo} style={{ width: "160px", height: "160px", margin: "0 auto 18px", objectFit: "cover", borderRadius: "4px" }} />
-                <h4 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "19px", fontWeight: "600", margin: "0 0 4px" }}>{m.name}</h4>
-                <span style={{ fontSize: "12px", letterSpacing: "0.04em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>{m.role}</span>
-                <p style={{ fontSize: "13px", color: "oklch(46% 0.02 60)", margin: "10px 0 0" }}>{m.languages}</p>
-                {m.phoneHref && <a href={m.phoneHref} style={{ fontSize: "13px" }}>{m.phone}</a>}
+              <div key={m.id} data-agent={m.slug} style={{ display: "flex", flexDirection: "column", minWidth: "0" }}>
+                <div style={{ position: "relative", height: "clamp(330px, 30vw, 400px)", width: "100%", overflow: "hidden", background: "#fff" }}>
+                  {m.photo && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img loading="lazy" decoding="async" alt={`Portrait of ${m.name}`} id={`about-${m.slug}`} src={m.photo} width={1122} height={1402} style={{ display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+                  )}
+                </div>
+                <div style={{ position: "relative", zIndex: 1, background: "oklch(15% 0.02 250)", height: "88px", boxSizing: "border-box", padding: "0 12px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+                  <h4 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "20px", fontWeight: "600", letterSpacing: "0.03em", lineHeight: "1.2", whiteSpace: "nowrap", margin: "0 0 6px", color: "oklch(78% 0.11 75)" }}>{m.name}</h4>
+                  <span style={{ fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(72% 0.02 60)" }}>{m.role}</span>
+                </div>
+                <div style={{ textAlign: "center", padding: "16px 8px 0", display: "flex", flexDirection: "column", gap: "6px" }}>
+                  <p style={{ fontSize: "13px", color: "oklch(46% 0.02 60)", margin: "0" }}>{m.languages}</p>
+                  {m.phoneHref && <a href={m.phoneHref} style={{ fontSize: "13px" }}>{m.phone}</a>}
+                </div>
               </div>
             ))}
           </div>

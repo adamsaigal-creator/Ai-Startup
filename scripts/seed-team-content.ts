@@ -6,6 +6,11 @@
 // the seed never overwrites a row that already exists (see
 // prisma/seed.ts's seedTeamMembers()), so CMS edits made in /admin/team
 // survive a re-seed.
+//
+// Final Design pass: studio portraits (public/images/team/*-studio.webp),
+// display order Nomi, Numan, Zak, Alam, Kamran Saeed, Kamran Mustafa, and
+// Haider Mohammad hidden rather than deleted. For fresh installs only -
+// an existing database is updated through /admin/team.
 export type SeedTeamMember = {
   slug: string;
   name: string;
@@ -14,14 +19,18 @@ export type SeedTeamMember = {
   phone: string;
   photo: string;
   displayOrder: number;
+  /** Defaults to "published". "draft" is what /admin/team labels "Hidden":
+   * the row stays in team_members but is not shown on the Homepage or
+   * About page. */
+  status?: "published" | "draft";
 };
 
 export const SR_TEAM_MEMBERS: SeedTeamMember[] = [
-  { slug: "nomi", name: "Nomi Saigal", role: "Broker of Record", languages: "English, Urdu, Hindi", phone: "(905) 876-4126", photo: "/uploads/sraa.png", displayOrder: 0 },
-  { slug: "kamranm", name: "Kamran Mustafa", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 802-2012", photo: "/uploads/sraa.png", displayOrder: 1 },
-  { slug: "zak", name: "Zak Abdelnour", role: "Realtor®", languages: "English, Arabic", phone: "(647) 638-9233", photo: "/uploads/sraa.png", displayOrder: 2 },
-  { slug: "alam", name: "Alam Arbi", role: "Realtor®", languages: "Residential & Commercial · English, Urdu, Hindi", phone: "(905) 279-9991", photo: "/uploads/sraa.png", displayOrder: 3 },
-  { slug: "kamrans", name: "Kamran Saeed", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 553-2626", photo: "/uploads/sraa.png", displayOrder: 4 },
-  { slug: "numan", name: "Numan Shafiq", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(647) 274-9241", photo: "/uploads/sraa.png", displayOrder: 5 },
-  { slug: "haider", name: "Haider Mohammad", role: "Agent · Licensed in Dallas, TX", languages: "Pre-construction · English", phone: "(469) 450-4352", photo: "/uploads/sraa.png", displayOrder: 6 },
+  { slug: "nomi", name: "Nomi Saigal", role: "Broker of Record", languages: "English, Urdu, Hindi", phone: "(905) 876-4126", photo: "/images/team/nomi-saigal-studio.webp", displayOrder: 0 },
+  { slug: "numan", name: "Numan Shafiq", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(647) 274-9241", photo: "/images/team/numan-shafiq-studio.webp", displayOrder: 1 },
+  { slug: "zak", name: "Zak Abdelnour", role: "Realtor®", languages: "English, Arabic", phone: "(647) 638-9233", photo: "/images/team/zak-abdelnour-studio.webp", displayOrder: 2 },
+  { slug: "alam", name: "Alam Arbi", role: "Realtor®", languages: "Residential & Commercial · English, Urdu, Hindi", phone: "(905) 279-9991", photo: "/images/team/alam-arbi-studio.webp", displayOrder: 3 },
+  { slug: "kamrans", name: "Kamran Saeed", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 553-2626", photo: "/images/team/kamran-saeed-studio.webp", displayOrder: 4 },
+  { slug: "kamranm", name: "Kamran Mustafa", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 802-2012", photo: "/images/team/kamran-mustafa-studio.webp", displayOrder: 5 },
+  { slug: "haider", name: "Haider Mohammad", role: "Agent · Licensed in Dallas, TX", languages: "Pre-construction · English", phone: "(469) 450-4352", photo: "", displayOrder: 6, status: "draft" },
 ];

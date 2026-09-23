@@ -119,9 +119,9 @@ async function seedTeamMembers() {
         role: m.role,
         languages: m.languages,
         phone: m.phone,
-        photo: m.photo,
+        photo: m.photo || null,
         displayOrder: m.displayOrder,
-        status: "published",
+        status: m.status ?? "published",
       },
       update: {},
     });

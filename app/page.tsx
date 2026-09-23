@@ -68,7 +68,7 @@ export default async function HomePage() {
       <div style={{ fontFamily: "var(--font-work-sans), sans-serif", color: "oklch(23% 0.012 60)", background: "oklch(97% 0.012 75)", width: "100%", overflowX: "hidden" }}>
         <section style={{ position: "relative", height: "88vh", minHeight: "640px", width: "100%" }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img alt="Drop hero photo — Milton/Oakville/Burlington skyline or signature listing" id="hero" src={c.hero.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+          <img alt="Drop hero photo — Milton/Oakville/Burlington skyline or signature listing" id="hero" src={c.hero.image} style={{ objectFit: "cover", position: "absolute", inset: "0", width: "100%", height: "100%" }} />
           <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, oklch(20% 0.01 60 / 0.35), oklch(15% 0.01 60 / 0.6))", pointerEvents: "none" }}></div>
           <div style={{ position: "relative", zIndex: "2", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 56px", maxWidth: "900px" }}>
             <span style={{ fontSize: "13px", letterSpacing: "0.24em", textTransform: "uppercase", color: "oklch(90% 0.03 60)", marginBottom: "20px" }}>
@@ -103,7 +103,7 @@ export default async function HomePage() {
             </p>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img loading="lazy" alt="Team or office photo" id="philosophy-img" src={c.philosophy.image} style={{ width: "100%", height: "420px", borderRadius: "4px", minWidth: "0" }} />
+          <img loading="lazy" alt="Team or office photo" id="philosophy-img" src={c.philosophy.image} style={{ objectFit: "cover", width: "100%", height: "420px", borderRadius: "4px", minWidth: "0" }} />
         </section>
         <section style={{ padding: "0 56px 120px", maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "48px" }}>
           {c.pillars.items.map((p: { number: string; title: string; body: string }) => (
@@ -138,7 +138,7 @@ export default async function HomePage() {
             {(c.featuredCities.items as FeaturedCity[]).map((city) => (
               <a key={city.slug} href={`/neighbourhoods/${city.slug}`} style={{ display: "block", position: "relative", height: "400px", borderRadius: "4px", overflow: "hidden", minWidth: "0" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img loading="lazy" alt={`${city.name} streetscape`} id={`area-${city.slug}`} src={city.image} style={{ position: "absolute", inset: "0", width: "100%", height: "100%" }} />
+                <img loading="lazy" alt={`${city.name} streetscape`} id={`area-${city.slug}`} src={city.image} style={{ objectFit: "cover", position: "absolute", inset: "0", width: "100%", height: "100%" }} />
                 <div style={{ position: "absolute", inset: "0", background: "linear-gradient(180deg, transparent 40%, oklch(15% 0.01 60 / 0.75))", pointerEvents: "none" }}></div>
                 <div style={{ position: "absolute", left: "24px", right: "24px", bottom: "22px", zIndex: "2" }}>
                   <h3 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "26px", fontWeight: "600", color: "oklch(99% 0.004 90)", margin: "0 0 6px" }}>
@@ -166,7 +166,7 @@ export default async function HomePage() {
               {(c.services.items as ServiceItem[]).map((item) => (
                 <div key={item.id} id={item.id} style={{ background: "oklch(99% 0.004 90)", borderRadius: "4px", overflow: "hidden", minWidth: "0" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img loading="lazy" alt={`${item.title} photo`} id={`service-${item.id}`} src={item.image} style={{ width: "100%", height: "140px" }} />
+                  <img loading="lazy" alt={`${item.title} photo`} id={`service-${item.id}`} src={item.image} style={{ objectFit: "cover", width: "100%", height: "140px" }} />
                   <div style={{ padding: "32px 30px 36px" }}>
                     <h3 style={{ fontFamily: "var(--font-cormorant-garamond), serif", fontSize: "22px", fontWeight: "600", margin: "0 0 14px" }}>
                       {item.title}
@@ -278,7 +278,7 @@ export default async function HomePage() {
             {blogPosts.map((post, i) => (
               <a key={post.slug} href={`/blog/${post.slug}`} style={{ display: "block", textDecoration: "none", color: "inherit", minWidth: "0" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img loading="lazy" alt="Article image" id={`blog-${i + 1}`} src={post.featured_image ?? "/uploads/sraa.png"} style={{ width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
+                <img loading="lazy" alt="Article image" id={`blog-${i + 1}`} src={post.featured_image ?? "/images/neighbourhoods-hero.png"} style={{ objectFit: "cover", width: "100%", height: "200px", borderRadius: "4px", marginBottom: "20px" }} />
                 <span style={{ fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", color: "oklch(58% 0.16 45)" }}>
                   {post.category}
                 </span>

@@ -83,6 +83,11 @@ export function SiteHeader({
           whiteSpace: "nowrap",
           flexShrink: 1,
           minWidth: 0,
+          // On tablet/phone widths the nav row is wider than the space
+          // beside the logo; scroll it within the header instead of letting
+          // it widen the whole page. No effect on desktop, where it fits.
+          overflowX: "auto",
+          scrollbarWidth: "thin",
         }}
       >
         {nav.map((item) => (

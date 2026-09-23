@@ -319,9 +319,9 @@ export const PAGES_CONTENT: PageSeed[] = [
     seo_title: "About Saigal Realty — Saigal Realty Inc., Brokerage",
     seo_description: "A boutique brokerage built on honest counsel and quiet precision.",
     content: {
-      hero: { eyebrow: "About Us", headline: "Saigal Realty Inc., Brokerage", image: "/images/philosophy-lounge.png" },
+      hero: { eyebrow: "About Us", headline: "Saigal Realty Inc., Brokerage", image: "/images/10-about.webp" },
       philosophy: { eyebrow: "Our Philosophy", headline: "Real estate, practiced with passion, integrity, and transparency.", body: "We built Saigal Realty because we believe our clients deserve more than a transaction — they deserve a trusted advisor. Every recommendation we make is grounded in honest counsel, careful research, and a genuine investment in your outcome, not ours. Whether you are buying your first home in Milton, selling a family property in Oakville, or building a portfolio across Burlington, we bring the same quiet rigor and care to every relationship." },
-      stats: { items: [{ value: "7", label: "Agents" }, { value: "50+", label: "Neighbourhoods Served" }, { value: "5", label: "Languages Spoken" }, { value: "5", label: "International Markets" }] },
+      stats: { items: [{ value: "6", label: "Agents" }, { value: "50+", label: "Neighbourhoods Served" }, { value: "5", label: "Languages Spoken" }, { value: "5", label: "International Markets" }] },
       boutique: { eyebrow: "Why Boutique", headline: "Small enough to know your name. Sharp enough to win your negotiation.", body: ["Large franchise offices measure success in transaction volume. We measure it in outcomes for the seven families we're working with this month — because that's how many we can serve without cutting corners.", "Every listing gets the Broker of Record's direct attention. Every offer is reviewed by someone who has walked the street it's on. That's the boutique advantage, and it's the reason our clients become referrals."], image: "/images/about-advisory.png" },
       pillars: {
         items: [
@@ -398,7 +398,7 @@ export const PAGES_CONTENT: PageSeed[] = [
     seo_title: "Frequently Asked Questions — Saigal Realty Inc., Brokerage",
     seo_description: "Answers to common questions about buying, selling, and working with Saigal Realty.",
     content: {
-      hero: { eyebrow: "Answers", headline: "Frequently Asked Questions", image: "/uploads/sraa.png" },
+      hero: { eyebrow: "Answers", headline: "Frequently Asked Questions", image: "/images/13-faq.webp" },
       categoryNav: [{ label: "Milton Real Estate FAQs", href: "#milton" }, { label: "Buyer FAQs", href: "#buyers" }, { label: "Seller FAQs", href: "#sellers" }, { label: "Working with Our Team FAQs", href: "#team" }, { label: "General Market & Investment FAQs", href: "#market" }, { label: "Luxury Real Estate FAQs", href: "#luxury" }],
       categories: [
         { anchor: "milton", heading: "Milton Real Estate", items: [
@@ -441,7 +441,7 @@ export const PAGES_CONTENT: PageSeed[] = [
     seo_title: "Careers — Saigal Realty Inc., Brokerage",
     seo_description: "Join the Saigal Realty team serving Milton, Oakville, and Burlington.",
     content: {
-      hero: { eyebrow: "Careers", headline: "Join Our Team", image: "/uploads/sraa.png" },
+      hero: { eyebrow: "Careers", headline: "Join Our Team", image: "/images/12-careers.webp" },
       intro: { body: "We're a small brokerage by design — big enough to give you real support, small enough that you're never just a number. If you believe in honest counsel over volume sales, and want to build a career serving Milton, Oakville, and Burlington with a team that stands behind its name, we'd like to hear from you." },
       benefits: { items: [
         { title: "Mentorship", body: "Direct, hands-on guidance from our Broker of Record and senior agents — not a generic training video." },
