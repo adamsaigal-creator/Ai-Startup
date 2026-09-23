@@ -19,9 +19,10 @@ export type SeedTeamMember = {
   phone: string;
   photo: string;
   displayOrder: number;
-  /** Defaults to "published". "hidden" keeps the row (and its history) in
-   * team_members without showing it on the Homepage or About page. */
-  status?: "published" | "hidden";
+  /** Defaults to "published". "draft" is what /admin/team labels "Hidden":
+   * the row stays in team_members but is not shown on the Homepage or
+   * About page. */
+  status?: "published" | "draft";
 };
 
 export const SR_TEAM_MEMBERS: SeedTeamMember[] = [
@@ -31,5 +32,5 @@ export const SR_TEAM_MEMBERS: SeedTeamMember[] = [
   { slug: "alam", name: "Alam Arbi", role: "Realtor®", languages: "Residential & Commercial · English, Urdu, Hindi", phone: "(905) 279-9991", photo: "/images/team/alam-arbi-studio.webp", displayOrder: 3 },
   { slug: "kamrans", name: "Kamran Saeed", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 553-2626", photo: "/images/team/kamran-saeed-studio.webp", displayOrder: 4 },
   { slug: "kamranm", name: "Kamran Mustafa", role: "Realtor®", languages: "English, Urdu, Hindi, Punjabi", phone: "(416) 802-2012", photo: "/images/team/kamran-mustafa-studio.webp", displayOrder: 5 },
-  { slug: "haider", name: "Haider Mohammad", role: "Agent · Licensed in Dallas, TX", languages: "Pre-construction · English", phone: "(469) 450-4352", photo: "", displayOrder: 6, status: "hidden" },
+  { slug: "haider", name: "Haider Mohammad", role: "Agent · Licensed in Dallas, TX", languages: "Pre-construction · English", phone: "(469) 450-4352", photo: "", displayOrder: 6, status: "draft" },
 ];
