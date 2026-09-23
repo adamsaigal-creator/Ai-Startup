@@ -45,7 +45,7 @@
   </header>
 
   <section style="position:relative;height:48vh;min-height:380px;width:100%">
-    <image-slot id="about-hero" shape="rect" placeholder="Team or office photo" style="position:absolute;inset:0;width:100%;height:100%" src="images/philosophy-lounge.png"></image-slot>
+    <image-slot id="about-hero" shape="rect" placeholder="Team or office photo" style="position:absolute;inset:0;width:100%;height:100%" src="images/10-about.webp"></image-slot>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg, oklch(20% 0.01 60 / 0.3), oklch(15% 0.01 60 / 0.7));pointer-events:none"></div>
     <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 56px;max-width:780px">
       <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(90% 0.03 60);margin-bottom:16px">About Us</span>
@@ -63,7 +63,7 @@
   <!-- STATS -->
   <section style="padding:0 56px 100px;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;text-align:center;border-top:1px solid oklch(85% 0.015 70);border-bottom:1px solid oklch(85% 0.015 70);padding-top:48px;padding-bottom:48px">
     <div>
-      <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:oklch(58% 0.16 45)">7</span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:oklch(58% 0.16 45)">6</span>
       <p style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(46% 0.02 60);margin:8px 0 0">Agents</p>
     </div>
     <div>
@@ -116,55 +116,72 @@
       <span style="font-size:13px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(58% 0.16 45)">Meet The Team</span>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;margin:14px 0 0">The People Behind Saigal Realty</h2>
     </div>
-    <div style="display:flex;gap:40px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory">
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-nomi" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Nomi Saigal</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Broker of Record</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));column-gap:32px;row-gap:72px;padding-top:40px">
+      <div data-agent="nomi" style="display:flex;flex-direction:column;min-width:0">
+        <div style="position:relative;height:clamp(330px, 30vw, 400px);width:100%;overflow:hidden;background:#fff"><img src="images/team/nomi-saigal-studio.webp" alt="Portrait of Nomi Saigal" width="1122" height="1402" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div style="position:relative;z-index:1;background:oklch(15% 0.02 250);height:88px;box-sizing:border-box;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.03em;line-height:1.2;white-space:nowrap;margin:0 0 6px;color:oklch(78% 0.11 75)">Nomi Saigal</h4>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(72% 0.02 60)">Broker of Record</span>
+        </div>
+        <div style="text-align:center;padding:16px 8px 0;display:flex;flex-direction:column;gap:6px">
+          <p style="font-size:13px;color:oklch(46% 0.02 60);margin:0">English, Urdu, Hindi</p>
         <a href="tel:9058764126" style="font-size:13px">(905) 876-4126</a>
+        </div>
       </div>
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-kamranm" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Kamran Mustafa</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi, Punjabi</p>
-        <a href="tel:4168022012" style="font-size:13px">(416) 802-2012</a>
-      </div>
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-zak" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Zak Abdelnour</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Arabic</p>
-        <a href="tel:6476389233" style="font-size:13px">(647) 638-9233</a>
-      </div>
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-alam" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Alam Arbi</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">Residential &amp; Commercial · English, Urdu, Hindi</p>
-        <a href="tel:9052799991" style="font-size:13px">(905) 279-9991</a>
-      </div>
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-kamrans" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Kamran Saeed</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi, Punjabi</p>
-        <a href="tel:4165532626" style="font-size:13px">(416) 553-2626</a>
-      </div>
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-numan" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Numan Shafiq</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Realtor®</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">English, Urdu, Hindi, Punjabi</p>
+      <div data-agent="numan" style="display:flex;flex-direction:column;min-width:0">
+        <div style="position:relative;height:clamp(330px, 30vw, 400px);width:100%;overflow:hidden;background:#fff"><img src="images/team/numan-shafiq-studio.webp" alt="Portrait of Numan Shafiq" width="1122" height="1402" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div style="position:relative;z-index:1;background:oklch(15% 0.02 250);height:88px;box-sizing:border-box;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.03em;line-height:1.2;white-space:nowrap;margin:0 0 6px;color:oklch(78% 0.11 75)">Numan Shafiq</h4>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(72% 0.02 60)">Realtor®</span>
+        </div>
+        <div style="text-align:center;padding:16px 8px 0;display:flex;flex-direction:column;gap:6px">
+          <p style="font-size:13px;color:oklch(46% 0.02 60);margin:0">English, Urdu, Hindi, Punjabi</p>
         <a href="tel:6472749241" style="font-size:13px">(647) 274-9241</a>
+        </div>
       </div>
-      <div style="text-align:center;flex:0 0 200px;scroll-snap-align:start">
-        <image-slot id="about-haider" shape="circle" placeholder="Headshot" style="width:160px;height:160px;margin:0 auto 18px" src="uploads/sraa.png"></image-slot>
-        <h4 style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin:0 0 4px">Haider Mohammad</h4>
-        <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:oklch(58% 0.16 45)">Agent · Licensed in Dallas, TX</span>
-        <p style="font-size:13px;color:oklch(46% 0.02 60);margin:10px 0 0">Pre-construction · English</p>
-        <a href="tel:4694504352" style="font-size:13px">(469) 450-4352</a>
+      <div data-agent="zak" style="display:flex;flex-direction:column;min-width:0">
+        <div style="position:relative;height:clamp(330px, 30vw, 400px);width:100%;overflow:hidden;background:#fff"><img src="images/team/zak-abdelnour-studio.webp" alt="Portrait of Zak Abdelnour" width="1122" height="1402" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div style="position:relative;z-index:1;background:oklch(15% 0.02 250);height:88px;box-sizing:border-box;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.03em;line-height:1.2;white-space:nowrap;margin:0 0 6px;color:oklch(78% 0.11 75)">Zak Abdelnour</h4>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(72% 0.02 60)">Realtor®</span>
+        </div>
+        <div style="text-align:center;padding:16px 8px 0;display:flex;flex-direction:column;gap:6px">
+          <p style="font-size:13px;color:oklch(46% 0.02 60);margin:0">English, Arabic</p>
+        <a href="tel:6476389233" style="font-size:13px">(647) 638-9233</a>
+        </div>
+      </div>
+      <div data-agent="alam" style="display:flex;flex-direction:column;min-width:0">
+        <div style="position:relative;height:clamp(330px, 30vw, 400px);width:100%;overflow:hidden;background:#fff"><img src="images/team/alam-arbi-studio.webp" alt="Portrait of Alam Arbi" width="1122" height="1402" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div style="position:relative;z-index:1;background:oklch(15% 0.02 250);height:88px;box-sizing:border-box;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.03em;line-height:1.2;white-space:nowrap;margin:0 0 6px;color:oklch(78% 0.11 75)">Alam Arbi</h4>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(72% 0.02 60)">Realtor®</span>
+        </div>
+        <div style="text-align:center;padding:16px 8px 0;display:flex;flex-direction:column;gap:6px">
+          <p style="font-size:13px;color:oklch(46% 0.02 60);margin:0">Residential &amp; Commercial · English, Urdu, Hindi</p>
+        <a href="tel:9052799991" style="font-size:13px">(905) 279-9991</a>
+        </div>
+      </div>
+      <div data-agent="kamrans" style="display:flex;flex-direction:column;min-width:0">
+        <div style="position:relative;height:clamp(330px, 30vw, 400px);width:100%;overflow:hidden;background:#fff"><img src="images/team/kamran-saeed-studio.webp" alt="Portrait of Kamran Saeed" width="1122" height="1402" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div style="position:relative;z-index:1;background:oklch(15% 0.02 250);height:88px;box-sizing:border-box;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.03em;line-height:1.2;white-space:nowrap;margin:0 0 6px;color:oklch(78% 0.11 75)">Kamran Saeed</h4>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(72% 0.02 60)">Realtor®</span>
+        </div>
+        <div style="text-align:center;padding:16px 8px 0;display:flex;flex-direction:column;gap:6px">
+          <p style="font-size:13px;color:oklch(46% 0.02 60);margin:0">English, Urdu, Hindi, Punjabi</p>
+        <a href="tel:4165532626" style="font-size:13px">(416) 553-2626</a>
+        </div>
+      </div>
+      <div data-agent="kamranm" style="display:flex;flex-direction:column;min-width:0">
+        <div style="position:relative;height:clamp(330px, 30vw, 400px);width:100%;overflow:hidden;background:#fff"><img src="images/team/kamran-mustafa-studio.webp" alt="Portrait of Kamran Mustafa" width="1122" height="1402" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top"></div>
+        <div style="position:relative;z-index:1;background:oklch(15% 0.02 250);height:88px;box-sizing:border-box;padding:0 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+          <h4 style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.03em;line-height:1.2;white-space:nowrap;margin:0 0 6px;color:oklch(78% 0.11 75)">Kamran Mustafa</h4>
+          <span style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:oklch(72% 0.02 60)">Realtor®</span>
+        </div>
+        <div style="text-align:center;padding:16px 8px 0;display:flex;flex-direction:column;gap:6px">
+          <p style="font-size:13px;color:oklch(46% 0.02 60);margin:0">English, Urdu, Hindi, Punjabi</p>
+        <a href="tel:4168022012" style="font-size:13px">(416) 802-2012</a>
+        </div>
       </div>
     </div>
   </section>
