@@ -14,8 +14,6 @@ export type PublicTeamMember = {
   bio: string | null;
 };
 
-const FALLBACK_PHOTO = "/uploads/sraa.png";
-
 function toPublicMember(row: {
   id: string;
   slug: string;
@@ -33,7 +31,10 @@ function toPublicMember(row: {
     slug: row.slug,
     name: row.name,
     role: row.role,
-    photo: row.photo || FALLBACK_PHOTO,
+    // No placeholder image when unset: the old fallback (/uploads/sraa.png)
+    // showed a fabricated "SR" office mark, which must not appear publicly.
+    // Consumers render an empty portrait stage for "".
+    photo: row.photo || "",
     languages: row.languages ?? "",
     phone: row.phone ?? "",
     phoneHref: digitsOnlyPhone ? `tel:${digitsOnlyPhone}` : null,
